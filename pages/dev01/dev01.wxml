@@ -1,0 +1,5 @@
+<!--pages/dev01/dev01.wxml-->
+<text>database</text>
+<view></view>
+<button bindtap="handleTap">add</button>
+<text wx:for="{{list.data}}">{{index}}:{{item.username}}</text>

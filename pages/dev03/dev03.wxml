@@ -1,0 +1,11 @@
+<!--pages/dev03/dev03.wxml-->
+<view wx:for="{{list}}">name:{{item.name}} price:{{item.price}}</view>
+<form bindsubmit="handleSubmit">
+    <input type="text" style="border: 1px solid black;" name="name"/>
+    <input type="text" style="border: 1px solid black;" name="price"/>
+    <button type="primary" form-type="submit">submit</button>
+    <button bindtap="sort">sort</button>
+    <button bindtap="rsort">rsort</button>
+    <button bindtap="handlethree">only show 3 data</button>
+    <button bindtap="getGT">greater than 5</button>
+</form>

@@ -1,0 +1,3 @@
+<!--pages/dev04/dev04.wxml-->
+<text>pages/dev04/dev04.wxml</text>
+<text>{{openid}}</text>

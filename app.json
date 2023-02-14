@@ -1,0 +1,18 @@
+{
+    "pages": [
+        "pages/dev05/dev05",
+        "pages/dev04/dev04",
+        "pages/dev03/dev03",
+        "pages/dev02/dev02",
+        "pages/dev01/dev01",
+        "pages/index/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}
