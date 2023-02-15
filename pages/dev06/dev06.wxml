@@ -1,0 +1,3 @@
+<!--pages/dev06/dev06.wxml-->
+<text>pages/dev06/dev06.wxml</text>
+<button bindtap="handleTap">choose image</button>

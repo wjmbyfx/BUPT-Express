@@ -1,12 +1,24 @@
 {
     "pages": [
+        "pages/dev01/dev01",
+        "pages/dev06/dev06",
         "pages/dev05/dev05",
         "pages/dev04/dev04",
         "pages/dev03/dev03",
         "pages/dev02/dev02",
-        "pages/dev01/dev01",
         "pages/index/index"
     ],
+    "tabBar": {
+        "list": [{
+            "pagePath": "pages/dev01/dev01",
+            "text": "dev01"
+        },
+        {
+            "pagePath": "pages/dev02/dev02",
+            "text": "dev02"
+        }]
+    },
+
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
