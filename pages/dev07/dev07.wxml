@@ -1,4 +1,0 @@
-<!--pages/dev07/dev07.wxml-->
-<text>pages/dev07/dev07.wxml</text>
-<button type="primary" bindtap="handleTap">get image</button>
-<image wx:for="{{list}}" src="{{item.url}}"></image>

@@ -1,7 +1,0 @@
-<!--pages/dev02/dev02.wxml-->
-<view wx:for="{{list.data}}" bindtap="handleTap" data-name="{{item.username}}">username:{{item.username}}  password:{{item.password}}</view>
-<form bindsubmit="handlesubmit">
-    <input type="text" name="username" style="border: 1px solid black;"/>
-    <input type="text" name="password" style="border: 1px solid black;"/>
-    <button formType="submit" type="primary">submit</button>
-</form>

@@ -1,8 +1,0 @@
-<!--pages/dev05/dev05.wxml-->
-<text>pages/dev05/dev05.wxml</text>
-<view wx:for="{{list}}" wx:key="_id">name:{{item.name}} price:{{item.price}}</view>
-<form bindsubmit="handleUpdate">
-<input type="text" name="name" style="border: 1px solid black;"/>
-<input type="text" name="price" style="border: 1px solid black;"/>
-<button form-type="submit">update</button>
-</form>
