@@ -8,6 +8,15 @@ Page({
 
     },
 
+    handleLogin(){
+        let that=this
+        wx.login({
+          success:res=>{
+              console.log(res);
+          }
+        })
+    },
+
     handleTap(){
         let that=this
         wx.chooseMedia()
