@@ -16,3 +16,17 @@
 
 
 
+### 2.订单库
+
+openid(string)
+
+_id(string)
+
+status(string) pending 未接单 dilivering 派送中 finished 已完成 cancled 用户取消 warning 出错
+
+type(string)
+
+
+
+
+
