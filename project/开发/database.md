@@ -26,6 +26,20 @@ status(string) pending 未接单 dilivering 派送中 finished 已完成 cancled
 
 type(string)
 
+### 3.地址库
+
+openid(string)
+
+_id(string)
+
+campus(string) dist沙河校区
+
+area(string) north south
+
+building
+
+
+
 
 
 
