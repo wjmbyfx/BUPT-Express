@@ -14,7 +14,7 @@
 
 1.小程序宽度为750rpx=375px,高度为1334rpx=667px
 
-2.配色方案 Flat UI Palette v1 https://flatuicolors.com/palette/defo
+2.配色方案 [Flat UI Palette v1](https://flatuicolors.com/palette/defo) 
 
 3.主题色: 深蓝 **#2980b9**
 
