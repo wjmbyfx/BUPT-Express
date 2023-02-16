@@ -1,0 +1,3 @@
+<!--pages/dev08/dev08.wxml-->
+<text>pages/dev08/dev08.wxml</text>
+<button bindtap="handleTap">upload</button>
