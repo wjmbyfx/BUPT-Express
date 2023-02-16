@@ -11,10 +11,11 @@
 - credit(number)
 - honesty(number) 信誉值 100满, 低于60账户禁用
 - phone number(number)
+- identity(string) user 普通用户 deliver 快递员 admin 管理员
 
 #### --请求接口
 
-
+getOpenID(string) 无参数 直接返回openid
 
 ### 2.订单库
 
