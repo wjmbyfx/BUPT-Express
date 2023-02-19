@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
             openid: wxContext.OPENID,
             appid: wxContext.APPID,
             unionid: wxContext.UNIONID,
-            text:'cloud://buptexpress-5goetp5o571a721f.6275-buptexpress-5goetp5o571a721f-1316844506/用户协议.png	'
+            text:'cloud://buptexpress-5goetp5o571a721f.6275-buptexpress-5goetp5o571a721f-1316844506/用户协议.png'
         }
     }
     
