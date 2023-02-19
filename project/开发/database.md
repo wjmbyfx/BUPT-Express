@@ -9,7 +9,7 @@
 - status(1 for active , 0 for deactivated ) (number)
 - location(object)(area buliding floor(?))
 - credit(number)
-- honesty(number) 信誉值 100满, 低于60账户禁用
+- 
 - phone number(number)
 - identity(string) user 普通用户 deliver 快递员 admin 管理员
 - hasSigned(boolean) 是否同意隐私政策

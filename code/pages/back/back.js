@@ -8,6 +8,25 @@ Page({
 
     },
 
+    isMember(){
+        wx.cloud.callFunction({name:'isMember'}).then(res=>{
+            console.log(res);
+        })
+    },
+    
+    getOpenID(){
+        wx.cloud.callFunction({name:'getOpenID'})
+        .then(res=>{
+            console.log(res);
+        })
+    },
+
+    sign(){
+        wx.cloud.callFunction({name:"sign"}).then(res=>{
+            console.log(res);
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
