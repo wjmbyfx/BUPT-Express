@@ -3,7 +3,9 @@
       "pages/hall/hall",
       "pages/add/add",
       "pages/mine/mine",
-      "pages/policy/policy"
+      "pages/policy/policy",
+      "pages/pront/front",
+      "pages/back/back"
   ],
   "window":{
     "backgroundTextStyle":"light",
