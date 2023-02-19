@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        src:null,
     },
     sign(){
         wx.cloud.callFunction({name:'sign'})
@@ -14,7 +14,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        // this.setData({src:null})
         console.log(options);
+        const type=options.type;
+        wx.cloud.callFunction({name:'getPolicy',data:{'type':type}})
+        .then(res=>{
+            console.log(res);
+            
+            this.setData({src:res.result.text})
+        })
+        .catch(err=>{
+            console.error(err);
+        })
     },
 
     /**

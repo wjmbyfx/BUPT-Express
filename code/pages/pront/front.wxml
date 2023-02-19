@@ -1,2 +1,4 @@
 <!--pages/pront/front.wxml-->
 <text>pages/pront/front.wxml</text>
+<button bindtap="handlePolicy">policy</button>
+<button bindtap="handleUser">user</button>

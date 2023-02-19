@@ -1,8 +1,8 @@
 /* pages/policy/policy.wxss */
 button{
-    height: 60px;
-    position: absolute;
-    bottom: 5vh;
+    height: 57px;
+    position: fixed;
+    bottom: 2vh;
     left: 5px;
     right: 5px;
 }

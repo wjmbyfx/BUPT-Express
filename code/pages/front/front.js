@@ -1,4 +1,4 @@
-// pages/pront/front.js
+// pages/front/front.js
 Page({
 
     /**
@@ -7,16 +7,7 @@ Page({
     data: {
 
     },
-    handlePolicy(){
-        wx.redirectTo({
-          url: '../policy/policy?type=policy',
-        })
-    },
-    handleUser(){
-        wx.redirectTo({
-          url: '../policy/policy?type=user',
-        })
-    },
+
     /**
      * 生命周期函数--监听页面加载
      */

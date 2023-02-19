@@ -1,5 +1,5 @@
 <!--pages/policy/policy.wxml-->
-<scroll-view scroll-y="true" style="height:300rpx">
-    <image src=""/>
+<scroll-view scroll-y="true" style="height: 85vh;">
+    <image wx:if="{{src}}" src="{{src}}" mode="widthFix" style="width: 100%;"/>
 </scroll-view>
 <button type="primary" bindtap="sign">我已阅读并同意上述条款</button>
