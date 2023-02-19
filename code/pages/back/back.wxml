@@ -1,2 +1,5 @@
 <!--pages/back/back.wxml-->
 <text>pages/back/back.wxml</text>
+<button bindtap="getOpenID">getOpenID</button>
+<button bindtap="sign">sign</button>
+<button bindtap="isMember">isMember</button>
