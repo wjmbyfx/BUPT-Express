@@ -26,7 +26,10 @@ Page({
             },1500)
         })
         console.log(options);
-        const type=options.type;
+        let type=options.type;
+        if(!type){
+            type='policy'
+        }
         wx.cloud.callFunction({name:'getPolicy',data:{'type':type}})
         .then(res=>{
             console.log(res);
