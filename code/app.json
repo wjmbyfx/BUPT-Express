@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+      "pages/hall/hall",
+      "pages/add/add",
+      "pages/mine/mine"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -10,5 +11,33 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+        "color": "#2c3e50",
+        "selectedColor": "#2980b9",
+      "list": [{
+          "pagePath": "pages/hall/hall",
+          "text": "大厅",
+          "iconPath": "./img/首页-置灰.png",
+          "selectedIconPath": "./img/首页-置灰s.png"
+          
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "发布",
+        "iconPath": "./img/定位 2.png",
+        "selectedIconPath": "./img/定位 2s.png"
+        
+    },
+    {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./img/个人中心-置灰.png",
+        "selectedIconPath": "./img/个人中心-置灰s.png"
+        
+    }
+    
+    
+    ]
+  }
 }
