@@ -14,7 +14,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // this.setData({src:null})
+        this.setData({src:null})
+        setTimeout(()=>{
+            wx.showToast({
+              title: 'loading',
+              duration: 2000,
+              icon: 'loading',
+            //   image: 'image',
+              mask: true,
+              
+            },1500)
+        })
         console.log(options);
         const type=options.type;
         wx.cloud.callFunction({name:'getPolicy',data:{'type':type}})
