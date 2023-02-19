@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+// pages/policy/policy.js
 Page({
 
     /**
@@ -7,18 +7,14 @@ Page({
     data: {
 
     },
-
-    handlePolicy(){
-        wx.redirectTo({
-          url: '../policy/policy?type=policy',
-        })
+    sign(){
+        wx.cloud.callFunction({name:'sign'})
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        console.log(options);
     },
 
     /**

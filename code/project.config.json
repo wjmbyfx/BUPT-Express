@@ -1,10 +1,6 @@
 {
     "description": "项目配置文件",
     "cloudfunctionRoot": "cloud/",
-    "packOptions": {
-        "ignore": [],
-        "include": []
-    },
     "setting": {
         "bundle": false,
         "userConfirmedBundleSwitch": false,
@@ -25,8 +21,6 @@
         "nodeModules": false,
         "enhance": true,
         "useMultiFrameRuntime": true,
-        "useApiHook": true,
-        "useApiHostProcess": true,
         "showShadowRootInWxmlPanel": true,
         "packNpmManually": false,
         "enableEngineNative": false,
@@ -38,15 +32,19 @@
             "ignore": [],
             "disablePlugins": [],
             "outputPath": ""
-        }
+        },
+        "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.19.4",
-    "appid": "wx91512bc8ad407aa9",
-    "projectname": "miniprogram-92",
     "condition": {},
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "libVersion": "2.19.4",
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "appid": "wx91512bc8ad407aa9"
 }

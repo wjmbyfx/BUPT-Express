@@ -1,2 +1,4 @@
 <!--pages/mine/mine.wxml-->
 <text>pages/mine/mine.wxml</text>
+<button bindtap="handlePolicy">policy</button>
+<button bindtap="handleUser">user</button>

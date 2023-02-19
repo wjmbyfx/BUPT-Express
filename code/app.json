@@ -2,7 +2,8 @@
   "pages":[
       "pages/hall/hall",
       "pages/add/add",
-      "pages/mine/mine"
+      "pages/mine/mine",
+      "pages/policy/policy"
   ],
   "window":{
     "backgroundTextStyle":"light",

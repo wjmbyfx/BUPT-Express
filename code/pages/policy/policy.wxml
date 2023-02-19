@@ -1,0 +1,5 @@
+<!--pages/policy/policy.wxml-->
+<scroll-view scroll-y="true" style="height:300rpx">
+    <image src=""/>
+</scroll-view>
+<button type="primary" bindtap="sign">我已阅读并同意上述条款</button>
