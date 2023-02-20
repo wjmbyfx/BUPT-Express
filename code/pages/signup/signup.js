@@ -5,8 +5,19 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        
     },
+    signup(){
+        wx.cloud.callFunction({name:'signup'})
+    },
+    Inlocation(){
+        wx.cloud.callFunction({name:'location'})
+    },
+    Infloor(){
+        wx.cloud.callFunction({name:'floor'})
+    },
+    
+
 
     /**
      * 生命周期函数--监听页面加载

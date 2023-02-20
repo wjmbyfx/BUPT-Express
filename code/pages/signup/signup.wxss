@@ -1,1 +1,7 @@
-/* pages/signup/signup.wxss */
+button{
+    height: 57px;
+    position: fixed;
+    bottom: 2vh;
+    left: 5px;
+    right: 5px;
+}

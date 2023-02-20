@@ -1,2 +1,30 @@
 <!--pages/signup/signup.wxml-->
-<text>pages/signup/signup.wxml</text>
+
+<view>
+    <image  src="{{scrt}}" mode="widthFix" style="width: 100%"/>
+</view>
+<view>
+    <text>请提供信息</text>
+</view>
+    <checkbox-group bindchange="Inlocation">
+        <label><checkbox value="S2"/></label>
+        <label><checkbox value="S3"/></label>
+        <label><checkbox value="S4"/></label>
+        <label><checkbox value="S5"/></label>
+        <label><checkbox value="S6"/></label>
+        <label><checkbox value="NA"/></label>
+        <label><checkbox value="NB"/></label>
+        <label><checkbox value="NC"/></label>
+        <label><checkbox value="ND1"/></label>
+        <label><checkbox value="ND2"/></label>
+        <label><checkbox value="NE"/></label>
+    </checkbox-group>
+    <checkbox-group bindchange="Infloor">
+    <label><checkbox value="1"/>1楼</label>
+    <label><checkbox value="2"/>2楼</label>
+    <label><checkbox value="3"/>3楼</label>
+    <label><checkbox value="4"/>4楼</label>
+    <label><checkbox value="5"/>5楼</label>
+    <label><checkbox value="6"/>6楼</label>
+    </checkbox-group>
+<button type="primary" bindtap="signup"/>
