@@ -5,7 +5,8 @@
       "pages/mine/mine",
       "pages/policy/policy",
       "pages/pront/front",
-      "pages/back/back"
+      "pages/back/back",
+      "pages/signup/signup"
   ],
   "window":{
     "backgroundTextStyle":"light",
