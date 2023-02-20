@@ -8,6 +8,19 @@ Page({
 
     },
 
+    getImage(){
+        wx.cloud.callFunction({name:'getImage'}).then(res=>{
+            console.log(res);
+        })
+    },
+    
+    signupc(){
+        wx.cloud.callFunction({name:'signUp',data:{building:'A',floor:'3',contact:'1190'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     isMember(){
         wx.cloud.callFunction({name:'isMember'}).then(res=>{
             console.log(res);

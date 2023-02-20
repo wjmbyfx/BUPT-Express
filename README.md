@@ -24,7 +24,7 @@
 
 2.配色方案 [Flat UI Palette v1](https://flatuicolors.com/palette/defo) 
 
-3.主题色: 深蓝 **#2980b9**
+3.主题色: 深蓝 **0**
 
 ### 日程安排
 
