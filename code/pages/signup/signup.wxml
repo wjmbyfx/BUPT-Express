@@ -1,13 +1,13 @@
 <!--pages/signup/signup.wxml-->
 
-<view>
-    <image  src="{{scrt}}" mode="widthFix" style="width: 100%"/>
+<view >
+    <image  src="{{src}}" mode="heightFix" style="height: 20vh"/>
 </view>
 <view>
     <text>请提供信息</text>
 </view>
     <checkbox-group bindchange="Inlocation">
-        <label><checkbox value="S2"/></label>
+        <label><radio value="S2"/></label>
         <label><checkbox value="S3"/></label>
         <label><checkbox value="S4"/></label>
         <label><checkbox value="S5"/></label>

@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        
+        src:null
     },
     signup(){
         wx.cloud.callFunction({name:'signup'})
@@ -23,7 +23,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        wx.cloud.callFunction({name:'getImage'})
+        .then(res=>{console.log(res);
+        const src=res.result
+        this.setData({src:src})
+    })
     },
 
     /**
