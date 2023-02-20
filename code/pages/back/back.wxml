@@ -4,3 +4,4 @@
 <button bindtap="sign">sign</button>
 <button bindtap="isMember">isMember</button>
 <button bindtap="signupc">signup with contact</button>
+<button bindtap="getImage">getImage</button>

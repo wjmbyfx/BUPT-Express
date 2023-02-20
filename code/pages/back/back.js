@@ -7,6 +7,12 @@ Page({
     data: {
 
     },
+
+    getImage(){
+        wx.cloud.callFunction({name:'getImage'}).then(res=>{
+            console.log(res);
+        })
+    },
     
     signupc(){
         wx.cloud.callFunction({name:'signUp',data:{building:'A',floor:'3',contact:'1190'
