@@ -7,6 +7,13 @@ Page({
     data: {
 
     },
+    
+    signupc(){
+        wx.cloud.callFunction({name:'signUp',data:{building:'A',floor:'3',contact:'1190'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
 
     isMember(){
         wx.cloud.callFunction({name:'isMember'}).then(res=>{
