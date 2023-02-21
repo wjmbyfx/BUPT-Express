@@ -7,6 +7,24 @@ Page({
     data: {
 
     },
+    getContact(){
+        wx.cloud.callFunction({name:'getContact'}).then(res=>{
+            console.log(res);
+        })
+    },
+
+    updateContact(){
+        wx.cloud.callFunction({name:'updateContact',data:{contact:'110'}}).then(res=>{
+            console.log(res);
+        })
+    },
+
+    getLocation(){
+        wx.cloud.callFunction({name:'getLocation'}).then(res=>{
+            console.log(res);
+        })
+    },
+
     getPendingOrder(){
         wx.cloud.callFunction({name:'getOrder',data:{status:'pending'}})
         .then(res=>{

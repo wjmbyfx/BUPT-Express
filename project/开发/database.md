@@ -26,7 +26,15 @@ _id(string)
 
 status(string) pending 未接单 dilivering 派送中 finished 已完成 cancled 用户取消 warning 出错
 
-type(string)
+type:normal (使用默认地址) customize(使用自定义地址)
+
+location
+
+expectedtime
+
+note(备注)
+
+
 
 
 

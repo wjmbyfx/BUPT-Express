@@ -30,16 +30,26 @@ Page({
               if(contact!='') {
                 wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact}})
               }else {
-                { 
-                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor}})
+                {
+                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:''}})
                   }
               }
               wx.showToast({
                 title: '注册成功!',
                 icon: 'success',
                 duration: 1000,
-                mask :'false'
+                mask :'false',
+                complete:()=>{
+                    setTimeout(()=>{
+                        wx.redirectTo({
+                            url: '../hall/hall'
+                          })
+                    },1000)
+                    
+                }
               })
+              
+
           }
     },
 

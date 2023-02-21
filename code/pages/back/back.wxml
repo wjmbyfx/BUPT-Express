@@ -7,3 +7,6 @@
 <button bindtap="getImage">getImage</button>
 <button bindtap="getOrder">getOrder</button>
 <button bindtap="getPendingOrder">getPendingOrder</button>
+<button bindtap="getLocation">getLocation</button>
+<button bindtap="updateContact">updateContact</button>
+<button bindtap="getContact">getContact</button>
