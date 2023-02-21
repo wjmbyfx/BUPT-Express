@@ -18,7 +18,7 @@ Page({
         console.log(building);
         console.log(floor)
         if(building==''||floor=='') {wx.showToast({
-          title: '请填写数据！',
+          title: '请填写信息！',
           duration: 1000,
           icon:'error',
           success: (res) => {},

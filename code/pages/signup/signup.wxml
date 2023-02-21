@@ -1,19 +1,20 @@
 <!--pages/signup/signup.wxml-->
 
-<view style="height: 35vh;">
+<view style="height: 27vh;">
     <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
 </view>
-<view style>
-    <text>请提供信息</text>
+<view style="left: 15%;">
+    <text class="bigtitle">请提供信息</text>
 </view>
+<text class="title">所在宿舍楼:</text>
 <form bindsubmit="handleSubmit">
-    <text>所在宿舍楼:</text><br/>
-    <radio-group name="building">
+    
+    <radio-group name="building" >
         <label><radio value="S2"/>雁南S2</label>
         <label><radio value="S3"/>雁南S3</label>
         <label><radio value="S4"/>雁南S4</label>
         <label><radio value="S5"/>雁南S5</label>
-        <label><radio value="S6"/>燕南S6</label>
+        <label><radio value="S6"/>雁南S6</label>
         <label><radio value="NA"/>雁北A</label>
         <label><radio value="NB"/>雁北B</label>
         <label><radio value="NC"/>雁北C</label>
@@ -22,7 +23,7 @@
         <label><radio value="NE"/>雁北E</label>
         
     </radio-group>
-    <text>所在楼层:</text><br/>
+    <text>所在楼层:</text>
     <radio-group name="floor">
     <label><radio value="1"/>1楼</label>
     <label><radio value="2"/>2楼</label>
@@ -32,9 +33,13 @@
     <label><radio value="6"/>6楼</label>
     </radio-group>
     <text>联系方式:(可选)</text>
-    <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;"/>
-    <view>
-    点击确认按钮即表示您同意我们的<navigator style="display: inline-block;" url="../policy/policy?type=policy">隐私政策</navigator>及<navigator style="display: inline-block;" url="../policy/policy?type=user">用户协议</navigator></view>
+    <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;"/> 
+    <view class="indenttext">
+    点击确定按钮即表示您同意我们的
+    </view>
+    <view class="policytext">
+    <navigator style="display: inline-block;" url="../policy/policy?type=policy">隐私政策</navigator>及<navigator style="display: inline-block;" url="../policy/policy?type=user">用户协议</navigator>
+    </view>
     <button type="primary" form-type="submit">确定</button>
 </form>
 
