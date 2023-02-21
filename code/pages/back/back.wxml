@@ -5,3 +5,5 @@
 <button bindtap="isMember">isMember</button>
 <button bindtap="signupc">signup with contact</button>
 <button bindtap="getImage">getImage</button>
+<button bindtap="getOrder">getOrder</button>
+<button bindtap="getPendingOrder">getPendingOrder</button>

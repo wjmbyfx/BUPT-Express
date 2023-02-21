@@ -7,6 +7,19 @@ Page({
     data: {
 
     },
+    getPendingOrder(){
+        wx.cloud.callFunction({name:'getOrder',data:{status:'pending'}})
+        .then(res=>{
+            console.log(res);
+        })
+    },
+
+    getOrder(){
+        wx.cloud.callFunction({name:'getOrder'})
+        .then(res=>{
+            console.log(res);
+        })
+    },
 
     getImage(){
         wx.cloud.callFunction({name:'getImage'}).then(res=>{
