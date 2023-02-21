@@ -55,6 +55,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/hall/hall",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
