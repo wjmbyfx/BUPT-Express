@@ -1,6 +1,6 @@
 <!--pages/signup/signup.wxml-->
 
-<view >
+<view style="height: 35vh;">
     <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
 </view>
 <view style>
