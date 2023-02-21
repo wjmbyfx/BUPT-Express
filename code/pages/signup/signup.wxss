@@ -4,3 +4,6 @@ button{
     left: 5px;
     right: 5px;
 }
+navigator{
+    color: rgb(127, 219, 255);
+}
