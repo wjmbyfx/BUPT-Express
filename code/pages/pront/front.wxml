@@ -2,3 +2,8 @@
 <text>pages/pront/front.wxml</text>
 <button bindtap="handlePolicy">policy</button>
 <button bindtap="handleUser">user</button>
+
+<form bindsubmit="handleSubmit">
+    <input type="text" name="input1"/>
+    <button form-type="submit">submit</button>
+</form>

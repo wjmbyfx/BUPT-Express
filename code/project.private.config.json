@@ -41,6 +41,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/pront/front",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

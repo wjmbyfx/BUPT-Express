@@ -5,16 +5,16 @@ Page({
      * 页面的初始数据
      */
     data: {
-        src:null
-    },
-    signup(){
-        wx.cloud.callFunction({name:'signup'})
+        src:null,
+        building:null
+
+
     },
     Inlocation(){
-        wx.cloud.callFunction({name:'location'})
+        
     },
     Infloor(){
-        wx.cloud.callFunction({name:'floor'})
+        
     },
     
 

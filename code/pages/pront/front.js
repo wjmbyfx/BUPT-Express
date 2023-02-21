@@ -7,6 +7,10 @@ Page({
     data: {
 
     },
+    handleSubmit(e){
+        console.log(e);
+    },
+
     handlePolicy(){
         wx.redirectTo({
           url: '../policy/policy?type=policy',
