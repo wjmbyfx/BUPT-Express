@@ -31,7 +31,7 @@ Page({
                 wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact}})
               }else {
                 {
-                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor}})
+                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:''}})
                   }
               }
               wx.showToast({
