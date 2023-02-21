@@ -38,8 +38,18 @@ Page({
                 title: '注册成功!',
                 icon: 'success',
                 duration: 1000,
-                mask :'false'
+                mask :'false',
+                complete:()=>{
+                    setTimeout(()=>{
+                        wx.redirectTo({
+                            url: '../hall/hall'
+                          })
+                    },1000)
+                    
+                }
               })
+              
+
           }
     },
 
