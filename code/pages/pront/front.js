@@ -9,6 +9,27 @@ Page({
     },
     handleSubmit(e){
         console.log(e);
+        const building=e.detail.value.building
+        const floor=e.detail.value.floor
+        const contact=e.detail.value.contact
+        console.log(building);
+        console.log(floor)
+        if(building=='') {wx.showToast({
+          title: '请填写宿舍楼！',
+          duration: 1000,
+          mask: true,
+          success: (res) => {},
+          fail: (res) => {},
+          complete: (res) => {},
+        })}
+        if(floor=='') {wx.showToast({
+            title: '请填写楼层！',
+            duration: 1000,
+            icon:'fail',
+            success: (res) => {},
+            fail: (res) => {},
+            complete: (res) => {},
+          })}
     },
 
     handlePolicy(){

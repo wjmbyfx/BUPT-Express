@@ -10,6 +10,40 @@ Page({
 
 
     },
+    handleSubmit(e){
+        console.log(e);
+        const building=e.detail.value.building
+        const floor=e.detail.value.floor
+        const contact=e.detail.value.contact
+        console.log(building);
+        console.log(floor)
+        if(building==''||floor=='') {wx.showToast({
+          title: '请填写数据！',
+          duration: 1000,
+          icon:'error',
+          success: (res) => {},
+          fail: (res) => {},
+          complete: (res) => {},
+        })}
+        
+          else{
+              if(contact!='') {
+                wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact}})
+              }else {
+                {
+                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor}})
+                  }
+              }
+              wx.showToast({
+                title: '注册成功!',
+                icon: 'success',
+                duration: 1000,
+                mask :'false'
+              })
+          }
+    },
+
+
     Inlocation(){
         
     },

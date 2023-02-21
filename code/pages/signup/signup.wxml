@@ -1,12 +1,14 @@
 <!--pages/signup/signup.wxml-->
 
 <view >
-    <image  src="{{src}}" mode="heightFix" style="height: 20vh"/>
+    <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
 </view>
-<view>
+<view style>
     <text>请提供信息</text>
 </view>
-    <radio-group bindchange="Inlocation">
+<form bindsubmit="handleSubmit">
+    <text>所在宿舍楼:</text><br/>
+    <radio-group name="building">
         <label><radio value="S2"/>雁南S2</label>
         <label><radio value="S3"/>雁南S3</label>
         <label><radio value="S4"/>雁南S4</label>
@@ -18,8 +20,10 @@
         <label><radio value="ND1"/>雁北D1</label>
         <label><radio value="ND2"/>雁北D2</label>
         <label><radio value="NE"/>雁北E</label>
+        
     </radio-group>
-    <radio-group bindchange="Infloor">
+    <text>所在楼层:</text><br/>
+    <radio-group name="floor">
     <label><radio value="1"/>1楼</label>
     <label><radio value="2"/>2楼</label>
     <label><radio value="3"/>3楼</label>
@@ -27,4 +31,10 @@
     <label><radio value="5"/>5楼</label>
     <label><radio value="6"/>6楼</label>
     </radio-group>
-<button type="primary" bindtap="signup"/>
+    <text>联系方式:(可选)</text>
+    <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;"/>
+        
+    <button type="primary" form-type="submit">确定</button>
+</form>
+
+
