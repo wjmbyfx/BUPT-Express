@@ -12,12 +12,12 @@ Page({
 
     },
     handleSubmit(e){
-        console.log(e);
+        // console.log(e);
         const building=e.detail.value.building
         const floor=e.detail.value.floor
         const contact=e.detail.value.contact
-        console.log(building);
-        console.log(floor)
+        // console.log(building);
+        // console.log(floor)
         if(building==''||floor=='') {wx.showToast({
           title: '请填写信息！',
           duration: 1000,
@@ -25,14 +25,14 @@ Page({
         })}
         
           else{
-              wx.cloud.callFunction({name:'isMember'}).then(res=>{
-                if(contact!='') {
-                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact},isMember:res.result})
-                  }else {
-                    {
-                        wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:''},isMember:res.result})
-                      }
-                  }
+              wx.cloud.callFunction({name:'isMember'})
+              .then(res=>{
+                //   console.log(res.result);
+                
+               
+                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact,isMember:res.result}})
+                  
+
                   if(res.result){
                       wx.showToast({
                         title: '更新成功',
@@ -70,7 +70,7 @@ Page({
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'getImage'})
-        .then(res=>{console.log(res);
+        .then(res=>{
         const src=res.result
         this.setData({src:src})
     })

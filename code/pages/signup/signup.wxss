@@ -2,7 +2,7 @@ button{
     position: fixed;
     left: 1px;
     right: 1px;
-    bottom: 10vh;
+    bottom: 5vh;
     margin: auto;
 }
 navigator{
@@ -46,7 +46,7 @@ input {
 .indenttext {
     width: 70%;
     position: fixed;
-    bottom: 20vh;
+    bottom: 15vh;
     text-align: center;
     right: 1px;
     left: 1px;
@@ -60,7 +60,7 @@ input {
     left: 1px;
     margin: auto;
     text-align: center;
-    bottom: 16.8vh;
+    bottom: 11.8vh;
     
     
 }

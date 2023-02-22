@@ -7,35 +7,20 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
         let type=null;
+        if(!event.contact){
+            event.contact=""
+        }//如果未传入联系方式,则将联系方式设为空
+
         if(event.isMember==true){
-            await cloud.database().collection('user').where({openid:wxContext.OPENID})
-            .update({data:{openid:wxContext.OPENID,location:{building:event.building,floor:event.floor},credit:100,contact:""}})
+            await cloud.database().collection('user')
+            .where({openid:wxContext.OPENID})
+            .update({data:{location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100}})
             type='update'
         }
-        else{
+        if(event.isMember==false){
             await cloud.database().collection('user')
-            .add({data:{openid:wxContext.OPENID,location:{building:event.building,floor:event.floor},credit:100,contact:""}});   //默认contact设置为空字符串
+            .add({data:{location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100}})
             type='signUp'
         }
-        if(event.contact!=''){
-            await cloud.database().collection('user').
-            where({openid:wxContext.OPENID})
-            .update({data:{contact:event.contact}}) //如果提交了contact就进行修改
-        }
-    
-
-     
-    
-    if(event.contact!=''){
-        return{
-            msg:'signup success with contact submit!',
-            type:type
-        }
-    }
-    else{
-        return {
-        msg:'signup success without contact submit!',
-        type:type
-    }
-}
+        return {msg:'success',type:type}
 }
