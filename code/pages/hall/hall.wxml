@@ -5,23 +5,26 @@
 <view style="height: 35vh;">
     <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
 </view>
+
+
+
 <view class="box1">
     <view class="ordernow">
          当前订单
     </view>
-    <view wx:if="{{status}}" class="status">{{status}}
+    <view wx:if="{{currentStatus}}" class="status">{{currentStatus}}
     </view>
 <view class="inbox1-2">
     <text style="line-height: 45rpx;">送往:</text>
-    <text class="position">雁北A 5楼</text>
+    <text class="position" wx:if="{{currentLocation}}">{{currentLocation}}</text>
 </view>
 <view class="inbox1-3">
     <view>
     <text>提交时间:</text>
-    <text>2023/2/22 18：00</text>
+    <text wx:if="{{currentSubmitTime}}">{{currentSubmitTime}}</text>
     </view>
     <view>
-        <text>预计送达:</text>
+        <text>预期送达:</text>
         <text>2023/2/22 18：00</text>
     </view>
 </view>

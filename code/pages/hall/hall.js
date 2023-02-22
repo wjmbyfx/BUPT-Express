@@ -6,13 +6,11 @@ Page({
      */
     data: {
         src:null,
-        ordertext:null,
-        array:null,
-        location:null,
-        scheduledtime:null,
-        status:null,
-        starttime:null
-        
+        currentOrder:null, //最新订单的对象
+        orderList:null,  //所有订单的对象
+        currentStatus:null, //最新订单的状态
+        currentLocation:null, //最新订单的地址
+        currentSubmitTime:null //最新订单提交时间
     },
 
     /**
@@ -21,15 +19,39 @@ Page({
     onLoad(options) {
         wx.cloud.callFunction({
             name:'getOrder'
-
         })
         .then(res=>{
             console.log(res);
-            this.setData({array:res.result.data})
-            if(res.result.data[0].status=='pending') this.setData({status:'等待确认'})
-            else if(res.result.data[0].status=='delivering') this.setData({status:'派送中'})
-            else if(res.result.data[0].status=='success') this.setData({status:'已完成'})
-            else if(res.result.data[0].status=='fail') this.setData({status:'出错'})
+            this.setData({orderList:res.result.data})
+            this.setData({currentOrder:res.result.data[0]})
+            const currentStatus=res.result.data[0].status;
+            if(currentStatus){
+                if(currentStatus=='delivering'){
+                    this.setData({currentStatus:'派送中'})
+                }
+                else if(currentStatus=='pending'){
+                    this.setData({currentStatus:'待确认'})
+                }
+                else if(currentStatus=='cancled'){
+                    this.setData({currentStatus:'已取消'})
+                }
+                else if(currentStatus=='warning'){
+                    this.setData({currentStatus:'出错了'})
+                }
+            } //设置当前订单的状态
+
+            const currentOrder=res.result.data[0];
+            const location=currentOrder.location;
+            if(currentOrder.type=='normal'){
+                this.setData({currentLocation:location.building+'楼 '+location.floor+'层'})
+            }
+            else{
+                this.setData({currentLocation:location})
+            } //设置地址
+
+            let currentSubmitTime=new Date(currentOrder.time)
+            const {formatTime}=require('../../utils/util.js')
+            this.setData({currentSubmitTime:formatTime(currentSubmitTime)}) //设置时间
             
         })
           
