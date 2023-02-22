@@ -30,7 +30,7 @@ Page({
             else if(res.result.data[0].status=='delivering') this.setData({status:'派送中'})
             else if(res.result.data[0].status=='success') this.setData({status:'已完成'})
             else if(res.result.data[0].status=='fail') this.setData({status:'出错'})
-
+            
         })
           
 

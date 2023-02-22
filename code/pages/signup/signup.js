@@ -74,6 +74,7 @@ Page({
         const src=res.result
         this.setData({src:src})
     })
+        
     },
 
     /**
