@@ -6,7 +6,8 @@ Page({
      */
     data: {
         src:null,
-        building:null
+        
+        isMember:null
 
 
     },
@@ -21,48 +22,49 @@ Page({
           title: '请填写信息！',
           duration: 1000,
           icon:'error',
-          success: (res) => {},
-          fail: (res) => {},
-          complete: (res) => {},
         })}
         
           else{
-              if(contact!='') {
-                wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact}})
-              }else {
-                {
-                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:''}})
+              wx.cloud.callFunction({name:'isMember'}).then(res=>{
+                if(contact!='') {
+                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact},isMember:res.result})
+                  }else {
+                    {
+                        wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:''},isMember:res.result})
+                      }
                   }
-              }
-              wx.showToast({
-                title: '注册成功!',
-                icon: 'success',
-                duration: 1000,
-                mask :'false',
-                complete:()=>{
-                    setTimeout(()=>{
-                        wx.switchTab({
-                            url: '../hall/hall'
-                          })
-                    },1000)
-                    
-                }
+                  if(res.result){
+                      wx.showToast({
+                        title: '更新成功',
+                        duration:1000,
+                        success:()=>{
+                            setTimeout(()=>{wx.switchTab({
+                                url: '/pages/hall/hall',
+                              })},1000)
+                           
+                        }
+                      })
+                  }
+                  else{
+                    wx.showToast({
+                        title: '注册成功',
+                        duration:1000,
+                        success:()=>{
+                            setTimeout(()=>{wx.switchTab({
+                                url: '/pages/hall/hall',
+                              })},1000)
+                           
+                        }
+                      })
+                  }
               })
+              
+              
+              
               
 
           }
     },
-
-
-    Inlocation(){
-        
-    },
-    Infloor(){
-        
-    },
-    
-
-
     /**
      * 生命周期函数--监听页面加载
      */
