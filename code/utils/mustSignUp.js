@@ -1,6 +1,6 @@
 function mustSignUp(){
     wx.cloud.callFunction({name:'isMember'}).then(res=>{
-        console.log(res);
+        // console.log(res);
         if(!res.result){
             wx.showToast({
               title: '请完善信息',

@@ -5,14 +5,40 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        src:null,
+        ordertext:null,
+        array:null,
+        location:null,
+        scheduledtime:null,
+        status:null,
+        starttime:null
+        
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
+        wx.cloud.callFunction({
+            name:'getOrder'
+
+        })
+        .then(res=>{
+            console.log(res);
+            this.setData({array:res.result.data})
+            if(res.result.data[0].status=='pending') this.setData({status:'等待确认'})
+            else if(res.result.data[0].status=='delivering') this.setData({status:'派送中'})
+            else if(res.result.data[0].status=='success') this.setData({status:'已完成'})
+            else if(res.result.data[0].status=='fail') this.setData({status:'出错'})
+
+        })
+          
+
+        wx.cloud.callFunction({name:'getImage'})
+        .then(res=>{
+        const src=res.result
+        this.setData({src:src})
+    })
     },
 
     /**

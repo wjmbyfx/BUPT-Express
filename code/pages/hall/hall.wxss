@@ -1,1 +1,80 @@
 /* pages/hall/hall.wxss */
+page {
+    background-color: #ecf0f1;
+}
+.box1 {
+ 
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 22rpx;
+    margin-bottom: 2%;
+    background-color:white ;
+    padding: 1vh;
+    border-radius: 3vh;
+    position: relative;
+    
+  }
+.inbox1-3{
+    padding: 1vh;
+    text-align: center;
+}
+  .box2{
+    
+    
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+    background-color:white ;
+    padding: 1vh;
+
+  }
+  button{
+      position: fixed;
+      bottom: 2%;
+      right: 5%;
+
+      
+  }
+  .order{
+      /* background-color: blanchedalmond; */
+      font-size: smaller;
+      font-weight: 400;
+      color: #7f8c8d;
+      box-sizing: border-box;
+      border-style: dashed;
+      text-align: end;
+  }
+  .ordernow{
+      color: #e74c3c;
+      font-size: medium;
+      text-align: center;
+      font-weight: 600;
+  }
+.status{
+    color: #2ecc71;
+    font-size: small;
+    font-weight: 600;
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}
+.inbox1-2{
+    padding: 1vh;
+    display: flex;
+    justify-content: space-around;
+    height: 45rpx;
+    margin-top: 2vh;
+}
+.position{
+    margin-right: 5vh;
+    font-size: large;
+    line-height: 45rpx;
+    color: #2980b9;
+}
+.inbox2{
+    border-style: solid;
+    border-color:#bdc3c7 ;
+    display: flex;
+    justify-content: space-around;
+}
+

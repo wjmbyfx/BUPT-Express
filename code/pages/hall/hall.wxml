@@ -1,2 +1,60 @@
 <!--pages/hall/hall.wxml-->
-<text>pages/hall/hall.wxml</text>
+<view class="headcontainer">
+    
+<!-- <text class="head">公告栏</text> -->
+<view style="height: 35vh;">
+    <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
+</view>
+<view class="box1">
+    <view class="ordernow">
+         当前订单
+    </view>
+    <view wx:if="{{status}}" class="status">{{status}}
+    </view>
+<view class="inbox1-2">
+    <text style="line-height: 45rpx;">送往:</text>
+    <text class="position">雁北A 5楼</text>
+</view>
+<view class="inbox1-3">
+    <view>
+    <text>提交时间:</text>
+    <text>2023/2/22 18：00</text>
+    </view>
+    <view>
+        <text>预计送达:</text>
+        <text>2023/2/22 18：00</text>
+    </view>
+</view>
+    
+
+    
+    
+    
+
+</view>
+</view>
+<view class="box2">
+    <view class="order">   
+        <text>全部订单></text>
+    </view>
+
+    <view>
+        <view class="inbox2">
+            
+            <text>出错了</text>
+            <text>2023/2/22 18：00</text>
+        </view>
+        <view class="inbox2">
+            
+            <text>已取消</text>
+            <text>2023/2/22 18：00</text>
+        </view>
+        <view class="inbox2">
+            
+            <text>已完成</text>
+            <text>2023/2/22 18：00</text>
+        </view>
+    </view>
+</view>
+
+<button type="primary">去发布</button>
