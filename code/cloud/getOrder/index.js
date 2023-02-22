@@ -8,14 +8,14 @@ exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
     let toReturn=null;
     if(event.status!=null){
-        await cloud.database().collection('order').where({openid:wxContext.OPENID,status:event.status}).get() //查询指定状态的订单
+        await cloud.database().collection('order').orderBy('time','desc').where({openid:wxContext.OPENID,status:event.status}).get() //查询指定状态的订单
         .then(res=>{
             toReturn=res
         })
     }
     else{
 
-        await cloud.database().collection('order').where({openid:wxContext.OPENID}).get()
+        await cloud.database().collection('order').orderBy('time','desc').where({openid:wxContext.OPENID}).get()
         .then(res=>{ //查询所有订单
             toReturn=res;
         })

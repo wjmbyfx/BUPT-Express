@@ -10,3 +10,4 @@
 <button bindtap="getLocation">getLocation</button>
 <button bindtap="updateContact">updateContact</button>
 <button bindtap="getContact">getContact</button>
+<button bindtap="getDate">getDate</button>

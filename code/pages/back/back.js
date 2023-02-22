@@ -7,6 +7,13 @@ Page({
     data: {
 
     },
+
+    getDate(){
+        let d=new Date();
+        
+        console.log(d.getTime());
+    },
+
     getContact(){
         wx.cloud.callFunction({name:'getContact'}).then(res=>{
             console.log(res);
