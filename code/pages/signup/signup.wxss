@@ -1,5 +1,8 @@
 button{
-    
+    position: fixed;
+    left: 1px;
+    right: 1px;
+    bottom: 10vh;
     margin: auto;
 }
 navigator{
@@ -9,6 +12,7 @@ form{
     padding-left: 3vh;
     padding-right: 3vh;
     margin-bottom: 2vh;
+    
 }
 radio-group{
     padding-left: 3vh;
@@ -41,15 +45,22 @@ input {
 }
 .indenttext {
     width: 70%;
-    padding-left: 23%;
+    position: fixed;
+    bottom: 20vh;
+    text-align: center;
+    right: 1px;
+    left: 1px;
     margin: auto;
-    font-size:xx-small;
-    margin-top: 4vh;
+    font-size: small;
 }
 .policytext{
     width: 70%;
+    position: fixed;
+    right: 1px;
+    left: 1px;
     margin: auto;
-    margin-left: 31%;
+    text-align: center;
+    bottom: 16.8vh;
     
     
 }

@@ -41,7 +41,7 @@ Page({
                 mask :'false',
                 complete:()=>{
                     setTimeout(()=>{
-                        wx.redirectTo({
+                        wx.switchTab({
                             url: '../hall/hall'
                           })
                     },1000)
