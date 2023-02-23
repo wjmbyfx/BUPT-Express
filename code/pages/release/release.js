@@ -1,32 +1,26 @@
-// pages/add/add.js
+// pages/release/release.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        date:'2022-02-23',
-        time:'12:00'
+
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
 
     },
-    bindTimeChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-          time: e.detail.value
-        })
-      },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
 
     },
-    
 
     /**
      * 生命周期函数--监听页面显示
@@ -34,12 +28,7 @@ Page({
     onShow() {
 
     },
-    bindDateChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-          date: e.detail.value
-        })
-      },
+
     /**
      * 生命周期函数--监听页面隐藏
      */

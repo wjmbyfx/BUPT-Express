@@ -1,1 +1,22 @@
 /* pages/add/add.wxss */
+button{
+    padding-right: 2%;
+}
+.head{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+.box{
+    border-style: solid;
+}
+.boxtap{
+    font-size: large;
+    font-weight: 600;
+}
+.inputbox{
+    margin: 5%;
+}
+.weui-input{
+    border-style: solid;
+}

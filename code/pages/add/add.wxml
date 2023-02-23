@@ -1,2 +1,49 @@
 <!--pages/add/add.wxml-->
-<text>pages/add/add.wxml</text>
+
+
+<view class="box">
+    <view>
+    <text class="boxtap">收货地点:</text>
+    <radio-group bindtap="">
+    <label><radio value="0"/>使用默认地址</label>
+    <label><radio value="1"/>自定义新地址</label>
+    </radio-group>
+    </view> 
+    <view class="inputbox">
+        <text class="boxtap">新地址:</text>
+        <input class="weui-input" auto-focus placeholder="请填入地址"/>
+    </view>   
+    <view class="inputbox">
+        <view>
+        <text class="boxtap">预期送达:</text>
+        <view class="section">
+  <view class="section__title"></view>
+  <picker mode="date" value="{{date}}" start="2023-02-23" end="2033-02-23" bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+  <view class="section">
+  <view class="section__title"></view>
+  <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+    <view class="picker">
+      {{time}}
+    </view>
+  </picker>
+</view>
+</view>
+    </view>
+    </view>
+    <view class="inputbox">
+    <text class="boxtap">描述:</text>
+        <input class="weui-input" auto-focus placeholder="如体积、重量等"/>
+    </view>
+    <view class="inputbox">
+    <text class="boxtap">备注:</text>
+        <input class="weui-input" auto-focus placeholder="其他需求"/>
+    </view>
+
+    
+</view>
+<button type="primary" bindtap="">发布</button>
+
