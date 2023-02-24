@@ -27,7 +27,7 @@
     </view>
     <view>
         <text>期望送达:</text>
-        <text>{{currentExpectedTime}}</text>
+        <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
     </view>
 </view>
     
