@@ -66,7 +66,7 @@ Page({
             this.setData({currentExpectedTime:  formatTime(currentExpectedTime)})
             } //设置提交和送达时间
         }
-        const orderList=res.result.data;
+        let orderList=res.result.data;
         // console.log(orderList);
         if(orderList.length>3){
             orderList=orderList.slice(0,3)

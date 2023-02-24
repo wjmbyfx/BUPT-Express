@@ -1,3 +1,5 @@
+
+
 // pages/back/back.js
 Page({
 
@@ -6,6 +8,20 @@ Page({
      */
     data: {
 
+    },
+
+    addOrder(){
+        wx.cloud.callFunction({name:'addOrder',data:{
+            status:'cancled',
+            type:'normal',
+            location:{
+                building:'S3',
+                floor:3
+            },
+            expectedtime:Date.now(),
+            note:'',
+            time:Date.now()
+        }})
     },
 
     getDate(){

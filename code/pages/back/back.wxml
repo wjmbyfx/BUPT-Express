@@ -10,3 +10,4 @@
 <button bindtap="updateContact">updateContact</button>
 <button bindtap="getContact">getContact</button>
 <button bindtap="getDate">getDate</button>
+<button bindtap="addOrder">addOrder</button>

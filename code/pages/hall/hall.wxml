@@ -44,7 +44,7 @@
         <text>全部订单></text>
     </view>
 
-    <view wx:if="{{orderList}}" wx:for="{{orderList}}">
+    <view wx:if="{{orderList}}" wx:for="{{orderList}}" wx:key="_id">
         <view class="inbox2">
             
             <text>{{item.displayStatus}}</text>
