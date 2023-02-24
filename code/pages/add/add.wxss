@@ -8,7 +8,7 @@ button{
     font-weight: 600;
 }
 .box{
-    border-style: solid;
+    border-style: s;
 }
 .boxtap{
     font-size: large;

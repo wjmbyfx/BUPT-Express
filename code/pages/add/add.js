@@ -7,16 +7,24 @@ Page({
     data: {
         date:'2022-02-23',
         time:'12:00',
-        inputDisabled: true
+        inputDisabled: null,
+        location:null
     },
+    onFormSubmit: function(event) {
+        console.log('Form Submit:', event.detail.value);
+      },
     onOptionChange: function(event) {
+        console.log(event);
         if (event.detail.value === 'option1') {
           this.setData({
-            inputDisabled: false
+            inputDisabled: true,
+            location:""
           });
         } else {
+            
           this.setData({
-            inputDisabled: true
+            inputDisabled: false
+            
           });
         }
       },
@@ -88,5 +96,18 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+    onFormSubmit(e){
+        console.log(e);
+        const date=e.detail.value.date;
+        var time=e.detail.value.time;
+
+        const trans=date+' '+time;
+        time=new Date(trans);
+        console.log(time);
+        console.log(1);
+
+
+        
     }
 })
