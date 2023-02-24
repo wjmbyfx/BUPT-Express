@@ -5,35 +5,34 @@
     <view>
     <text class="boxtap">收货地点:</text>
     <radio-group bindtap="">
-    <label><radio value="0"/>使用默认地址</label>
-    <label><radio value="1"/>自定义新地址</label>
+    <label><radio value="option1" name="option" bindchange="onOptionChange"/>使用默认地址</label>
+    <label><radio value="option2" name="option" bindchange="onOptionChange"/>自定义新地址</label>
     </radio-group>
     </view> 
     <view class="inputbox">
         <text class="boxtap">新地址:</text>
-        <input class="weui-input" auto-focus placeholder="请填入地址"/>
+        <input class="weui-input" auto-focus placeholder="请填入地址" disabled="{{inputDisabled}}" bindinput="onInput"/>
     </view>   
     <view class="inputbox">
         <view>
         <text class="boxtap">预期送达:</text>
-        <view class="section">
-  <view class="section__title"></view>
-  <picker mode="date" value="{{date}}" start="2023-02-23" end="2033-02-23" bindchange="bindDateChange">
-    <view class="picker">
+<view class="line">
+  <picker  mode="date" value="{{date}}" start="2023-02-23" end="2033-02-23" bindchange="bindDateChange">
       {{date}}
-    </view>
+      <text>-</text>
   </picker>
-  <view class="section">
-  <view class="section__title"></view>
   <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
-    <view class="picker">
       {{time}}
-    </view>
   </picker>
+  <text>《=点击以变更</text>
+</view>
+
+
+
 </view>
 </view>
     </view>
-    </view>
+
     <view class="inputbox">
     <text class="boxtap">描述:</text>
         <input class="weui-input" auto-focus placeholder="如体积、重量等"/>
@@ -44,6 +43,6 @@
     </view>
 
     
-</view>
+
 <button type="primary" bindtap="">发布</button>
 

@@ -17,6 +17,9 @@ button{
 .inputbox{
     margin: 5%;
 }
+.line{
+    display: flex;
+}
 .weui-input{
     border-style: solid;
 }

@@ -6,8 +6,23 @@ Page({
      */
     data: {
         date:'2022-02-23',
-        time:'12:00'
+        time:'12:00',
+        inputDisabled: true
     },
+    onOptionChange: function(event) {
+        if (event.detail.value === 'option1') {
+          this.setData({
+            inputDisabled: false
+          });
+        } else {
+          this.setData({
+            inputDisabled: true
+          });
+        }
+      },
+      onInput: function(event) {
+        console.log('Input:', event.detail.value);
+      },
     /**
      * 生命周期函数--监听页面加载
      */
