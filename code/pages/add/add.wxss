@@ -29,7 +29,7 @@ button{
 .weui-input{
     border-style: solid;
     border-radius: 2vh;
-    color: #f1c40f;
+    
 }
 .picker{
     color: #3498db;

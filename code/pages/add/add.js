@@ -15,7 +15,6 @@ Page({
 
     handleSubmit(e){
         console.log(e);
-<<<<<<< HEAD
         const description=e.detail.value.description
         const location=e.detail.value.location
         let note=e.detail.value.note
@@ -86,9 +85,6 @@ Page({
         }
       },
 
-=======
-    },
->>>>>>> 05ed44cd74db8112ed65c61ec618cc51e1ef6f83
     /**
      * 生命周期函数--监听页面加载
      */
