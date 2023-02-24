@@ -15,6 +15,7 @@ Page({
 
     handleSubmit(e){
         console.log(e);
+<<<<<<< HEAD
         const description=e.detail.value.description
         const location=e.detail.value.location
         let note=e.detail.value.note
@@ -85,18 +86,17 @@ Page({
         }
       },
 
+=======
+    },
+>>>>>>> 05ed44cd74db8112ed65c61ec618cc51e1ef6f83
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        // console.log(1);
     },
-    bindTimeChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-          time: e.detail.value
-        })
-      },
+
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -111,12 +111,7 @@ Page({
     onShow() {
 
     },
-    bindDateChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-          date: e.detail.value
-        })
-      },
+    
     /**
      * 生命周期函数--监听页面隐藏
      */
