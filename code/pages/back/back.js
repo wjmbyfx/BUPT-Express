@@ -10,6 +10,12 @@ Page({
 
     },
 
+    getUser(){
+        wx.cloud.callFunction({name:'getUser'}).then(res=>{
+            console.log(res);
+        })
+    },
+
     addOrder(){
         wx.cloud.callFunction({name:'addOrder',data:{
             status:'cancled',
