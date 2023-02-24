@@ -30,7 +30,7 @@ type:normal (使用默认地址) customize(使用自定义地址)
 
 location
 
-expectedtime
+expectedtime(number) 时间戳
 
 note(备注)
 

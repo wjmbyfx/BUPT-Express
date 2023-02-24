@@ -1,4 +1,5 @@
 // pages/hall/hall.js
+const {formatTime}=require('../../utils/util.js')
 Page({
 
     /**
@@ -10,7 +11,8 @@ Page({
         orderList:null,  //所有订单的对象
         currentStatus:null, //最新订单的状态
         currentLocation:null, //最新订单的地址
-        currentSubmitTime:null //最新订单提交时间
+        currentSubmitTime:null, //最新订单提交时间
+        currentExpectedTime:null //最新订单预期时间
     },
 
     /**
@@ -22,6 +24,9 @@ Page({
         })
         .then(res=>{
             console.log(res);
+            if(res.result.data.length!=0){
+
+            
             this.setData({orderList:res.result.data})
             this.setData({currentOrder:res.result.data[0]})
             const currentStatus=res.result.data[0].status;
@@ -41,6 +46,7 @@ Page({
             } //设置当前订单的状态
 
             const currentOrder=res.result.data[0];
+            
             const location=currentOrder.location;
             if(currentOrder.type=='normal'){
                 this.setData({currentLocation:location.building+'楼 '+location.floor+'层'})
@@ -49,11 +55,54 @@ Page({
                 this.setData({currentLocation:location})
             } //设置地址
 
-            let currentSubmitTime=new Date(currentOrder.time)
-            const {formatTime}=require('../../utils/util.js')
-            this.setData({currentSubmitTime:formatTime(currentSubmitTime)}) //设置时间
+            {
+
             
-        })
+            let currentSubmitTime=new Date(currentOrder.time)
+            
+            this.setData({currentSubmitTime:formatTime(currentSubmitTime)}) //设置提交时间
+            let currentExpectedTime=new Date(currentOrder.expectedtime)
+            // console.log(currentOrder.expectedtime);
+            this.setData({currentExpectedTime:  formatTime(currentExpectedTime)})
+            } //设置提交和送达时间
+        }
+        const orderList=res.result.data;
+        // console.log(orderList);
+        if(orderList.length>3){
+            orderList=orderList.slice(0,3)
+        }
+        if(orderList.length!=0){
+            orderList.forEach((v,i)=>{
+                {
+
+                    if(v.status=='delivering'){
+                        v.displayStatus='派送中'
+                        
+                    }
+                    else if(v.status=='pending'){
+                        v.displayStatus='待确认'
+                        
+                    }
+                    else if(v.status=='cancled'){
+                        v.displayStatus='已取消'
+                        
+                    }
+                    else if(v.status=='warning'){
+                        v.displayStatus='出错了'
+                    }
+                    
+                } //设置字面状态
+                {
+                    let submitTime=new Date(v.time);
+                    v.submitTime=formatTime(submitTime)
+
+                } //设置提交时间
+            })
+            this.setData({orderList:orderList})
+        } //如果有历史订单,则设置展示状态及提交时间
+
+
+        }) //设置当前订单
           
 
         wx.cloud.callFunction({name:'getImage'})

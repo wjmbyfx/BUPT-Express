@@ -19,15 +19,23 @@ page {
     text-align: center;
 }
   .box2{
-    
-    
+    border-radius: 3vh;
+    margin-top: 3vh;
     margin-left: 5%;
     margin-right: 5%;
     position: relative;
     background-color:white ;
-    padding: 1vh;
+    padding: 3vh;
 
   }
+
+  .box2title {
+    text-align: center;
+    color: #e74c3c;
+    font-weight: 700;
+
+  }
+
   button{
       position: fixed;
       bottom: 2%;
@@ -41,7 +49,7 @@ page {
       font-weight: 400;
       color: #7f8c8d;
       box-sizing: border-box;
-      border-style: dashed;
+      /* border-style: dashed; */
       text-align: end;
   }
   .ordernow{
@@ -72,7 +80,7 @@ page {
     color: #2980b9;
 }
 .inbox2{
-    border-style: solid;
+    /* border-style: solid; */
     border-color:#bdc3c7 ;
     display: flex;
     justify-content: space-around;
