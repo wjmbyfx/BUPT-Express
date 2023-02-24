@@ -10,39 +10,18 @@ Page({
         inputDisabled: null,
         location:null
     },
-    onFormSubmit: function(event) {
-        console.log('Form Submit:', event.detail.value);
-      },
-    onOptionChange: function(event) {
-        console.log(event);
-        if (event.detail.value === 'option1') {
-          this.setData({
-            inputDisabled: true,
-            location:""
-          });
-        } else {
-            
-          this.setData({
-            inputDisabled: false
-            
-          });
-        }
-      },
-      onInput: function(event) {
-        console.log('Input:', event.detail.value);
-      },
+
+    handleSubmit(e){
+        console.log(e);
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        // console.log(1);
     },
-    bindTimeChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-          time: e.detail.value
-        })
-      },
+
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -57,12 +36,7 @@ Page({
     onShow() {
 
     },
-    bindDateChange: function (e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-          date: e.detail.value
-        })
-      },
+    
     /**
      * 生命周期函数--监听页面隐藏
      */
@@ -96,18 +70,6 @@ Page({
      */
     onShareAppMessage() {
 
-    },
-    onFormSubmit(e){
-        console.log(e);
-        const date=e.detail.value.date;
-        var time=e.detail.value.time;
-
-        const trans=date+' '+time;
-        time=new Date(trans);
-        console.log(time);
-        console.log(1);
-
-
-        
     }
+    
 })
