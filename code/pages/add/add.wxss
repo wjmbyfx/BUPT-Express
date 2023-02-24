@@ -1,6 +1,10 @@
 /* pages/add/add.wxss */
 button{
     padding-right: 2%;
+    position: fixed;
+    bottom: 2%;
+    left: 20%;
+    right: 20%;
 }
 .head{
     text-align: center;
@@ -13,13 +17,20 @@ button{
 .boxtap{
     font-size: large;
     font-weight: 600;
+    color: #7f8c8d;
 }
 .inputbox{
-    margin: 5%;
+    margin: 8%;
+    
 }
 .line{
     display: flex;
 }
 .weui-input{
     border-style: solid;
+    border-radius: 2vh;
+    color: #f1c40f;
+}
+.picker{
+    color: #3498db;
 }

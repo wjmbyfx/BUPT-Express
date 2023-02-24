@@ -1,3 +1,5 @@
+
+
 // pages/add/add.js
 Page({
 
@@ -10,9 +12,63 @@ Page({
         inputDisabled: null,
         location:null
     },
-    onFormSubmit: function(event) {
-        console.log('Form Submit:', event.detail.value);
-      },
+
+    handleSubmit(e){
+        console.log(e);
+        const description=e.detail.value.description
+        const location=e.detail.value.location
+        let note=e.detail.value.note
+        note=description+" "+note
+        const option=e.detail.value.option
+        var time=e.detail.value.date+" "+e.detail.value.time;
+        time=new Date(time)
+        time=time.valueOf();
+        if(description==''||(option=='option2'&&location=='')||option=='') {wx.showToast({
+            title: '请填写信息！',
+            duration: 1000,
+            icon:'error',
+          })}
+        else{
+            if (option=='option1') {
+                wx.cloud.callFunction({name:'getUser'})
+                .then(res=>{
+                    console.log(res);
+                    wx.cloud.callFunction({name:'addOrder',data:{
+                        type:'normal',
+                        expectedtime:time,
+                        note:note,
+                        location:res.result.data[0].location,
+                        status:'pending'
+                    }}).then(res=>{
+                        wx.showToast({
+                          title: '发布成功',
+                          duration:1000,
+                          icon:'success'
+                        })
+                    })
+                })
+            }
+            else{
+                    wx.cloud.callFunction({name:'addOrder',data:{
+                        expectedtime:time,
+                        type:'customize',
+                        note:note,
+                        location:location,
+                        status:'pending'
+
+                    }}).then(res=>{
+                        wx.showToast({
+                            title: '发布成功',
+                            duration:1000,
+                            icon:'success'
+                          })
+                    })
+    }
+    }
+    },
+                      
+
+
     onOptionChange: function(event) {
         console.log(event);
         if (event.detail.value === 'option1') {
@@ -28,9 +84,7 @@ Page({
           });
         }
       },
-      onInput: function(event) {
-        console.log('Input:', event.detail.value);
-      },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -96,18 +150,6 @@ Page({
      */
     onShareAppMessage() {
 
-    },
-    onFormSubmit(e){
-        console.log(e);
-        const date=e.detail.value.date;
-        var time=e.detail.value.time;
-
-        const trans=date+' '+time;
-        time=new Date(trans);
-        console.log(time);
-        console.log(1);
-
-
-        
     }
+    
 })
