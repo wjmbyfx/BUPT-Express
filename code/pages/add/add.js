@@ -13,6 +13,16 @@ Page({
         location:null
     },
 
+    bindDateChange(e){
+        // console.log(e);
+        this.setData({date:e.detail.value})
+    },
+
+    bindTimeChange(e){
+        // console.log(e);
+        this.setData({time:e.detail.value})
+    },
+
     handleSubmit(e){
         console.log(e);
         const description=e.detail.value.description
@@ -47,10 +57,10 @@ Page({
                         })
                     }).then(res=>{
                         setTimeout(()=>{
-                            wx.switchTab({
+                            wx.reLaunch({
                               url: '/pages/hall/hall'
                             })
-                        },2000)
+                        },1000)
                     })
                 })
             }
@@ -67,7 +77,13 @@ Page({
                             title: '发布成功',
                             duration:1000,
                             icon:'success'
-                          })
+                          }).then(res=>{
+                            setTimeout(()=>{
+                                wx.reLaunch({
+                                  url: '/pages/hall/hall'
+                                })
+                            },1000)
+                        })
                     })
     }
     }
