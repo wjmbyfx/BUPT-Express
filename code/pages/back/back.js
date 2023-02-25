@@ -10,6 +10,18 @@ Page({
 
     },
 
+    updateOrder(){
+        wx.cloud.callFunction({name:'updateOrder',data:{
+            _id:'2cc84e2663f956d101e2209a33154a7c',
+            status:'delivering',
+            expectedtime:1645596000000,
+            location:'updatetest',
+            note:'updatetest',
+            time:1677285073561,
+            type:'customize'
+        }})
+    },
+
     getUser(){
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
             console.log(res);

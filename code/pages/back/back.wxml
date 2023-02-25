@@ -12,3 +12,4 @@
 <button bindtap="getDate">getDate</button>
 <button bindtap="addOrder">addOrder</button>
 <button bindtap="getUser">getUser</button>
+<button bindtap="updateOrder">updateOrder</button>
