@@ -8,10 +8,13 @@ exports.main = async (event, context) => {
 
     let toReturn=null
     const wxContext = cloud.getWXContext()
-    const _id=event._id
-    await cloud.database().collection('order').where({_id:_id}).get()
-    .then(res=>{
-        toReturn=res
-    })
+    if(event._id!=undefined){
+
+        const _id=event._id
+        await cloud.database().collection('order').where({_id:_id}).get()
+        .then(res=>{
+            toReturn=res
+        })
+    }
     return toReturn
 }
