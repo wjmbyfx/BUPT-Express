@@ -45,6 +45,12 @@ Page({
                           duration:1000,
                           icon:'success'
                         })
+                    }).then(res=>{
+                        setTimeout(()=>{
+                            wx.switchTab({
+                              url: '/pages/hall/hall'
+                            })
+                        },2000)
                     })
                 })
             }
