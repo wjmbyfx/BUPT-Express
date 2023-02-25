@@ -1,7 +1,8 @@
 <!--pages/add/add.wxml-->
- 
 
 <form bindsubmit="handleSubmit">
+<view class="background">
+    
 
 <view class="box">
 
@@ -17,7 +18,7 @@
 
     <view class="inputbox">
         <text class="boxtap">新地址:</text>
-        <input class="weui-input" type="text" name="location" auto-focus placeholder="  请填入地址" disabled="{{inputDisabled}}" bindinput="onInput" value="{{location}}"/>
+        <input selection-start="2" class="weui-input" type="text" name="location" placeholder="请填入地址" disabled="{{inputDisabled}}" bindinput="onInput" value="{{location}}"/>
     </view>   
 
     <view class="inputbox">
@@ -41,18 +42,16 @@
 
     <view class="inputbox">
         <text class="boxtap">描述(必填):</text>
-        <input class="weui-input"  placeholder="  如体积、重量等" type="text" name="description"/>
+        <input class="weui-input"  placeholder="如体积、重量等" type="text" name="description"/>
     </view>
 
     <view class="inputbox">
         <text class="boxtap">备注(可选):</text>
-        <input class="weui-input"  placeholder="  其他需求" type="text" name="note"/>
+        <input class="weui-input"  placeholder="其他需求" type="text" name="note"/>
     </view>
 
     
     <button form-type="submit" type="primary">发布</button>
-
-<button type="primary" form-type="submit">发布</button>
-
+</view>
 </form>
 

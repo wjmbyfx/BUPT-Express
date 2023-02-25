@@ -1,26 +1,25 @@
 /* pages/add/add.wxss */
-button{
-    padding-right: 2%;
-    position: fixed;
-    bottom: 2%;
-    left: 20%;
-    right: 20%;
+page {
+    background-color: #ecf0f1;
+}
+input{
+    padding-left: 2vh;
 }
 .head{
     text-align: center;
     font-size: x-large;
     font-weight: 600;
 }
-.box{
-    border-style: s;
-}
 .boxtap{
+    display: inline-block;
     font-size: large;
     font-weight: 600;
-    color: #7f8c8d;
+    color:#7f8c8d;
+    margin-bottom: 1vh;
 }
 .inputbox{
     margin: 8%;
+    color: #95a5a6;
     
 }
 .line{
@@ -33,4 +32,12 @@ button{
 }
 .picker{
     color: #3498db;
+}
+.background{
+    border-radius: 3vh;
+    margin-top: 3vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color:white ;
+    padding: 3vh;
 }
