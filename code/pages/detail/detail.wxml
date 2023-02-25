@@ -1,2 +1,84 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="head1" wx:if="status">
+    {{status}}
+</view>
+<view class="box1">
+    <view class="head">
+        订单详情
+    </view>
+    <view class="boxtap">
+        订单号:
+    </view>
+    <view>
+        {{_id}}
+    </view>
+    <view class="boxtap">
+        提交时间:
+    </view>
+    <view>
+        {{time}}
+    </view>
+    <view class="boxtap">
+        期望收货时间:
+    </view>
+    <view>
+        {{expectedtime}}
+    </view>
+    <view class="boxtap">
+        收货地址:
+    </view>
+    <view>
+        {{location}}
+    </view>
+    <view class="boxtap">
+        备注:
+    </view>
+    <view>
+        {{note}}
+    </view>
+    
+
+</view>
+
+
+
+<view class="box2">
+    <view class="head2">
+        订单操作
+    </view>
+
+
+
+    <view class="inbox2">
+    <view class="inbox">
+        <view>
+            <image src="/img/cancle.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>取消订单</text>
+        </view>
+    </view>
+
+
+    <view class="inbox">
+        <view>
+            <image src="/img/edit.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>修改订单</text>
+        </view>
+    </view>
+
+
+
+    <view class="inbox">
+        <view>
+            <image src="/img/suggest.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>提交反馈</text>
+        </view>
+    </view>
+    </view>
+
+</view>

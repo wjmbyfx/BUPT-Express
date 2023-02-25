@@ -1,11 +1,22 @@
 // pages/detail/detail.js
+const {formatTime}=require('../../utils/util.js')
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        
+        expectedtime:null,
+        location:null,
+        note:null,
+        status:null,
+        time:null,
+        type:null,
+        _id:null
 
+        
     },
 
     /**
@@ -24,12 +35,27 @@ Page({
 
                     console.log(res);
                     const currentOrder=res.result.data[0] //所请求的订单对象
-                    const expectedtime=currentOrder.expectedtime //期望送达时间
-                    const location=currentOrder.location //地址,可能为字符串或对象
+                    let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
+                    let location=currentOrder.location //地址,可能为字符串或对象
                     const note=currentOrder.note //备注和描述
                     const status=currentOrder.status //订单状态
-                    const time=currentOrder.time //提交时间
+                    let time=new Date(currentOrder.time) //提交时间
                     const type=currentOrder.type //location种类
+                    const _id=currentOrder._id
+
+                    time=formatTime(time)
+                    expectedtime=formatTime(expectedtime)
+                    if (type=='normal') {
+                        location=location.building+'楼 '+ location.floor+'层'
+                    }
+                    this.setData({expectedtime:expectedtime,
+                        location:location,
+                        note:note,
+                        status:status,
+                        time:time,
+                        type:type,
+                        _id:_id
+                    })
                 }
             })
             
