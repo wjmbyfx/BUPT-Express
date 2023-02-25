@@ -8,7 +8,7 @@
 
 
 
-<view class="box1">
+<view class="box1" data-_id="{{currentOrder._id}}" bindtap="getCurrentOrder">
     <view class="ordernow">
          当前订单
     </view>
@@ -16,19 +16,20 @@
     </view>
     <view wx:if="{{currentStatus}}" class="status">{{currentStatus}}
     </view>
-<view class="inbox1-2">
+    <view class="inbox1-2">
     <text style="line-height: 45rpx;">送往:</text>
     <text class="position" wx:if="{{currentLocation}}">{{currentLocation}}</text>
-</view>
-<view class="inbox1-3">
-    <view>
+    </view>
+    <view class="inbox1-3">
+
     <text>提交时间:</text>
     <text wx:if="{{currentSubmitTime}}">{{currentSubmitTime}}</text>
-    </view>
+
     <view>
         <text>期望送达:</text>
         <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
     </view>
+    
 </view>
     
 
@@ -38,6 +39,9 @@
 
 </view>
 </view>
+
+<!-- 订单列表 -->
+
 <view class="box2">
 <view class="box2title">订单列表</view>
     <view class="order">   
@@ -45,7 +49,7 @@
     </view>
 
     <view wx:if="{{orderList}}" wx:for="{{orderList}}" wx:key="_id">
-        <view class="inbox2">
+        <view class="inbox2" data-_id="{{item._id}}" bindtap="getSelectedOrder">
             
             <text>{{item.displayStatus}}</text>
             <text>{{item.submitTime}}</text>

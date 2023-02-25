@@ -15,6 +15,22 @@ Page({
         currentExpectedTime:null //最新订单预期时间
     },
 
+    getSelectedOrder(e){
+        // console.log(e.currentTarget.dataset._id);
+        const selectedOrder=e.currentTarget.dataset._id
+        wx.navigateTo({
+          url: '/pages/detail/detail?_id='+selectedOrder
+        })
+    },
+
+    getCurrentOrder(e){
+        // console.log(e);
+        const current_id=e.currentTarget.dataset._id
+        wx.navigateTo({
+          url: '/pages/detail/detail?_id='+current_id
+        })
+    }, //处理请求当前订单
+
     /**
      * 生命周期函数--监听页面加载
      */

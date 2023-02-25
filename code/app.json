@@ -6,7 +6,8 @@
       "pages/policy/policy",
       "pages/pront/front",
       "pages/back/back",
-      "pages/signup/signup"
+      "pages/signup/signup",
+      "pages/detail/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",

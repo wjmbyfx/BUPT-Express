@@ -14,7 +14,7 @@ input{
     display: inline-block;
     font-size: large;
     font-weight: 600;
-    color:#7f8c8d;
+    color:black;
     margin-bottom: 1vh;
 }
 .inputbox{
