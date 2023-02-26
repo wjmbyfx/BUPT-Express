@@ -8,7 +8,9 @@
       "pages/back/back",
       "pages/signup/signup",
       "pages/detail/detail",
-      "pages/edit/edit"
+      "pages/edit/edit",
+      "pages/suggest/suggest"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

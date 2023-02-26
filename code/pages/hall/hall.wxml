@@ -46,7 +46,7 @@
 <!-- 订单列表 -->
 
 <view class="box2">
-<view class="box2title">订单列表</view>
+<view class="box2title">历史订单</view>
     <view class="order">   
         <text>全部订单></text>
     </view>
@@ -60,5 +60,5 @@
         
     </view>
 </view>
-
+<button>刷新</button>
 <button type="primary">去发布</button>

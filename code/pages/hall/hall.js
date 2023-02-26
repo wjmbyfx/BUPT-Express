@@ -19,7 +19,7 @@ Page({
     getSelectedOrder(e){
         // console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
-        wx.navigateTo({
+        wx.reLaunch({
           url: '/pages/detail/detail?_id='+selectedOrder
         })
     },
@@ -27,7 +27,7 @@ Page({
     getCurrentOrder(e){
         // console.log(e);
         const current_id=e.currentTarget.dataset._id
-        wx.navigateTo({
+        wx.reLaunch({
           url: '/pages/detail/detail?_id='+current_id
         })
     }, //处理请求当前订单
@@ -41,40 +41,43 @@ Page({
             name:'getOrder'
         })
         .then(res=>{
+            
             console.log(res);
             if(res.result.data.length!=0){
 
-            
-            this.setData({orderList:res.result.data})
-            this.setData({currentOrder:res.result.data[0]})
-            const currentStatus=res.result.data[0].status;
-            this.setData({currentStatus:currentStatus}) //设置当前订单的状态
+            {
+                this.setData({orderList:res.result.data})
+                this.setData({currentOrder:res.result.data[0]})
+                const currentStatus=res.result.data[0].status;
+                this.setData({currentStatus:currentStatus}) //设置当前订单的状态
+            }
 
-            const currentOrder=res.result.data[0];
+            const currentOrder=res.result.data[0]; //获取最新订单
             
             const location=currentOrder.location;
-            if(currentOrder.type=='normal'){
-                this.setData({currentLocation:location.building+'楼 '+location.floor+'层'})
-            }
-            else{
-                this.setData({currentLocation:location})
+            {
+                if(currentOrder.type=='normal'){
+                    this.setData({currentLocation:location.building+'楼 '+location.floor+'层'})
+                }
+                else{
+                    this.setData({currentLocation:location})
+                }
             } //设置地址
 
             {
-
-            
             let currentSubmitTime=new Date(currentOrder.time)
-            
             this.setData({currentSubmitTime:formatTime(currentSubmitTime)}) //设置提交时间
             let currentExpectedTime=new Date(currentOrder.expectedtime)
             // console.log(currentOrder.expectedtime);
             this.setData({currentExpectedTime:  formatTime(currentExpectedTime)})
             } //设置提交和送达时间
+
         }
-        let orderList=res.result.data;
-        // console.log(orderList);
+
+        let orderList=res.result.data; //获取全部订单
+        orderList=orderList.slice(1) //去除最新的订单
         if(orderList.length>3){
-            orderList=orderList.slice(0,3)
+            orderList=orderList.slice(0,3) //订单数超过3就截取最新的三个订单
         }
         if(orderList.length!=0){
             orderList.forEach((v,i)=>{
@@ -100,6 +103,7 @@ Page({
         const src=res.result
         this.setData({src:src})
     })
+        
     },
 
     /**
@@ -113,8 +117,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        const mustSignUp=require('../../utils/mustSignUp')
-        mustSignUp();
+        
     },
 
     /**
@@ -135,7 +138,8 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
-
+        console.log(1);
+        
     },
 
     /**

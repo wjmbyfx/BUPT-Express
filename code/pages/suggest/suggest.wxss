@@ -1,0 +1,18 @@
+/* pages/suggest/suggest.wxss */
+Page {
+    background-color: #ecf0f1;
+}
+.outer {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color:white ;
+    border-radius: 2vh;
+    margin-top: 3vh;
+    padding: 3vh;
+}
+._id {
+    font-size:small;
+    margin-bottom: 1vh;
+    color: #3498db;
+}
+

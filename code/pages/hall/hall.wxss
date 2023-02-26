@@ -25,7 +25,7 @@ page {
     margin-right: 5%;
     position: relative;
     background-color:white ;
-    padding: 3vh;
+    padding: 1vh;
 
   }
 
@@ -33,7 +33,7 @@ page {
     text-align: center;
     color: #e74c3c;
     font-weight: 700;
-
+    margin-bottom:1vh ;
   }
 
   button{
