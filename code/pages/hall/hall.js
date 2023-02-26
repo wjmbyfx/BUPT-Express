@@ -1,5 +1,6 @@
 // pages/hall/hall.js
 const {formatTime}=require('../../utils/util.js')
+const {getStatus}=require('../../utils/status.js')
 Page({
 
     /**
@@ -47,20 +48,7 @@ Page({
             this.setData({orderList:res.result.data})
             this.setData({currentOrder:res.result.data[0]})
             const currentStatus=res.result.data[0].status;
-            if(currentStatus){
-                if(currentStatus=='delivering'){
-                    this.setData({currentStatus:'派送中'})
-                }
-                else if(currentStatus=='pending'){
-                    this.setData({currentStatus:'待确认'})
-                }
-                else if(currentStatus=='cancled'){
-                    this.setData({currentStatus:'已取消'})
-                }
-                else if(currentStatus=='warning'){
-                    this.setData({currentStatus:'出错了'})
-                }
-            } //设置当前订单的状态
+            this.setData({currentStatus:getStatus(currentStatus)}) //设置当前订单的状态
 
             const currentOrder=res.result.data[0];
             
@@ -91,22 +79,7 @@ Page({
         if(orderList.length!=0){
             orderList.forEach((v,i)=>{
                 {
-
-                    if(v.status=='delivering'){
-                        v.displayStatus='派送中'
-                        
-                    }
-                    else if(v.status=='pending'){
-                        v.displayStatus='待确认'
-                        
-                    }
-                    else if(v.status=='cancled'){
-                        v.displayStatus='已取消'
-                        
-                    }
-                    else if(v.status=='warning'){
-                        v.displayStatus='出错了'
-                    }
+                    v.displayStatus=getStatus(v.status)
                     
                 } //设置字面状态
                 {

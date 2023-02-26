@@ -10,6 +10,15 @@ Page({
 
     },
 
+    updateOrderStatus(){
+        wx.cloud.callFunction({name:'updateOrderStatus',data:{
+            _id:"2cc84e2663f956d101e2209a33154a7c",newStatus:'cancled'
+
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     updateOrder(){
         wx.cloud.callFunction({name:'updateOrder',data:{
             _id:'2cc84e2663f956d101e2209a33154a7c',

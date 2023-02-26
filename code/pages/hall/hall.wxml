@@ -14,8 +14,11 @@
     </view>
     <view wx:if="{{!currentStatus}}" class="status">当前没有订单
     </view>
-    <view wx:if="{{currentStatus}}" class="status">{{currentStatus}}
+
+    <view wx:if="{{currentStatus}}" class="status">
+        <status status="{{currentStatus}}"></status>
     </view>
+    
     <view class="inbox1-2">
     <text style="line-height: 45rpx;">送往:</text>
     <text class="position" wx:if="{{currentLocation}}">{{currentLocation}}</text>
@@ -51,7 +54,7 @@
     <view wx:if="{{orderList}}" wx:for="{{orderList}}" wx:key="_id">
         <view class="inbox2" data-_id="{{item._id}}" bindtap="getSelectedOrder">
             
-            <text>{{item.displayStatus}}</text>
+            <status status="{{item.displayStatus}}"></status>
             <text>{{item.submitTime}}</text>
         </view>
         

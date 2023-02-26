@@ -1,7 +1,8 @@
 <!--pages/detail/detail.wxml-->
 <view class="head1" wx:if="status">
-    {{status}}
+    <status status="{{status}}"></status>
 </view>
+
 <view class="box1">
     <view class="head">
         订单详情

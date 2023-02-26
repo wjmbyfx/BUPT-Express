@@ -13,3 +13,4 @@
 <button bindtap="addOrder">addOrder</button>
 <button bindtap="getUser">getUser</button>
 <button bindtap="updateOrder">updateOrder</button>
+<button bindtap="updateOrderStatus">updateOrderStatus</button>

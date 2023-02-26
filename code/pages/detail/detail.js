@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 const {formatTime}=require('../../utils/util.js')
+const {getStatus}=require('../../utils/status.js')
 
 Page({
 
@@ -38,10 +39,12 @@ Page({
                     let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
                     let location=currentOrder.location //地址,可能为字符串或对象
                     const note=currentOrder.note //备注和描述
-                    const status=currentOrder.status //订单状态
+                    const status=getStatus(currentOrder.status) //订单状态 调用外部方法获取中文值
                     let time=new Date(currentOrder.time) //提交时间
                     const type=currentOrder.type //location种类
                     const _id=currentOrder._id
+                        
+                     //设置当前订单的状态
 
                     time=formatTime(time)
                     expectedtime=formatTime(expectedtime)
