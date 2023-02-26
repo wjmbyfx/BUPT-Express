@@ -20,6 +20,14 @@ Page({
         
     },
 
+    edit(e){
+        console.log(e);
+        const _id=e.currentTarget.dataset._id
+        wx.reLaunch({
+          url: '/pages/edit/edit?_id='+_id
+        })
+
+    },
     cancle(){
         if(this.data.status=='cancled'){
             wx.showToast({

@@ -64,7 +64,7 @@
 
 
     <view class="inbox">
-        <view class="edit" bindtap="edit">
+        <view class="edit" bindtap="edit" data-_id="{{_id}}">
         <view>
             <image src="/img/edit.png" mode="widthFix"/>
         </view>

@@ -7,7 +7,8 @@
       "pages/pront/front",
       "pages/back/back",
       "pages/signup/signup",
-      "pages/detail/detail"
+      "pages/detail/detail",
+      "pages/edit/edit"
   ],
   "window":{
     "backgroundTextStyle":"light",
