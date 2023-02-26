@@ -11,18 +11,16 @@ exports.main = async (event, context) => {
     
     const location=event.location
     const expectedtime=event.expectedtime
-    const time=event.time
     const note=event.note;
-    
+    const type=event.type
     const _id=event._id
 
-    cloud.database().collection('order')
+    await cloud.database().collection('order')
     .where({_id:_id}).update({data:{
-        
         location:location,
         expectedtime:expectedtime,
-        time:time,
-        note:note
+        note:note,
+        type:type
     }})
     
     return {
