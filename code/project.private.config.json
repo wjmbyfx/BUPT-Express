@@ -76,6 +76,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/suggest/suggest",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

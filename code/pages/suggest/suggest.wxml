@@ -1,0 +1,14 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="outer">
+<view class="order" wx:if="{{_id}}">关联订单号:
+    <View class="_id" bindtap="handleTap">{{_id}}</View>
+</view>
+    <form bindsubmit="handleSubmit">
+        <view class="inner">
+            <textarea name="content"  cols="30" rows="10" placeholder="反馈提交后我们会尽快查看并回复,如果您完善信息时没有提供联系方式,也可以在此处提供" auto-focus="true" value="{{content}}"></textarea>
+        </view>
+        <button form-type="submit" type="primary">提交反馈</button>
+        <button form-type="reset">重置</button>
+        
+    </form>
+</view>

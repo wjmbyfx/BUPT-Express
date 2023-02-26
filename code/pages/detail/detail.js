@@ -1,6 +1,5 @@
 // pages/detail/detail.js
 const {formatTime}=require('../../utils/util.js')
-const {getStatus}=require('../../utils/status.js')
 
 Page({
 
@@ -18,6 +17,12 @@ Page({
         _id:null
 
         
+    },
+
+    suggest(){
+        wx.navigateTo({
+          url: '/pages/suggest/suggest?_id='+this.data._id
+        })
     },
 
     cancle(){

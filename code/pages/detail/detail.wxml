@@ -81,11 +81,15 @@
         <view>
             <image src="/img/suggest.png" mode="widthFix"/>
         </view>
+        
         <view>
             <text>提交反馈</text>
         </view>
+        
+        
     </view>
     </view>
     </view>
 
 </view>
+
