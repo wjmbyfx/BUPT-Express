@@ -51,7 +51,7 @@
 
     
     <button form-type="submit" type="primary">提交修改</button>
-    <view class="cancleedit" style="text-align: center;font-size: medium;color: #3498db;" bindtap="handleCancle">
+    <view class="cancleedit" style="text-align: center;font-size: medium;color: #3498db; text-decoration: underline;" bindtap="handleCancle">
         <text>取消修改</text>
     </view>
 </view>
