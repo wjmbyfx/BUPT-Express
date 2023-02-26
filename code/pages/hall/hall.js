@@ -97,12 +97,14 @@ Page({
 
         }) //设置当前订单
           
-
-        wx.cloud.callFunction({name:'getImage'})
-        .then(res=>{
-        const src=res.result
-        this.setData({src:src})
-    })
+        {
+            wx.cloud.callFunction({name:'getImage'})
+            .then(res=>{
+            const src=res.result
+            this.setData({src:src})
+            })
+        } //设置图片src
+        
         
     },
 

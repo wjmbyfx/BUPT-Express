@@ -11,7 +11,6 @@ exports.main = async (event, context) => {
     
     const location=event.location
     const expectedtime=event.expectedtime
-    const time=event.time
     const note=event.note;
     
     const _id=event._id
@@ -21,7 +20,7 @@ exports.main = async (event, context) => {
         
         location:location,
         expectedtime:expectedtime,
-        time:time,
+        
         note:note
     }})
     
