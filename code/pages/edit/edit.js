@@ -18,6 +18,13 @@ Page({
         description:null,
         note:null
     },
+
+    handleCancle(){
+        wx.reLaunch({
+          url: '/pages/hall/hall',
+        })
+    },
+
     bindDateChange(e){
         // console.log(e);
         const newDate=e.detail.value
