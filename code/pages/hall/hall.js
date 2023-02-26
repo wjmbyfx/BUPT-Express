@@ -1,6 +1,7 @@
 // pages/hall/hall.js
 const {formatTime}=require('../../utils/util.js')
 const {getStatus}=require('../../utils/status.js')
+const {getLocation}=require('../../utils/getLocation.js')
 Page({
 
     /**
@@ -14,6 +15,18 @@ Page({
         currentLocation:null, //最新订单的地址
         currentSubmitTime:null, //最新订单提交时间
         currentExpectedTime:null //最新订单预期时间
+    },
+
+    goAdd(){
+        wx.reLaunch({
+          url: '/pages/add/add',
+        })
+    },
+
+    goSignUp(){
+        wx.reLaunch({
+          url: '/pages/signup/signup',
+        })
     },
 
     getSelectedOrder(e){
@@ -57,10 +70,10 @@ Page({
             const location=currentOrder.location;
             {
                 if(currentOrder.type=='normal'){
-                    this.setData({currentLocation:location.building+'楼 '+location.floor+'层'})
+                    this.setData({currentTransLocation:getLocation(location.building)+'楼 '+location.floor+'层'})
                 }
                 else{
-                    this.setData({currentLocation:location})
+                    this.setData({currentTransLocation:location})
                 }
             } //设置地址
 
@@ -105,6 +118,11 @@ Page({
             })
         } //设置图片src
         
+        wx.cloud.callFunction({name:'isMember'})
+        .then(res=>{
+            console.log(res);
+            this.setData({isMember:res.result})
+        })
         
     },
 

@@ -112,6 +112,8 @@ Page({
      */
     onLoad(options) {
         // console.log(1);
+        const {mustSignUp}=require('../../utils/mustSignUp.js')
+        mustSignUp()
     },
 
     
