@@ -21,11 +21,34 @@ Page({
     },
 
     edit(e){
-        console.log(e);
-        const _id=e.currentTarget.dataset._id
-        wx.reLaunch({
-          url: '/pages/edit/edit?_id='+_id
-        })
+        // console.log(e);
+        if(this.data.status=='cancled'){
+            wx.showToast({
+              title: '订单已取消',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else if(this.data.status=='success'){
+            wx.showToast({
+              title: '订单已完成',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else if(this.data.status=='warning'){
+            wx.showToast({
+              title: '订单出错了',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else{
+            const _id=e.currentTarget.dataset._id
+            wx.reLaunch({
+                url: '/pages/edit/edit?_id='+_id
+            })
+        }
 
     },
     suggest(){
