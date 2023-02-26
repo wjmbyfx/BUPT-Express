@@ -1,0 +1,43 @@
+/* pages/edit/edit.wxss */
+page {
+    background-color: #ecf0f1;
+}
+input{
+    padding-left: 2vh;
+}
+.head{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+.boxtap{
+    display: inline-block;
+    font-size: large;
+    font-weight: 600;
+    color:black;
+    margin-bottom: 1vh;
+}
+.inputbox{
+    margin: 8%;
+    color: #95a5a6;
+    
+}
+.line{
+    display: flex;
+}
+.weui-input{
+    border-style: solid;
+    border-radius: 2vh;
+    
+}
+.picker{
+    color: #3498db;
+}
+.background{
+    border-radius: 3vh;
+    margin-top: 3vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color:white ;
+    padding: 3vh;
+}

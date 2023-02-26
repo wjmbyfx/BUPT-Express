@@ -19,6 +19,14 @@ Page({
         
     },
 
+    edit(e){
+        console.log(e);
+        const _id=e.currentTarget.dataset._id
+        wx.reLaunch({
+          url: '/pages/edit/edit?_id='+_id
+        })
+
+    },
     suggest(){
         wx.navigateTo({
           url: '/pages/suggest/suggest?_id='+this.data._id
