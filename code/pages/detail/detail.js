@@ -20,6 +20,52 @@ Page({
         
     },
 
+    cancle(){
+        if(this.data.status=='cancled'){
+            wx.showToast({
+              title: '无法重复取消',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else if(this.data.status=='success'){
+            wx.showToast({
+              title: '订单已完成',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else{
+            wx.showModal({
+                title: '提示',
+                content: '确认要取消订单吗?',
+              }).then(res=>{
+                  if(res.confirm){
+                    wx.cloud.callFunction({name:'updateOrderStatus',data:{
+                        _id:this.data._id,
+                        newStatus:'cancled'
+                    }}).then(res=>{
+                        console.log(res);
+                    }).then(res=>{
+                        wx.showToast({
+                          title: '取消成功',
+                          icon:'success',
+                          duration:1000
+                        })
+                        setTimeout(()=>{
+                            wx.reLaunch({
+                              url: '/pages/hall/hall'
+                            })
+                        },1000)
+                    })
+                  }
+              })
+            
+        }
+        
+        
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
