@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 const {formatTime}=require('../../utils/util.js')
+const {getLocation}=require('../../utils/getLocation')
 
 Page({
 
@@ -108,10 +109,11 @@ Page({
                     time=formatTime(time)
                     expectedtime=formatTime(expectedtime)
                     if (type=='normal') {
-                        location=location.building+'楼 '+ location.floor+'层'
+                        location=getLocation(location.building)+'楼 '+ location.floor+'层'
                     }
                     this.setData({expectedtime:expectedtime,
                         location:location,
+                        transLocation:getLocation(location),
                         note:note,
                         status:status,
                         time:time,

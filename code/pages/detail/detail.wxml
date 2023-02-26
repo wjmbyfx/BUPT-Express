@@ -29,7 +29,7 @@
         收货地址:
     </view>
     <view>
-        {{location}}
+        {{transLocation}}
     </view>
     <view class="boxtap">
         备注:

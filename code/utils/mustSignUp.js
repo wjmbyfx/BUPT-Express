@@ -17,4 +17,4 @@ function mustSignUp(){
         }
     })
 }
-module.exports=mustSignUp
+module.exports={mustSignUp}

@@ -21,7 +21,7 @@
     
     <view class="inbox1-2">
     <text style="line-height: 45rpx;">送往:</text>
-    <text class="position" wx:if="{{currentLocation}}">{{currentLocation}}</text>
+    <text class="position" wx:if="{{currentTransLocation}}">{{currentTransLocation}}</text>
     </view>
     <view class="inbox1-3">
 
@@ -61,4 +61,5 @@
     </view>
 </view>
 <button>刷新</button>
-<button type="primary">去发布</button>
+<button type="primary" wx:if="{{isMember}}" bindtap="goAdd">去发布</button>
+<button type="primary" wx:if="{{!isMember}}" bindtap="goSignUp">去注册</button>
