@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        location:null
     },
 
     handlePolicy(){
@@ -25,6 +25,10 @@ Page({
         wx.cloud.callFunction({name:'getUser'})
         .then(res=>{
             console.log(res);
+            const building=res.result.data[0].location.building
+            const floor=res.result.data[0].location.floor
+            let location=building+'楼'+floor+'层'
+            this.setData({location:location})
         })
         
     },

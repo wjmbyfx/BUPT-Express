@@ -4,15 +4,16 @@
 </view>
 <view class="box1">
      <view class="boxtap">
-         <image src="/img/取消订单.png" mode="widthFix"/>
+     <view>
+         
+         <image src="/img/待收货.png" mode="widthFix" class="headimg"/>
      </view>
-    <view class="boxtap">
+     </view>
+    <view class="boxtap2">
         <view>
-        <text>默认收货地址：</text> 
+        <text>收货地址：{{location}}</text> 
         </view>
-        <view>
-            {{position}}
-        </view>
+        
          
      </view>
 </view>
@@ -20,12 +21,21 @@
 
 <view class="box2">
     <view class="inbox">
-         <text>待确认</text>
+        <view>
+        <image src="../../img/待确认.png" mode="widthFix" class="icon"/>
+        </view>
+        <text>待确认</text>
     </view>
     <view class="inbox">
+        <view>
+        <image src="../../img/待收货.png" mode="widthFix" class="icon"/>
+        </view>
         <text>待收货</text>
     </view>
     <view class="inbox">
+        <view>
+        <image src="../../img/订单.png" mode="widthFix" class="icon"/>
+        </view>
         全部订单
     </view>
 </view>
@@ -33,13 +43,19 @@
 
 
 <view class="box3">
-    <view>
+    <view class="line">
         编辑个人信息
     </view>
-    <view>
+    <view class="br">
+        
+    </view>
+    <view class="line">
         投诉及反馈
     </view>
-    <view>
+    <view class="br">
+        
+    </view>
+    <view class="line">
         <text bindtap="handleUser" class="policy">用户协议</text>
         <text>及</text>
         <text bindtap="handlePolicy" class="policy">隐私政策</text>

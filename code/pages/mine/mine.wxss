@@ -5,14 +5,31 @@ page{
 .box1{
     border-radius: 2vh;
     background-color: white;
-    margin-top: -10vh;
-    margin-left: 5%;
-    margin-right: 5%;
+
+    
     padding: 3vh;
     padding-top: 1vh;
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    margin-top: -5%;
+    height: 10vh;
+    line-height: 10vh;
+    font-size: larger;
+    font-weight: 700;
     
     
+}
+.box1 image {
+    position: absolute;
+    left:5vh;
+    width: 12vh;
     
+    
+}
+
+.boxtap2{
+    padding-right: 3vh;
 }
 .box2{
     border-radius: 2vh;
@@ -29,6 +46,7 @@ page{
 }
 .inbox{
     width: 30%;
+    text-align: center;
 }
 .box3{
     border-radius: 2vh;
@@ -40,14 +58,25 @@ page{
     padding-top: 1vh;
     
 }
-image{
+.headimg{
     width: 25%;
     margin: auto;
+    position: relative;
+    left: 10vh;
 }
-.boxtap{
-    display: inline;
+.icon{
+    width: 30%;
+
 }
+
 .policy{
     text-decoration: underline;
     color: #2980b9;
+}
+.line{
+    margin: 1.5vh;
+}
+.br{
+    height: 0;
+    border-bottom: 1px solid #7f8c8d;
 }
