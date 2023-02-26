@@ -18,7 +18,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        wx.cloud.callFunction({name:'getImage'})
+        .then(res=>{
+        const src=res.result
+        this.setData({src:src})})
+        wx.cloud.callFunction({name:'getUser'})
+        .then(res=>{
+            console.log(res);
+        })
+        
     },
 
     /**

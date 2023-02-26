@@ -1,4 +1,50 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
-<button bindtap="handlePolicy">policy</button>
-<button bindtap="handleUser">user</button>
+<view style="height: 35vh;">
+    <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
+</view>
+<view class="box1">
+     <view class="boxtap">
+         <image src="/img/取消订单.png" mode="widthFix"/>
+     </view>
+    <view class="boxtap">
+        <view>
+        <text>默认收货地址：</text> 
+        </view>
+        <view>
+            {{position}}
+        </view>
+         
+     </view>
+</view>
+
+
+<view class="box2">
+    <view class="inbox">
+         <text>待确认</text>
+    </view>
+    <view class="inbox">
+        <text>待收货</text>
+    </view>
+    <view class="inbox">
+        全部订单
+    </view>
+</view>
+
+
+
+<view class="box3">
+    <view>
+        编辑个人信息
+    </view>
+    <view>
+        投诉及反馈
+    </view>
+    <view>
+        <text bindtap="handleUser" class="policy">用户协议</text>
+        <text>及</text>
+        <text bindtap="handlePolicy" class="policy">隐私政策</text>
+    </view>
+
+
+</view>
+

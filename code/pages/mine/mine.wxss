@@ -1,1 +1,53 @@
 /* pages/mine/mine.wxss */
+page{
+    background-color:#ecf0f1 ;
+}
+.box1{
+    border-radius: 2vh;
+    background-color: white;
+    margin-top: -10vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3vh;
+    padding-top: 1vh;
+    
+    
+    
+}
+.box2{
+    border-radius: 2vh;
+    background-color: white;
+    margin-top: 3vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3vh;
+    padding-top: 1vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+}
+.inbox{
+    width: 30%;
+}
+.box3{
+    border-radius: 2vh;
+    background-color: white;
+    margin-top: 3vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 3vh;
+    padding-top: 1vh;
+    
+}
+image{
+    width: 25%;
+    margin: auto;
+}
+.boxtap{
+    display: inline;
+}
+.policy{
+    text-decoration: underline;
+    color: #2980b9;
+}
