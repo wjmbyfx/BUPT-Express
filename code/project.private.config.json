@@ -80,7 +80,7 @@
                 {
                     "name": "",
                     "pathName": "pages/edit/edit",
-                    "query": "",
+                    "query": "_id=93e4b6a063fafee002005f7f5541becd",
                     "launchMode": "default",
                     "scene": null
                 },

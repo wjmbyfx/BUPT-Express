@@ -14,14 +14,20 @@ exports.main = async (event, context) => {
     const note=event.note;
     const type=event.type
     const _id=event._id
-
+    const _=cloud.database().command
     await cloud.database().collection('order')
     .where({_id:_id}).update({data:{
-        location:location,
+        location:_.remove(),
+        
         expectedtime:expectedtime,
         note:note,
         type:type
+    }}).then(res=>{
+        cloud.database().collection('order')
+    .where({_id:_id}).update({data:{
+        location:location
     }})
+    })
     
     return {
         event,

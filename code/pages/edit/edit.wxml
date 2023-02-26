@@ -7,29 +7,29 @@
 
     <view class="inputbox">
         <text class="boxtap">收货地点(必选):</text>
-    <radio-group bindchange="onOptionChange" name="option">
-        <label><radio value="option1" checked="{{option}}"/>使用默认地址</label>
+    <radio-group bindchange="onOptionChange" name="type">
+        <label><radio value="normal" checked="{{isDefault}}"/>使用默认地址</label>
         <view>
-            <label><radio value="option2" checked="{{!option}}" />自定义地址</label>
+            <label><radio value="customize" checked="{{!isDefault}}" />自定义地址</label>
         </view>
     </radio-group> 
     </view>
 
-    <view class="inputbox">
+    <view class="inputbox" wx:if="{{!isDefault}}">
         <text class="boxtap">地址:</text>
-        <input selection-start="2" class="weui-input" type="text" name="location" placeholder="请填入地址" disabled="{{option}}" bindinput="onInput" value="{{location}}"/>
+        <input selection-start="2" class="weui-input" type="text" name="location" placeholder="请填入地址" disabled="{{isDefault}}" bindinput="onInput" value="{{location}}"/>
     </view>   
 
     <view class="inputbox">
         
         <text class="boxtap">预期送达(必选):</text>
         <view class="line">
-            <picker  mode="date" value="{{date}}" start="2023-02-23" end="2033-02-23" bindchange="bindDateChange" name="date" class="picker">
-            {{date}}
+            <picker  mode="date" value="{{displayDate}}" start="2023-02-23" end="2033-02-23" bindchange="bindDateChange" name="date" class="picker">
+            {{displayDate}}
             <text>-</text>
             </picker>
-            <picker mode="time" value="{{edtime}}" start="09:00" end="21:00" bindchange="bindTimeChange" name="time" class="picker">
-      {{edtime}}
+            <picker mode="time" value="{{displayTime}}" start="09:00" end="21:00" bindchange="bindTimeChange" name="time" class="picker">
+      {{displayTime}}
             </picker>
             <text>{{'<'}}--点击以变更</text>
         </view>
