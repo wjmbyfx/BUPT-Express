@@ -48,7 +48,7 @@ Page({
             this.setData({orderList:res.result.data})
             this.setData({currentOrder:res.result.data[0]})
             const currentStatus=res.result.data[0].status;
-            this.setData({currentStatus:getStatus(currentStatus)}) //设置当前订单的状态
+            this.setData({currentStatus:currentStatus}) //设置当前订单的状态
 
             const currentOrder=res.result.data[0];
             
@@ -79,7 +79,7 @@ Page({
         if(orderList.length!=0){
             orderList.forEach((v,i)=>{
                 {
-                    v.displayStatus=getStatus(v.status)
+                    v.displayStatus=v.status
                     
                 } //设置字面状态
                 {
