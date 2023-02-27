@@ -6,7 +6,7 @@
      <view class="boxtap">
      <view>
          
-         <image src="/img/待收货.png" mode="widthFix" class="headimg"/>
+         <image src="/img/pending.png" mode="widthFix" class="headimg"/>
      </view>
      </view>
     <view class="boxtap2">
@@ -22,19 +22,19 @@
 <view class="box2">
     <view class="inbox">
         <view>
-        <image src="../../img/待确认.png" mode="widthFix" class="icon"/>
+        <image src="/img/pending.png" mode="widthFix" class="icon"/>
         </view>
         <text>待确认</text>
     </view>
     <view class="inbox">
         <view>
-        <image src="../../img/待收货.png" mode="widthFix" class="icon"/>
+        <image src="/img/delivering.png" mode="widthFix" class="icon"/>
         </view>
-        <text>待收货</text>
+        <text>配送中</text>
     </view>
     <view class="inbox">
         <view>
-        <image src="../../img/订单.png" mode="widthFix" class="icon"/>
+        <image src="/img/all.png" mode="widthFix" class="icon"/>
         </view>
         全部订单
     </view>

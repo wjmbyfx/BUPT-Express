@@ -54,7 +54,7 @@
     <view class="inbox">
         <view class="cancle" bindtap="cancle">
         <view>
-            <image src="/img/取消订单.png" mode="widthFix"/>
+            <image src="/img/cancle.png" mode="widthFix"/>
         </view>
         <view>
             <text>取消订单</text>
@@ -66,7 +66,7 @@
     <view class="inbox">
         <view class="edit" bindtap="edit" data-_id="{{_id}}">
         <view>
-            <image src="/img/反馈.png" mode="widthFix"/>
+            <image src="/img/edit.png" mode="widthFix"/>
         </view>
         <view>
             <text>修改订单</text>
@@ -79,7 +79,7 @@
     <view class="inbox">
     <view class="suggest" bindtap="suggest">
         <view>
-            <image src="/img/我的反馈.png" mode="widthFix"/>
+            <image src="/img/feedback.png" mode="widthFix"/>
         </view>
         
         <view>
