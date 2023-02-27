@@ -38,8 +38,8 @@ Page({
                         title: '更新成功',
                         duration:1000,
                         success:()=>{
-                            setTimeout(()=>{wx.switchTab({
-                                url: '/pages/hall/hall',
+                            setTimeout(()=>{wx.navigateBack({
+                                delta:1
                               })},1000)
                            
                         }
@@ -50,8 +50,8 @@ Page({
                         title: '注册成功',
                         duration:1000,
                         success:()=>{
-                            setTimeout(()=>{wx.switchTab({
-                                url: '/pages/hall/hall',
+                            setTimeout(()=>{wx.navigateBack({
+                                delta:1
                               })},1000)
                            
                         }

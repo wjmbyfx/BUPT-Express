@@ -8,8 +8,26 @@ Page({
         location:null
     },
 
+    handleSuggest(){
+        wx.navigateTo({
+          url: '../suggest/suggest',
+        })
+    },
+
+    handleEdit(){
+        wx.navigateTo({
+          url: '../signup/signup',
+        })
+    },
+
+    handleUser(){
+        wx.navigateTo({
+          url: '../policy/policy?type=user',
+        })
+    },
+
     handlePolicy(){
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../policy/policy?type=policy',
         })
     },

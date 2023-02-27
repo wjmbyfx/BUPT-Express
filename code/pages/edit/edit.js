@@ -20,8 +20,8 @@ Page({
     },
 
     handleCancle(){
-        wx.reLaunch({
-          url: '/pages/hall/hall',
+        wx.navigateBack({
+          delta:1
         })
     },
 
@@ -67,8 +67,9 @@ Page({
                       duration:1000
                     })
                     setTimeout(()=>{
-                        wx.reLaunch({
-                          url: '/pages/hall/hall'
+                        
+                        wx.navigateBack({
+                          delta:1
                         })
                     },1000)
                 })
@@ -89,8 +90,8 @@ Page({
                   duration:1000
                 })
                 setTimeout(()=>{
-                    wx.reLaunch({
-                      url: '/pages/hall/hall'
+                    wx.navigateBack({
+                        delta:1
                     })
                 },1000)
             })

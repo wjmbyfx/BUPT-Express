@@ -21,7 +21,7 @@ Page({
         if(content!=''){
 
             wx.cloud.callFunction({name:'addsuggest',data:{
-                content:content
+                content:content,_id:this.data._id
             }}).then(res=>{
                 wx.showToast({
                     title: '反馈提交成功',
@@ -29,8 +29,8 @@ Page({
                     duration:1000
                 })
                 setTimeout(()=>{
-                    wx.reLaunch({
-                        url: '/pages/hall/hall',
+                    wx.navigateBack({
+                        delta:1
                     })
                 },1000)
             })

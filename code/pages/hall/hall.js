@@ -18,13 +18,13 @@ Page({
     },
 
     goAdd(){
-        wx.reLaunch({
+        wx.navigateTo({
           url: '/pages/add/add',
         })
     },
 
     goSignUp(){
-        wx.reLaunch({
+        wx.navigateTo({
           url: '/pages/signup/signup',
         })
     },
@@ -32,7 +32,7 @@ Page({
     getSelectedOrder(e){
         // console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
-        wx.reLaunch({
+        wx.navigateTo({
           url: '/pages/detail/detail?_id='+selectedOrder
         })
     },
@@ -40,7 +40,7 @@ Page({
     getCurrentOrder(e){
         // console.log(e);
         const current_id=e.currentTarget.dataset._id
-        wx.reLaunch({
+        wx.navigateTo({
           url: '/pages/detail/detail?_id='+current_id
         })
     }, //处理请求当前订单
@@ -137,7 +137,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        
+        this.onLoad()
     },
 
     /**

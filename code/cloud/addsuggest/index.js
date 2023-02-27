@@ -9,7 +9,8 @@ exports.main = async (event, context) => {
     const content=event.content
     cloud.database().collection('suggest').add({data:{
         content:content,
-        openid:wxContext.OPENID
+        openid:wxContext.OPENID,
+        oid:event._id
     }})
     return {
         event,

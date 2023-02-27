@@ -43,13 +43,13 @@
 
 
 <view class="box3">
-    <view class="line">
+    <view class="line" bindtap="handleEdit">
         编辑个人信息
     </view>
     <view class="br">
         
     </view>
-    <view class="line">
+    <view class="line" bindtap="handleSuggest">
         投诉及反馈
     </view>
     <view class="br">

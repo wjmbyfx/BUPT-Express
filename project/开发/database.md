@@ -42,9 +42,9 @@ time 时间戳
 
 openid
 
-msg
+content
 
-
+oid 订单号
 
 
 
