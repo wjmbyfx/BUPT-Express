@@ -9,7 +9,8 @@
       "pages/signup/signup",
       "pages/detail/detail",
       "pages/edit/edit",
-      "pages/suggest/suggest"
+      "pages/suggest/suggest",
+      "pages/order/order"
 
   ],
   "window":{
