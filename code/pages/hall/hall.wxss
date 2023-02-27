@@ -71,7 +71,14 @@ page {
     padding: 1vh;
     display: flex;
     justify-content: space-around;
-    height: 45rpx;
+    height: 15rpx;
+    margin-top: 2vh;
+}
+.note{
+    padding: 1vh;
+    display: flex;
+    justify-content: space-around;
+    height: 25rpx;
     margin-top: 2vh;
 }
 .position{

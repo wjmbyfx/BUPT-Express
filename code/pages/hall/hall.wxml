@@ -23,6 +23,12 @@
     <text style="line-height: 45rpx;">送往:</text>
     <text class="position" wx:if="{{currentTransLocation}}">{{currentTransLocation}}</text>
     </view>
+
+    <view class="note">
+    <text style="line-height: 45rpx;">备注:</text>
+    <text class="position" wx:if="{{currentOrder.note}}">{{currentOrder.note}}</text>
+    </view>
+
     <view class="inbox1-3">
 
     <text>提交时间:</text>
