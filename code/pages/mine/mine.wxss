@@ -6,17 +6,21 @@ page{
     border-radius: 2vh;
     background-color: white;
 
-    
+    border-radius: 2vh;
     padding: 3vh;
     padding-top: 1vh;
     position: relative;
-    overflow: hidden;
+    top: -15rpx;
     text-align: right;
-    margin-top: -5%;
+    
     height: 10vh;
     line-height: 10vh;
     font-size: larger;
     font-weight: 700;
+    margin-top: 3vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2vh;
     
     
 }
