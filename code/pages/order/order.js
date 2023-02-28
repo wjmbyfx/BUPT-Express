@@ -66,7 +66,6 @@ Page({
     }
     }
     ).then(res=>{
-        console.log(res);
         this.setData({pending:res.result.data})
     })
     wx.cloud.callFunction({name:'getOrder',data:{
@@ -74,7 +73,6 @@ Page({
     }
     }
     ).then(res=>{
-        console.log(res);
         this.setData({delivering:res.result.data})
     })
     wx.cloud.callFunction({name:'getOrder',data:{
@@ -82,7 +80,6 @@ Page({
     }
     }
     ).then(res=>{
-        console.log(res);
         this.setData({success:res.result.data})
         
     })

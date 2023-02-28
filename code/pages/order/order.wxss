@@ -2,3 +2,7 @@
 .active{
     border-bottom: 1px solid black;
 }
+.box{
+    border-radius: 3vh;
+    
+}

@@ -10,6 +10,19 @@
                 </block>
         </view>
 </view>
-<view wx:for="{{displayOrder}}">
-    {{item._id}}
+<view wx:for="{{displayOrder}}" wx:key="_id">
+    <view class="box">
+        <view>
+        <text>订单编号:{{item._id}}</text>
+    </view>
+    <view>
+        <text>订单状态:{{item.status}}</text>
+    </view>
+    <view>
+        <text>收货地址:{{item.location.building}}{{item.location.floor}}</text>
+    </view>
+    <view>
+        备注:{{item.note}}
+    </view>
+    </view>
 </view>
