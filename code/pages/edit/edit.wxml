@@ -46,7 +46,7 @@
 
     <view class="inputbox">
         <text class="boxtap">备注(可选):</text>
-        <input class="weui-input"  placeholder="其他需求" type="text" name="note" value="{{note}}"/>
+        <input class="weui-input"  placeholder="如手机尾号等" type="text" name="note" value="{{note}}"/>
     </view>
 
     

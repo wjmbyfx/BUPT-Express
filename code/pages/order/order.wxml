@@ -10,14 +10,15 @@
                 </block>
         </view>
 </view>
+<view wx:if="{{displayOrder.length==0}}">当前没有订单!</view>
 <view wx:for="{{displayOrder}}" wx:key="_id" class="box" data-_id="{{item._id}}" bindtap="getSelectedOrder">
     <view>
-        <view>
-        <text>订单状态:</text>{{item.status}}
+        <view class="status">
+        <text>订单状态:</text> <status status="{{item.status}}"></status>
         </view>
         <view>
         <text>收货地址:</text>
-            {{item.location.building}}
+            {{item.location}}
         </view>
         <view>
         <text>备注:</text>

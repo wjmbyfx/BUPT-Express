@@ -1,4 +1,6 @@
 {
-    "usingComponents": {},
+    "usingComponents": {
+        "status":"/components/status/status"
+    },
     "navigationBarTitleText": "我的订单"
 }

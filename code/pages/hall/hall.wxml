@@ -3,7 +3,7 @@
     
 <!-- <text class="head">公告栏</text> -->
 <view style="height: 35vh;">
-    <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
+    <image  src="cloud://buptexpress-5goetp5o571a721f.6275-buptexpress-5goetp5o571a721f-1316844506/封面图.png" mode="widthFix" style="width: 100%;"/>
 </view>
 
 
@@ -39,6 +39,8 @@
         <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
     </view>
     
+    <view class="confirm" catchtap="confirm" wx:if="{{currentOrder}}">确认收货</view>
+    
 </view>
     
 
@@ -53,7 +55,8 @@
 
 <view class="box2">
 <view class="box2title">历史订单</view>
-    <view class="order">   
+<view wx:if="{{!orderList.length}}" style="text-align: center;">当前没有订单可以展示</view>
+    <view class="order" bindtap="all">   
         <text>全部订单></text>
     </view>
 

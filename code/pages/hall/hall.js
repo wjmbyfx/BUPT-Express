@@ -17,8 +17,64 @@ Page({
         currentExpectedTime:null //最新订单预期时间
     },
 
-    goAdd(){
+    confirm(e){ 
+        if(this.data.currentStatus=='cancled'){
+            wx.showToast({
+              title: '订单已取消',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else if(this.data.currentStatus=='success'){
+            wx.showToast({
+              title: '订单已完成',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else if(this.data.currentStatus=='warning'){
+            wx.showToast({
+              title: '订单出错了',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else{
+            const _id=this.data.currentOrder._id
+            console.log(_id);
+            wx.showModal({
+              title:'确认要收货吗?'
+              
+            }).then(res=>{
+                if(res.confirm){
+                    wx.cloud.callFunction({name:'updateOrderStatus',data:{
+                         _id:_id,
+                        newStatus:'success'
+                        }}).then(res=>{
+                            wx.showToast({
+                              title: '收货成功!',
+                              icon:'success',
+                              duration:1000
+                            })
+                            setTimeout(()=>{
+                                this.onLoad()
+                            },1000)
+                        })
+                        
+                    
+                }
+            })
+        }
+    },
+
+    all(){
         wx.navigateTo({
+          url: '/pages/order/order?status=all',
+        })
+    },
+
+    goAdd(){
+        wx.switchTab({
           url: '/pages/add/add',
         })
     },

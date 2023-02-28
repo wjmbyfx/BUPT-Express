@@ -2,6 +2,11 @@
 page{
     background-color: #ecf0f1;
 }
+
+.status {
+    display: flex;
+}
+
 .active{
     color: #3498db;
     border-bottom: 2px solid #2980b9;

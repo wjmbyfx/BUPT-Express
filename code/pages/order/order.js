@@ -1,5 +1,6 @@
 // pages/order/order.js
 const {formatTime}=require('../../utils/util.js')
+const {getLocation}=require('../../utils/getLocation.js')
 Page({
 
     /**
@@ -7,7 +8,7 @@ Page({
      */
     data: {
         tabs: [
-            { name: '全部',  active: true, index: 0 },
+            { name: '全部',  active: false, index: 0 },
             { name: '待确认',  active: false, index: 1 },
             { name: '派送中',  active: false, index: 2 },
             { name: '已完成',  active: false, index: 3 }
@@ -66,15 +67,23 @@ Page({
     }
     ).then(res=>{
         
-        console.log(res.result.data);
+        // console.log(res.result.data);
         res.result.data.forEach((v,i)=>{
             v.expectedtime=formatTime(new Date(v.expectedtime))
+            if(v.type=='normal'){
+                v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+            }
         })
-        res.result.data.forEach((v,i)=>{
-            v.time=formatTime(new Date(v.time))
-        })
+        
         this.setData({all:res.result.data})
-        this.setData({displayOrder:res.result.data})
+        if(options.status=='all'){
+
+            this.setData({displayOrder:this.data.all,tabs:[{ name: '全部',  active: true, index: 0 },
+            { name: '待确认',  active: false, index: 1 },
+            { name: '派送中',  active: false, index: 2 },
+            { name: '已完成',  active: false, index: 3 }]})
+        }
+        // this.setData({displayOrder:res.result.data})
     })
     
     wx.cloud.callFunction({name:'getOrder',data:{
@@ -82,7 +91,20 @@ Page({
     }
     }
     ).then(res=>{
+        res.result.data.forEach((v,i)=>{
+            v.expectedtime=formatTime(new Date(v.expectedtime))
+            if(v.type=='normal'){
+                v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+            }
+        })
         this.setData({pending:res.result.data})
+        if(options.status=='pending'){
+
+            this.setData({displayOrder:this.data.pending,tabs:[{ name: '全部',  active: false, index: 0 },
+            { name: '待确认',  active: true, index: 1 },
+            { name: '派送中',  active: false, index: 2 },
+            { name: '已完成',  active: false, index: 3 }]})
+        }
     })
 
     wx.cloud.callFunction({name:'getOrder',data:{
@@ -90,7 +112,20 @@ Page({
     }
     }
     ).then(res=>{
+        res.result.data.forEach((v,i)=>{
+            v.expectedtime=formatTime(new Date(v.expectedtime))
+            if(v.type=='normal'){
+                v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+            }
+        })
         this.setData({delivering:res.result.data})
+        if(options.status=='delivering'){
+
+            this.setData({displayOrder:this.data.delivering,tabs:[{ name: '全部',  active: false, index: 0 },
+            { name: '待确认',  active: false, index: 1 },
+            { name: '派送中',  active: true, index: 2 },
+            { name: '已完成',  active: false, index: 3 }]})
+        }
     })
 
     wx.cloud.callFunction({name:'getOrder',data:{
@@ -98,12 +133,26 @@ Page({
     }
     }
     ).then(res=>{
+        res.result.data.forEach((v,i)=>{
+            v.expectedtime=formatTime(new Date(v.expectedtime))
+            if(v.type=='normal'){
+                v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+            }
+        })
         this.setData({success:res.result.data})
         
     })
-    if(options!=undefined){
-        this.setData({displayOrder:['options.status']})
+    if(options==undefined)
+        // console.log(options.status);
+        
+    {
+        this.setData({displayOrder:this.data.all,tabs:[{ name: '全部',  active: true, index: 0 },
+        { name: '待确认',  active: false, index: 1 },
+        { name: '派送中',  active: false, index: 2 },
+        { name: '已完成',  active: false, index: 3 }]})
     }
+    
+    
     
     
     },

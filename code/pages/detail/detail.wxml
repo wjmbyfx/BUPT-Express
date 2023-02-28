@@ -51,6 +51,18 @@
 
 
     <view class="inbox2">
+
+        <view class="inbox">
+        <view class="confirm" bindtap="confirm">
+        <view>
+            <image src="/img/confirm.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>确认收货</text>
+        </view>
+        </view>
+    </view>
+
     <view class="inbox">
         <view class="cancle" bindtap="cancle">
         <view>
