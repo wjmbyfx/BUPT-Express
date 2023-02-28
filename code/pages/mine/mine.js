@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+const {getLocation}=require('../../utils/getLocation')
 Page({
 
     /**
@@ -60,9 +61,10 @@ Page({
             console.log(res);
             const building=res.result.data[0].location.building
             const floor=res.result.data[0].location.floor
-            let location=building+'楼'+floor+'层'
+            let location=getLocation(building)+'楼 '+ floor+'层'
             this.setData({location:location})
         })
+        
         
     },
 

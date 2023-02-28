@@ -42,6 +42,7 @@ Page({
               duration:1000
             })
         }
+        
         else if(this.data.status=='warning'){
             wx.showToast({
               title: '订单出错了',
@@ -88,6 +89,8 @@ Page({
               duration:1000
             })
         }
+        
+        
         else if(this.data.status=='success'){
             wx.showToast({
               title: '订单已完成',
@@ -124,6 +127,7 @@ Page({
               duration:1000
             })
         }
+        
         else if(this.data.status=='success'){
             wx.showToast({
               title: '订单已完成',

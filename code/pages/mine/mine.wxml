@@ -11,7 +11,10 @@
      </view>
     <view class="boxtap2">
         <view>
-        <text>收货地址：{{location}}</text> 
+        <text>收货地址：</text> 
+        </view>
+        <view>
+            {{location}}
         </view>
         
          

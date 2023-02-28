@@ -14,7 +14,7 @@ page{
     text-align: right;
     
     height: 10vh;
-    line-height: 10vh;
+    line-height: 5vh;
     font-size: larger;
     font-weight: 700;
     margin-top: 3vh;
