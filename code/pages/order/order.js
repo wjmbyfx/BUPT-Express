@@ -1,4 +1,5 @@
 // pages/order/order.js
+const {formatTime}=require('../../utils/util.js')
 Page({
 
     /**
@@ -61,13 +62,21 @@ Page({
     onLoad(options) {
         
             
-            wx.cloud.callFunction({name:'getOrder'
+    wx.cloud.callFunction({name:'getOrder'
     }
     ).then(res=>{
-        console.log(res);
+        
+        console.log(res.result.data);
+        res.result.data.forEach((v,i)=>{
+            v.expectedtime=formatTime(new Date(v.expectedtime))
+        })
+        res.result.data.forEach((v,i)=>{
+            v.time=formatTime(new Date(v.time))
+        })
         this.setData({all:res.result.data})
         this.setData({displayOrder:res.result.data})
     })
+    
     wx.cloud.callFunction({name:'getOrder',data:{
         status:'pending'
     }
@@ -75,6 +84,7 @@ Page({
     ).then(res=>{
         this.setData({pending:res.result.data})
     })
+
     wx.cloud.callFunction({name:'getOrder',data:{
         status:'delivering'
     }
@@ -82,6 +92,7 @@ Page({
     ).then(res=>{
         this.setData({delivering:res.result.data})
     })
+
     wx.cloud.callFunction({name:'getOrder',data:{
         status:'success'
     }
