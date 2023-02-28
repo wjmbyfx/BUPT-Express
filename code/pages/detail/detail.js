@@ -158,7 +158,20 @@ Page({
      */
     onLoad(options) {
         console.log(options);
-        if(options!=undefined){
+        if(options._id=='undefined'){
+            wx.showToast({
+              title: '当前没有订单',
+              icon:'error',
+              duration:1000
+            }).then(res=>{
+                setTimeout(()=>{
+                    wx.navigateBack({
+                      delta: 1,
+                    })
+                },1000)
+            })
+        }
+        else if(options!=undefined){
         
             const current_id=options._id; //所需订单的_id
             this.setData({_id:current_id})
