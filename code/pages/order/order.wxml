@@ -10,19 +10,21 @@
                 </block>
         </view>
 </view>
-<view wx:for="{{displayOrder}}" wx:key="_id">
-    <view class="box">
+<view wx:for="{{displayOrder}}" wx:key="_id" class="box" data-_id="{{item._id}}" bindtap="getSelectedOrder">
+    <view>
         <view>
-        <text>订单编号:{{item._id}}</text>
-    </view>
-    <view>
-        <text>订单状态:{{item.status}}</text>
-    </view>
-    <view>
-        <text>收货地址:{{item.location.building}}{{item.location.floor}}</text>
-    </view>
-    <view>
+        <text>订单状态:</text>{{item.status}}
+        </view>
+        <view>
+        <text>收货地址:</text>
+            {{item.location.building}}
+        </view>
+        <view>
         备注:{{item.note}}
-    </view>
+        </view>
+        <view>
+            <text>下单日期:</text>
+            {{item.time}}
+        </view>
     </view>
 </view>

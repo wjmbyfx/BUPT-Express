@@ -1,8 +1,24 @@
 /* pages/order/order.wxss */
-.active{
-    border-bottom: 1px solid black;
+page{
+    background-color: #ecf0f1;
 }
+.active{
+    color: #3498db;
+    
+}
+.tab-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
 .box{
     border-radius: 3vh;
+    background-color:white;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 22rpx;
+    margin-bottom: 2%;
+    padding: 1vh;
     
 }

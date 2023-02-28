@@ -51,6 +51,13 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
+    getSelectedOrder(e){
+        // console.log(e.currentTarget.dataset._id);
+        const selectedOrder=e.currentTarget.dataset._id
+        wx.navigateTo({
+          url: '/pages/detail/detail?_id='+selectedOrder
+        })
+    },
     onLoad(options) {
         
             
