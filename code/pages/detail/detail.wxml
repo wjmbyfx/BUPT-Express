@@ -10,31 +10,31 @@
     <view class="boxtap">
         订单号:
     </view>
-    <view>
+    <view wx:if="_id">
         {{_id}}
     </view>
     <view class="boxtap">
         提交时间:
     </view>
-    <view>
+    <view wx:if="time">
         {{time}}
     </view>
     <view class="boxtap">
         期望收货时间:
     </view>
-    <view>
+    <view wx:if="expectedtime">
         {{expectedtime}}
     </view>
     <view class="boxtap">
         收货地址:
     </view>
-    <view>
+    <view wx:if="location">
         {{location}}
     </view>
     <view class="boxtap">
         备注:
     </view>
-    <view>
+    <view wx:if="note">
         {{note}}
     </view>
     
