@@ -1,0 +1,30 @@
+<!--pages/order/order.wxml-->
+<view class="tab {{tab.active ? 'active' : ''}}" 
+   data-index="{{tab.index}}">
+        <view class="tab-bar">
+                <block wx:for="{{tabs}}" wx:for-item="tab">
+            <view class="tab {{tab.active ? 'active' : ''}}" 
+                    bindtap="tabClick" data-index="{{tab.index}}">
+                    <text class="tab-name">{{tab.name}}</text>
+            </view>
+                </block>
+        </view>
+</view>
+<view wx:for="{{displayOrder}}" wx:key="_id" class="box" data-_id="{{item._id}}" bindtap="getSelectedOrder">
+    <view>
+        <view>
+        <text>订单状态:</text>{{item.status}}
+        </view>
+        <view>
+        <text>收货地址:</text>
+            {{item.location.building}}
+        </view>
+        <view>
+        备注:{{item.note}}
+        </view>
+        <view>
+            <text>下单日期:</text>
+            {{item.time}}
+        </view>
+    </view>
+</view>

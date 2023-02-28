@@ -7,6 +7,21 @@ Page({
     data: {
         location:null
     },
+    pending(){
+        wx.navigateTo({
+          url: '/pages/order/order?status=pending',
+        })
+    },
+    delivering(){
+        wx.navigateTo({
+          url: '/pages/order/order?status=delivering',
+        })
+    },
+    all(){
+        wx.navigateTo({
+          url: '/pages/order/order?status=all',
+        })
+    },
 
     handleSuggest(){
         wx.navigateTo({

@@ -20,19 +20,19 @@
 
 
 <view class="box2">
-    <view class="inbox">
+    <view class="inbox" bindtap="pending">
         <view>
         <image src="/img/pending.png" mode="widthFix" class="icon"/>
         </view>
         <text>待确认</text>
     </view>
-    <view class="inbox">
+    <view class="inbox" bindtap="delivering">
         <view>
         <image src="/img/delivering.png" mode="widthFix" class="icon"/>
         </view>
         <text>配送中</text>
     </view>
-    <view class="inbox">
+    <view class="inbox" bindtap="all">
         <view>
         <image src="/img/all.png" mode="widthFix" class="icon"/>
         </view>
