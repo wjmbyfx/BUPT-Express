@@ -35,13 +35,7 @@ Page({
               duration:1000
             })
         }
-        else if(this.data.time==null||(this.data.time='undefined')){
-            wx.showToast({
-              title: '当前无订单',
-              icon:'error',
-              duration:1000
-            })
-        }
+        
         else if(this.data.status=='warning'){
             wx.showToast({
               title: '订单出错了',
@@ -87,13 +81,7 @@ Page({
             })
         }
         
-        else if(this.data.time==null||(this.data.time='undefined')){
-            wx.showToast({
-              title: '当前无订单',
-              icon:'error',
-              duration:1000
-            })
-        }
+        
         else if(this.data.status=='success'){
             wx.showToast({
               title: '订单已完成',
@@ -130,13 +118,7 @@ Page({
               duration:1000
             })
         }
-        else if(this.data.time==null||(this.data.time='undefined')){
-            wx.showToast({
-              title: '当前无订单',
-              icon:'error',
-              duration:1000
-            })
-        }
+        
         else if(this.data.status=='success'){
             wx.showToast({
               title: '订单已完成',
