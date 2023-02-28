@@ -1,5 +1,6 @@
 // pages/mine/mine.js
 const {getLocation}=require('../../utils/getLocation')
+const {mustSignUp}=require('../../utils/mustSignUp')
 Page({
 
     /**
@@ -52,6 +53,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        
         wx.cloud.callFunction({name:'getImage'})
         .then(res=>{
         const src=res.result
@@ -79,7 +81,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        this.onLoad()
+        mustSignUp()
     },
 
     /**

@@ -2,17 +2,22 @@ function mustSignUp(){
     wx.cloud.callFunction({name:'isMember'}).then(res=>{
         // console.log(res);
         if(!res.result){
-            wx.showToast({
+            wx.showModal({
               title: '请完善信息',
-              icon:'error',
-              duration:1000
+            }).then(res=>{
+                if(res.confirm){
+                    wx.navigateTo({
+                        url: '/pages/signup/signup',
+                      })
+                }
+                else{
+                    wx.switchTab({
+                      url: '/pages/hall/hall',
+                    })
+                }
             })
             
-            setTimeout(()=>{
-                wx.navigateTo({
-                  url: '/pages/signup/signup',
-                })
-            },1000)
+
             
         }
     })

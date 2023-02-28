@@ -1,4 +1,4 @@
-
+const mustSignUp=require('../../utils/mustSignUp')
 
 // pages/add/add.js
 Page({
@@ -137,8 +137,7 @@ Page({
      */
     onLoad(options) {
         // console.log(1);
-        const {mustSignUp}=require('../../utils/mustSignUp.js')
-        mustSignUp()
+        
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
             this.setData({openid:res.result.data[0].openid})
         })
@@ -157,7 +156,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        // this.onLoad()
+        const {mustSignUp}=require('../../utils/mustSignUp.js')
+        mustSignUp()
     },
     
     /**
