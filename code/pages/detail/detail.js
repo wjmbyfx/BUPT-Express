@@ -15,9 +15,16 @@ Page({
         status:null,
         time:null,
         type:null,
-        _id:null
+        _id:null,
+        src:''
 
         
+    },
+
+    handleImageTap(){
+        wx.previewImage({
+          urls: [this.data.src],
+        })
     },
 
     confirm(e){ 
@@ -60,7 +67,9 @@ Page({
                               duration:1000
                             })
                             setTimeout(()=>{
-                                this.onLoad()
+                                wx.navigateBack({
+                                  delta: 1,
+                                })
                             },1000)
                         })
                         
@@ -157,7 +166,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options);
+        if(options!=undefined){
+
+        
         if(options._id=='undefined'){
             wx.showToast({
               title: '当前没有订单',
@@ -190,7 +201,7 @@ Page({
                     let time=new Date(currentOrder.time) //提交时间
                     const type=currentOrder.type //location种类
                     const _id=currentOrder._id
-                        
+                    const src=currentOrder.src
                      //设置当前订单的状态
 
                     time=formatTime(time)
@@ -205,7 +216,8 @@ Page({
                         status:status,
                         time:time,
                         type:type,
-                        _id:_id
+                        _id:_id,
+                        src:src
                     })
                 }
             })
@@ -251,7 +263,8 @@ Page({
             })
             
         }
-    },
+    
+    }},
 
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
 
     const openid=wxContext.OPENID
-    
+    const src=event.src
     const location=event.location
     const expectedtime=event.expectedtime
     const note=event.note;
@@ -18,7 +18,7 @@ exports.main = async (event, context) => {
     await cloud.database().collection('order')
     .where({_id:_id}).update({data:{
         location:_.remove(),
-        
+        src:src,
         expectedtime:expectedtime,
         note:note,
         type:type

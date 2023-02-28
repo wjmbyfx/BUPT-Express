@@ -50,6 +50,13 @@
         <input class="weui-input"  placeholder="如手机尾号等" type="text" name="note"/>
     </view>
 
+    <view class="inputbox">
+        <text class="boxtap">图片(代取码等,可选):</text>
+        <image wx:if="{{src!=''}}" src="{{src}}" mode="widthFix" style="width: 50%;"></image>
+        <view wx:if="{{src==''}}" class="picker" bindtap="handleUpload" style="text-decoration: underline;">点击上传</view>
+        <view wx:if="{{src!=''}}" class="picker" bindtap="handleRemove" style="text-decoration: underline;">点击删除</view>
+    </view>
+
     
     <button form-type="submit" type="primary">发布</button>
 </view>

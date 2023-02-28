@@ -37,6 +37,15 @@
     <view>
         {{note}}
     </view>
+
+    <view>
+    <view class="boxtap" wx:if="{{src!=''}}">
+        图片:
+    </view>
+    <view>
+        <image src="{{src}}" mode="widthFix" show-menu-by-longpress="true" style="height: 5%;" data-src="{{src}}" bindtap="handleImageTap"></image>
+    </view>
+    </view>
     
 
 </view>

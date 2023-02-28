@@ -16,7 +16,31 @@ Page({
         displayDate:null,
         displayTime:null,
         description:null,
-        note:null
+        note:null,
+        src:''
+    },
+
+    handleRemove(){
+        this.setData({src:''})
+    },
+
+    handleUpload(){
+        wx.chooseMedia({
+          count:1,
+          mediaType:'image',
+
+        }).then(res=>{
+            console.log(res);
+            const tempFilePath=res.tempFiles[0].tempFilePath
+            const timeStamp=Date.now()
+            let that = this
+            wx.cloud.uploadFile({cloudPath:this.data.openid+' '+timeStamp,filePath:tempFilePath,
+                success(res){
+                    
+                    
+                    that.setData({src:res.fileID})
+                }})
+        })
     },
 
     handleCancle(){
@@ -58,7 +82,8 @@ Page({
                     type:newType,
                     location:newLocation,
                     expectedtime:newTimeStamp,
-                    note:newNote
+                    note:newNote,
+                    src:this.data.src
 
                 }}).then(res=>{
                     wx.showToast({
@@ -81,7 +106,8 @@ Page({
                 type:newType,
                 location:newLocation,
                 expectedtime:newTimeStamp,
-                note:newNote
+                note:newNote,
+                src:this.data.src
 
             }}).then(res=>{
                 wx.showToast({
@@ -134,6 +160,8 @@ Page({
                 this.setData({currentOrder:res.result.data[0]})
                 
                 const currentOrder=res.result.data[0]
+                const src=currentOrder.src
+                this.setData({src:src})
                 const _id=currentOrder._id
                 const type=currentOrder.type
                 let location=currentOrder.location

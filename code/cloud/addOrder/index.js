@@ -16,6 +16,7 @@ exports.main = async (event, context) => {
         const expectedtime=event.expectedtime
         const note=event.note
         const location=event.location
+        const src=event.src
            //获取所需变量
            
     let toReturn=null
@@ -27,7 +28,8 @@ exports.main = async (event, context) => {
         location:location,
         expectedtime:expectedtime,
         note:note,
-        time:time
+        time:time,
+        src:src
     }}).then(res=>{
         toReturn=res
     })

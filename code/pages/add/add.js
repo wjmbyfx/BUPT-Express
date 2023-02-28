@@ -10,7 +10,31 @@ Page({
         date:'2022-02-23',
         time:'12:00',
         inputDisabled: null,
-        location:null
+        location:null,
+        src:''
+    },
+
+    handleRemove(){
+        this.setData({src:''})
+    },
+
+    handleUpload(){
+        wx.chooseMedia({
+          count:1,
+          mediaType:'image',
+
+        }).then(res=>{
+            console.log(res);
+            const tempFilePath=res.tempFiles[0].tempFilePath
+            const timeStamp=Date.now()
+            let that = this
+            wx.cloud.uploadFile({cloudPath:this.data.openid+' '+timeStamp,filePath:tempFilePath,
+                success(res){
+                    
+                    
+                    that.setData({src:res.fileID})
+                }})
+        })
     },
 
     bindDateChange(e){
@@ -48,7 +72,8 @@ Page({
                         expectedtime:time,
                         note:note,
                         location:res.result.data[0].location,
-                        status:'pending'
+                        status:'pending',
+                        src:this.data.src
                     }}).then(res=>{
                         wx.showToast({
                           title: '发布成功',
@@ -70,8 +95,8 @@ Page({
                         type:'customize',
                         note:note,
                         location:location,
-                        status:'pending'
-
+                        status:'pending',
+                        src:this.data.src
                     }}).then(res=>{
                         wx.showToast({
                             title: '发布成功',
@@ -114,6 +139,9 @@ Page({
         // console.log(1);
         const {mustSignUp}=require('../../utils/mustSignUp.js')
         mustSignUp()
+        wx.cloud.callFunction({name:'getUser'}).then(res=>{
+            this.setData({openid:res.result.data[0].openid})
+        })
     },
 
     
