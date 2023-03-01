@@ -75,6 +75,10 @@
         <text>及</text>
         <text bindtap="handlePolicy" class="policy">隐私政策</text>
     </view>
+    <view class="br"></view>
+    <view class="line">
+        <button open-type="openSetting">权限设定</button>
+    </view>
 
 
 </view>

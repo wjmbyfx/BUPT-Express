@@ -60,6 +60,9 @@ page{
     margin-right: 5%;
     padding: 3vh;
     padding-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     
 }
 .headimg{
