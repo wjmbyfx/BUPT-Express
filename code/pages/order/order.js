@@ -14,14 +14,10 @@ Page({
             { name: '已完成',  active: false, index: 3 }
           ],
         all:[],
-          pending:[],
-          delivering:[],
-          success:[],
-        
-          displayOrder:[1,2,3]
-          
-        
-
+        pending:[],
+        delivering:[],
+        success:[],
+        displayOrder:[1,2,3]
     },
     tabClick(e) {
         const index = e.currentTarget.dataset.index;
