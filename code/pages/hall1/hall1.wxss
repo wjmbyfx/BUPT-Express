@@ -3,11 +3,27 @@ page {
     background-color: #ecf0f1;
 }
 
-.confirm {
-    color: #27ae60;
-    text-decoration: underline;
-    text-align: end;
+.info {
+    display: flex;
+    justify-content:space-around;
 }
+
+.child1 {
+    width: 30%;
+    text-align: start;
+    margin-left: 15vw;
+}
+.child {
+    width: 50%;
+    text-align: start;
+}
+.child2{
+    width: 70%;
+    text-align: start;
+    margin-left: 15vw;
+}
+
+
 .box1 {
  
     margin-left: 5%;
@@ -18,11 +34,23 @@ page {
     padding: 1vh;
     border-radius: 3vh;
     position: relative;
+    margin-top: 2vh;
     
   }
 .inbox1-3{
     padding: 1vh;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+   
+}
+.inbox1-2{
+    padding: 1vh;
+    display: flex;
+    justify-content: space-around;
+    height: 15rpx;
+    margin-top: 2vh;
+    
 }
   .box2{
     border-radius: 3vh;
@@ -61,10 +89,23 @@ page {
   }
   .ordernow{
       color: #e74c3c;
-      font-size: medium;
+      font-size: larger;
       text-align: center;
       font-weight: 600;
   }
+  .success{
+    color: #2ecc71;
+    font-size: larger;
+    text-align: center;
+    font-weight: 600;
+}
+.canceled{
+    color: #7f8c8d;
+    font-size: larger;
+    text-align: center;
+    font-weight: 600;
+}
+
 .status{
     color: #2ecc71;
     font-size: small;
@@ -73,13 +114,7 @@ page {
     top: 3%;
     right: 3%;
 }
-.inbox1-2{
-    padding: 1vh;
-    display: flex;
-    justify-content: space-around;
-    height: 15rpx;
-    margin-top: 2vh;
-}
+
 .note{
     padding: 1vh;
     display: flex;

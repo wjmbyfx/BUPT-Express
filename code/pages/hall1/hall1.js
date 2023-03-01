@@ -7,15 +7,21 @@ Page({
      * 页面的初始数据
      */
     data: {
-        delivering:[],
-        displayOrder:[1,2,3]
+        displayOrder:[],
+        displayFinished:[],
+        displayCanceled:[],
+        all:[],
+        success:[],
+        canceled:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        wx.cloud.callFunction({name:'postmanGetDutyOrder'})
+        wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
+            status:'delivering'
+        }})
         .then(res=>{
             
             res.result.data.forEach((v,i)=>{
@@ -30,18 +36,55 @@ Page({
                         v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
                     }
                     this.setData({all:res.result.data})
-                    this.setData({displayOrder:this.data.all})
-
+                    
                 })
-                
             })
-            
-        
         }
-        
-            
         )
-
+        wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
+            status:'success'
+        }})
+        .then(res=>{
+            
+            res.result.data.forEach((v,i)=>{
+                v.expectedtime=formatTime(new Date(v.expectedtime))
+                v.time=formatTime(new Date(v.time))
+                wx.cloud.callFunction({name:'postmanGetUser',data:{
+                    openid:v.openid
+                }}).then(result=>{
+                    const username=result.result.data[0].username
+                    v.username=username
+                    if(v.type=='normal'){
+                        v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+                    }
+                    this.setData({success:res.result.data})
+                    
+                })
+            })
+        }
+        )
+        wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
+            status:'delivering'
+        }})
+        .then(res=>{
+            
+            res.result.data.forEach((v,i)=>{
+                v.expectedtime=formatTime(new Date(v.expectedtime))
+                v.time=formatTime(new Date(v.time))
+                wx.cloud.callFunction({name:'postmanGetUser',data:{
+                    openid:v.openid
+                }}).then(result=>{
+                    const username=result.result.data[0].username
+                    v.username=username
+                    if(v.type=='normal'){
+                        v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+                    }
+                    this.setData({canceled:res.result.data})
+                    
+                })
+            })
+        }
+        )
     },
 
     /**
