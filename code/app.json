@@ -11,7 +11,8 @@
       "pages/edit/edit",
       "pages/suggest/suggest",
       "pages/order/order",
-      "pages/hall1/hall1"
+      "pages/hall1/hall1",
+      "pages/order1/order1"
 
   ],
   "window":{

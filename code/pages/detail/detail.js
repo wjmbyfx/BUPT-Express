@@ -16,7 +16,8 @@ Page({
         time:'',
         type:'',
         _id:'',
-        src:''
+        src:'',
+        postmanContact:''
 
         
     },
@@ -58,6 +59,7 @@ Page({
               title:'确认要收货吗?'
               
             }).then(res=>{
+                
                 if(res.confirm){
                     wx.cloud.callFunction({name:'updateOrderStatus',data:{
                          _id:_id,
@@ -215,7 +217,15 @@ Page({
                     const type=currentOrder.type //location种类
                     const _id=currentOrder._id
                     const src=currentOrder.src
+
                      //设置当前订单的状态
+
+                     const postmaneOpenId=currentOrder.postman
+                     wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
+                         console.log(res);
+                         const postmanContact=res.result.data[0].contact
+                         this.setData({postmanContact:postmanContact})
+                     })
 
                     time=formatTime(time)
                     expectedtime=formatTime(expectedtime)
@@ -257,6 +267,13 @@ Page({
                     const _id=currentOrder._id
                         
                      //设置当前订单的状态
+                     const postmaneOpenId=currentOrder.postman
+                     wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
+                         console.log(res);
+                         const postmanContact=res.result.data[0].contact
+                         this.setData({postmanContact:postmanContact})
+                     })
+
 
                     time=formatTime(time)
                     expectedtime=formatTime(expectedtime)

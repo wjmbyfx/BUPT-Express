@@ -10,6 +10,14 @@ Page({
 
     },
 
+    postmanTakeOrder(){
+        wx.cloud.callFunction({name:'postmanTakeOrder',data:{
+            _id:'fc8e646563fe0372025c491b0f809187'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     postmanGetDutyOrder(){
         wx.cloud.callFunction({name:'postmanGetDutyOrder'}).then(res=>{
             console.log(res);

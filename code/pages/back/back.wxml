@@ -18,3 +18,4 @@
 <button bindtap="postmanSignUp">postmanSignUp</button>
 <button bindtap="postmanGetOrder">postmanGetOrder</button>
 <button bindtap="postmanGetDutyOrder">postmanGetDutyOrder</button>
+<button bindtap="postmanTakeOrder">postmanTakeOrder</button>
