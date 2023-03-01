@@ -4,7 +4,7 @@ function getStatus(status){
             status='派送中'
         }
         else if(status=='pending'){
-            status='待确认'
+            status='待接单'
         }
         else if(status=='cancled'){
             status='已取消'
@@ -14,6 +14,9 @@ function getStatus(status){
         }
         else if(status=='success'){
             status='已完成'
+        }
+        else if(status=='arrived'){
+            status='待取件'
         }
     }
     return status

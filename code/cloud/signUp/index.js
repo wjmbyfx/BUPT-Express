@@ -14,12 +14,12 @@ exports.main = async (event, context) => {
         if(event.isMember==true){
             await cloud.database().collection('user')
             .where({openid:wxContext.OPENID})
-            .update({data:{location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100}})
+            .update({data:{username:event.username,location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100}})
             type='update'
         }
         if(event.isMember==false){
             await cloud.database().collection('user')
-            .add({data:{location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100}})
+            .add({data:{username:username,location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100}})
             type='signUp'
         }
         return {msg:'success',type:type}

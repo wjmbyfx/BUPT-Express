@@ -21,7 +21,8 @@ page{
     margin-left: 5%;
     margin-right: 5%;
     padding: 2vh;
-    
+    display: flex;
+    justify-content: space-around;
     
 }
 .box1 image {
@@ -82,4 +83,9 @@ page{
 .br{
     height: 0;
     border-bottom: 1px solid #7f8c8d;
+}
+
+.boxtap3{
+    text-align: center;
+    margin-left: 10%;
 }

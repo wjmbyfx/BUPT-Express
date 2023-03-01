@@ -51,6 +51,7 @@ Page({
         console.log(e);
         const description=e.detail.value.description
         const location=e.detail.value.location
+        const username=e.detail.value.username
         let note=e.detail.value.note
         note=description+" "+note
         const option=e.detail.value.option
@@ -63,54 +64,75 @@ Page({
             icon:'error',
           })}
         else{
-            if (option=='option1') {
-                wx.cloud.callFunction({name:'getUser'})
-                .then(res=>{
-                    console.log(res);
-                    wx.cloud.callFunction({name:'addOrder',data:{
-                        type:'normal',
-                        expectedtime:time,
-                        note:note,
-                        location:res.result.data[0].location,
-                        status:'pending',
-                        src:this.data.src
-                    }}).then(res=>{
-                        wx.showToast({
-                          title: '发布成功',
-                          duration:1000,
-                          icon:'success'
-                        })
-                    }).then(res=>{
-                        setTimeout(()=>{
-                            wx.reLaunch({
-                              url: '/pages/hall/hall'
-                            })
-                        },1000)
+            wx.requestSubscribeMessage({
+              tmplIds: ['tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0'
+              ],
+            }).then(res=>{
+                console.log(res);
+                if(res['tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0']
+                =='reject'){
+                    wx.showToast({
+                      title: '请允许订单消息推送',
+                      duration:1000,
+                      icon:'error'
                     })
-                })
-            }
-            else{
-                    wx.cloud.callFunction({name:'addOrder',data:{
-                        expectedtime:time,
-                        type:'customize',
-                        note:note,
-                        location:location,
-                        status:'pending',
-                        src:this.data.src
-                    }}).then(res=>{
-                        wx.showToast({
-                            title: '发布成功',
-                            duration:1000,
-                            icon:'success'
-                          }).then(res=>{
-                            setTimeout(()=>{
-                                wx.reLaunch({
-                                  url: '/pages/hall/hall'
+                }
+                else if(res['tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0']
+                    =='accept'){
+                        if (option=='option1') {
+                            wx.cloud.callFunction({name:'getUser'})
+                            .then(res=>{
+                                console.log(res);
+                                wx.cloud.callFunction({name:'addOrder',data:{
+                                    type:'normal',
+                                    expectedtime:time,
+                                    note:note,
+                                    location:res.result.data[0].location,
+                                    status:'pending',
+                                    src:this.data.src,
+                                    
+                                }}).then(res=>{
+                                    wx.showToast({
+                                      title: '发布成功',
+                                      duration:1000,
+                                      icon:'success'
+                                    })
+                                }).then(res=>{
+                                    setTimeout(()=>{
+                                        wx.reLaunch({
+                                          url: '/pages/hall/hall'
+                                        })
+                                    },1000)
                                 })
-                            },1000)
-                        })
-                    })
-    }
+                            })
+                        }
+                        else{
+                                wx.cloud.callFunction({name:'addOrder',data:{
+                                    expectedtime:time,
+                                    type:'customize',
+                                    note:note,
+                                    location:location,
+                                    status:'pending',
+                                    src:this.data.src,
+                                    
+                                }}).then(res=>{
+                                    wx.showToast({
+                                        title: '发布成功',
+                                        duration:1000,
+                                        icon:'success'
+                                      }).then(res=>{
+                                        setTimeout(()=>{
+                                            wx.reLaunch({
+                                              url: '/pages/hall/hall'
+                                            })
+                                        },1000)
+                                    })
+                                })
+                }
+                    }
+                
+            })
+            
     }
     },
                       

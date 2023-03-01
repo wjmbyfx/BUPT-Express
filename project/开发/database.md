@@ -9,7 +9,6 @@
 - status(1 for active , 0 for deactivated ) (number)
 - location(object)(area buliding floor(?))
 - credit(number)
-- 
 - phone number(number)
 - identity(string) user 普通用户 deliver 快递员 admin 管理员
 - hasSigned(boolean) 是否同意隐私政策
@@ -24,7 +23,7 @@ openid(string)
 
 _id(string)
 
-status(string) pending 未接单 delivering 派送中 finished 已完成 cancled 用户取消 warning 出错
+status(string) pending 未接单 delivering 派送中 finished 已完成 cancled 用户取消 warning 出错 arrived 待取件
 
 type:normal (使用默认地址) customize(使用自定义地址)
 

@@ -32,6 +32,10 @@
     <label><radio value="5"/>5楼</label>
     <label><radio value="6"/>6楼</label>
     </radio-group>
+
+    <text>称呼方式:(必填)</text>
+    <input type="text"name="username" style="border: 1px solid black;border-radius: 35px;"/> 
+
     <text>联系方式:(可选)</text>
     <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;"/> 
     <view class="indenttext">

@@ -9,6 +9,18 @@
          <image src="/img/avatar.png" mode="widthFix" class="headimg"/>
      </view>
      </view>
+
+     <view class="boxtap3">
+        <view>
+        
+        </view>
+        <view>
+            {{username}}
+        </view>
+        
+         
+     </view>
+
     <view class="boxtap2">
         <view>
         <text>收货地址：</text> 

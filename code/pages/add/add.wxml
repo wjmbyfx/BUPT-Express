@@ -21,6 +21,8 @@
         <input selection-start="2" class="weui-input" type="text" name="location" placeholder="请填入地址" disabled="{{inputDisabled}}" bindinput="onInput" value="{{location}}"/>
     </view>   
 
+    
+
     <view class="inputbox">
         
         <text class="boxtap">预期送达(必选):</text>

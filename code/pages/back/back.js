@@ -10,6 +10,17 @@ Page({
 
     },
 
+    sendMessage(){
+        wx.cloud.callFunction({name:'sendOrderMessage',data:{
+            openid:"oa3g046QCEe5OIh-1SwwWCRs1jiQ",
+            _id:'_idtest',
+            status:'待取件',
+            note:'note test',
+            contact:'18811580695',
+            location:'locationtest'
+        }})
+    },
+
     updateOrderStatus(){
         wx.cloud.callFunction({name:'updateOrderStatus',data:{
             _id:"2cc84e2663f956d101e2209a33154a7c",newStatus:'cancled'

@@ -106,6 +106,13 @@ Page({
      */
     
     onLoad(options) {
+        {
+
+    
+        
+        
+    } 
+
         wx.cloud.callFunction({
             name:'getOrder'
         })
@@ -117,8 +124,13 @@ Page({
             {
                 this.setData({orderList:res.result.data})
                 this.setData({currentOrder:res.result.data[0]})
+                
                 const currentStatus=res.result.data[0].status;
                 this.setData({currentStatus:currentStatus}) //设置当前订单的状态
+                
+                if(this.data.currentStatus=='pending'||this.data.currentStatus=='delivering'){
+                    this.setData({displayConfirm:true})
+                } //判断是否展示确认收货按钮
             }
 
             const currentOrder=res.result.data[0]; //获取最新订单

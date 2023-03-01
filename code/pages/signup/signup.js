@@ -16,9 +16,10 @@ Page({
         const building=e.detail.value.building
         const floor=e.detail.value.floor
         const contact=e.detail.value.contact
+        const username=e.detail.value.username
         // console.log(building);
         // console.log(floor)
-        if(building==''||floor=='') {wx.showToast({
+        if(building==''||floor==''||username=='') {wx.showToast({
           title: '请填写信息！',
           duration: 1000,
           icon:'error',
@@ -30,7 +31,13 @@ Page({
                 //   console.log(res.result);
                 
                
-                    wx.cloud.callFunction({name:'signUp',data:{building:building,floor:floor,contact:contact,isMember:res.result}})
+                    wx.cloud.callFunction({name:'signUp',data:{
+                        building:building,
+                        floor:floor,
+                        contact:contact,
+                        isMember:res.result,
+                        username:username
+                    }})
                   
 
                   if(res.result){

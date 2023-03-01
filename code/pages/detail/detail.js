@@ -50,6 +50,7 @@ Page({
               duration:1000
             })
         }
+        
         else{
             const _id=this.data._id
             console.log(_id);
@@ -101,6 +102,14 @@ Page({
         else if(this.data.status=='warning'){
             wx.showToast({
               title: '订单出错了',
+              icon:'error',
+              duration:1000
+            })
+        }
+
+        else if(this.data.status=='arrived'){
+            wx.showToast({
+              title: '订单已送达',
               icon:'error',
               duration:1000
             })

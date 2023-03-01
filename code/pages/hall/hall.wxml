@@ -19,27 +19,27 @@
         <status status="{{currentStatus}}"></status>
     </view>
     
-    <view class="inbox1-2">
+    <view wx:if="{{currentStatus}}" class="inbox1-2">
     <text style="line-height: 45rpx;">送往:</text>
     <text class="position" wx:if="{{currentTransLocation}}">{{currentTransLocation}}</text>
     </view>
 
-    <view class="note">
+    <view class="note" wx:if="{{currentStatus}}">
     <text style="line-height: 45rpx;">备注:</text>
     <text class="position" wx:if="{{currentOrder.note}}">{{currentOrder.note}}</text>
     </view>
     
-    <view class="inbox1-3">
+    <view class="inbox1-3" wx:if="{{currentStatus}}">
 
     <text>提交时间:</text>
     <text wx:if="{{currentSubmitTime}}">{{currentSubmitTime}}</text>
 
-    <view>
+    <view wx:if="{{currentStatus}}">
         <text>期望送达:</text>
         <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
     </view>
     
-    <view class="confirm" catchtap="confirm" wx:if="{{currentOrder}}">确认收货</view>
+    <view class="confirm" catchtap="confirm" wx:if="{{displayConfirm}}">确认收货</view>
     
 </view>
     
