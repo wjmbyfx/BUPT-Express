@@ -6,9 +6,19 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 // 云函数入口函数
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
-    let toReturn=cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID}).get()
-    .then(res=>{
-        return res
-    })
+    const status=event.status
+    if(status=='all'){
+        
+        let toReturn=cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID}).get()
+        .then(res=>{
+            return res
+        })
+    }
+    else{
+        let toReturn=cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID,status:status}).get()
+        .then(res=>{
+            return res
+        })
+    }
     return toReturn
 }
