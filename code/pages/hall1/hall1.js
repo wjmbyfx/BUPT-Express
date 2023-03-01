@@ -17,17 +17,25 @@ Page({
     onLoad(options) {
         wx.cloud.callFunction({name:'postmanGetDutyOrder'})
         .then(res=>{
-            console.log(res);
+            
             res.result.data.forEach((v,i)=>{
                 v.expectedtime=formatTime(new Date(v.expectedtime))
                 v.time=formatTime(new Date(v.time))
-                wx.cloud.callFunction({name:'getUser',})
-                if(v.type=='normal'){
-                    v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
-                }
+                wx.cloud.callFunction({name:'postmanGetUser',data:{
+                    openid:v.openid
+                }}).then(result=>{
+                    const username=result.result.data[0].username
+                    v.username=username
+                    if(v.type=='normal'){
+                        v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+                    }
+                    this.setData({all:res.result.data})
+                    this.setData({displayOrder:this.data.all})
+
+                })
+                
             })
-            this.setData({all:res.result.data})
-            this.setData({displayOrder:this.data.all})
+            
         
         }
         
