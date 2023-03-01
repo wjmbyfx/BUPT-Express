@@ -15,3 +15,6 @@
 <button bindtap="updateOrder">updateOrder</button>
 <button bindtap="updateOrderStatus">updateOrderStatus</button>
 <button bindtap="sendMessage">sendMessage</button>
+<button bindtap="postmanSignUp">postmanSignUp</button>
+<button bindtap="postmanGetOrder">postmanGetOrder</button>
+<button bindtap="postmanGetDutyOrder">postmanGetDutyOrder</button>

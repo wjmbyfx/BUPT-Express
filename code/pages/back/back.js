@@ -10,6 +10,28 @@ Page({
 
     },
 
+    postmanGetDutyOrder(){
+        wx.cloud.callFunction({name:'postmanGetDutyOrder'}).then(res=>{
+            console.log(res);
+        })
+    },
+
+    postmanGetOrder(){
+        wx.cloud.callFunction({name:'postmanGetOrder',data:{
+            status:'pending'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
+    postmanSignUp(){
+        wx.cloud.callFunction({name:'postmanSignUp',data:{
+            secretkey:'MIUL',username:'miul',contact:'18811580695'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     sendMessage(){
         wx.cloud.callFunction({name:'sendOrderMessage',data:{
             openid:"oa3g046QCEe5OIh-1SwwWCRs1jiQ",

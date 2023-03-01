@@ -5,11 +5,10 @@
 - openid (string)
 - _id (string)
 - username (string)
-- password (string)
 - status(1 for active , 0 for deactivated ) (number)
 - location(object)(area buliding floor(?))
 - credit(number)
-- phone number(number)
+- contact(number)
 - identity(string) user 普通用户 deliver 快递员 admin 管理员
 - hasSigned(boolean) 是否同意隐私政策
 
@@ -35,6 +34,8 @@ note(备注)
 
 time 时间戳
 
+postman 配送员
+
 
 
 ### 3.反馈表
@@ -47,3 +48,14 @@ oid 订单号
 
 
 
+### 4.派送员表
+
+openid
+
+username
+
+status
+
+credit
+
+contact
