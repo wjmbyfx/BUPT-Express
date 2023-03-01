@@ -9,13 +9,13 @@ Page({
      */
     data: {
         
-        expectedtime:null,
-        location:null,
-        note:null,
-        status:null,
-        time:null,
-        type:null,
-        _id:null,
+        expectedtime:'',
+        location:'',
+        note:'',
+        status:'',
+        time:'',
+        type:'',
+        _id:'',
         src:''
 
         
