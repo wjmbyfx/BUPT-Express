@@ -1,0 +1,73 @@
+<!--pages/hall1/hall1.wxml-->
+<view class="headcontainer">
+    
+    <!-- <text class="head">公告栏</text> -->
+    
+    
+    
+    
+<view class="box1" data-_id="{{currentOrder._id}}" bindtap="getCurrentOrder">
+        <view class="ordernow">
+             当前订单
+        </view>
+        <view wx:if="{{!currentStatus}}" class="status">当前没有订单
+        </view>
+    
+
+        <view>
+            <!-- wx:if="{{currentStatus}}" -->
+            <view  class="inbox1-2">
+            <text style="line-height: 45rpx;">送往:</text>
+            <text class="position" wx:if="{{currentTransLocation}}">{{currentTransLocation}}</text>
+            </view>
+            <!-- wx:if="{{currentStatus}}" -->
+            <view class="note" >
+            <text style="line-height: 45rpx;">备注:</text>
+            <text class="position" wx:if="{{currentOrder.note}}">{{currentOrder.note}}</text>
+            </view>
+            <!-- wx:if="{{currentStatus}}" -->
+            <view class="inbox1-3" >
+            <!-- wx:if="{{currentStatus}}" -->
+            <view >
+            <text>期望送达:</text>
+            <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
+            </view>
+            </view>
+            <view>
+            <view class="inbox1-3">
+            <text>用户昵称:</text>
+            <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
+            </view>
+            </view>
+            
+        </view>
+        
+    
+        
+        
+        
+    
+    </view>
+    </view>
+    
+    <!-- 订单列表 -->
+    
+    <view class="box2">
+    <view class="box2title">历史订单</view>
+    <view wx:if="{{!orderList.length}}" style="text-align: center;">当前没有订单可以展示</view>
+        <view class="order" bindtap="all">   
+            <text>全部订单></text>
+        </view>
+    
+        <view wx:if="{{orderList}}" wx:for="{{orderList}}" wx:key="_id">
+            <view class="inbox2" data-_id="{{item._id}}" bindtap="getSelectedOrder">
+                
+                <status status="{{item.displayStatus}}"></status>
+                <text>{{item.submitTime}}</text>
+            </view>
+            
+        </view>
+    </view>
+    <button>刷新</button>
+    <button type="primary" wx:if="{{isMember}}" bindtap="goAdd">去发布</button>
+    <button type="primary" wx:if="{{!isMember}}" bindtap="goSignUp">去注册</button>

@@ -104,6 +104,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/hall1/hall1",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
