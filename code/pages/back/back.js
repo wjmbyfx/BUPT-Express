@@ -26,7 +26,7 @@ Page({
 
     postmanSignUp(){
         wx.cloud.callFunction({name:'postmanSignUp',data:{
-            secretkey:'MIUL',username:'miul',contact:'18811580695'
+            secretkey:'MIUL',username:'e',contact:'18108846317'
         }}).then(res=>{
             console.log(res);
         })

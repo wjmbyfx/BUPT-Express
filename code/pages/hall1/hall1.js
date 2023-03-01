@@ -1,18 +1,38 @@
 // pages/hall1/hall1.js
+const {formatTime}=require('../../utils/util.js')
+const {getLocation}=require('../../utils/getLocation.js')
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        delivering:[],
+        displayOrder:[1,2,3]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        wx.cloud.callFunction({name:'getSpecificOrder'})
+        wx.cloud.callFunction({name:'postmanGetDutyOrder'})
+        .then(res=>{
+            console.log(res);
+            res.result.data.forEach((v,i)=>{
+                v.expectedtime=formatTime(new Date(v.expectedtime))
+                v.time=formatTime(new Date(v.time))
+                wx.cloud.callFunction({name:'getUser',})
+                if(v.type=='normal'){
+                    v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+                }
+            })
+            this.setData({all:res.result.data})
+            this.setData({displayOrder:this.data.all})
+        
+        }
+        
+            
+        )
 
     },
 

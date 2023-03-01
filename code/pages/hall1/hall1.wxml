@@ -8,29 +8,38 @@
     
 <view class="box1" data-_id="{{currentOrder._id}}" bindtap="getCurrentOrder">
         <view class="ordernow">
-             当前订单
+             待配送订单
         </view>
         <view wx:if="{{!currentStatus}}" class="status">当前没有订单
         </view>
     
 
-        <view>
+        <view wx:if="{{displayOrder.length==0}}">当前没有订单!</view>
+        <view wx:for="{{displayOrder}}" wx:key="_id" class="box" data-_id="{{item._id}}">
             <!-- wx:if="{{currentStatus}}" -->
             <view  class="inbox1-2">
             <text style="line-height: 45rpx;">送往:</text>
-            <text class="position" wx:if="{{currentTransLocation}}">{{currentTransLocation}}</text>
+            <text class="position" wx:if="{{item.location}}">{{item.location}}</text>
             </view>
             <!-- wx:if="{{currentStatus}}" -->
             <view class="note" >
             <text style="line-height: 45rpx;">备注:</text>
-            <text class="position" wx:if="{{currentOrder.note}}">{{currentOrder.note}}</text>
+            <text class="position" wx:if="{{item.note}}">{{item.note}}</text>
             </view>
             <!-- wx:if="{{currentStatus}}" -->
             <view class="inbox1-3" >
             <!-- wx:if="{{currentStatus}}" -->
             <view >
+            <text>提交时间:</text>
+            <text wx:if="{{item.time}}">{{item.time}}</text>
+            </view>
+            </view>
+
+            <view class="inbox1-3" >
+            <!-- wx:if="{{currentStatus}}" -->
+            <view >
             <text>期望送达:</text>
-            <text wx:if="{{currentExpectedTime}}">{{currentExpectedTime}}</text>
+            <text wx:if="{{item.expectedtime}}">{{item.expectedtime}}</text>
             </view>
             </view>
             <view>
