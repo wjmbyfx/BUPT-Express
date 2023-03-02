@@ -30,7 +30,26 @@ page{
     margin-bottom: 2%;
     padding: 3vh;
     
+    
 }
 text{
     font-weight: 700;
+}
+.header{
+    text-align: center;
+    color: #e74c3c;
+    font-size: larger;
+    font-weight: 900;
+}
+.boxtap{
+    font-weight: 700;
+}
+.location{
+    
+    font-weight: 900;
+    color: #3498db;
+}
+.expectedtime{
+    font-weight: 900;
+    color: #e74c3c;
 }

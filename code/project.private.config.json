@@ -118,6 +118,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/detail1/detail1",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

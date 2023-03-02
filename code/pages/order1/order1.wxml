@@ -1,8 +1,24 @@
 <view class="header">接单大厅</view>
 
-<view class="order" wx:for="{{orderList}}" wx:key="_id">
-    发布时间:{{item.time}}
-    期望送达:{{item.expectedtime}}
-    收货地址:{{item.location}}
-    备注:{{item.note}}
+<view class="order" wx:for="{{orderList}}" wx:key="_id" bindtap="getSelectedOrder">
+    <view class="box">
+        <view class="location">
+        <text style="color: black; font-weight: 700;">收货地址:</text>
+        {{item.location}}
+        </view>
+        <view>
+        <text class="boxtap">发布时间:</text>
+        {{item.time}}
+        </view>
+        <view class="expectedtime">
+        <text style="color: black; font-weight: 700;">期望送达:</text>
+        {{item.expectedtime}}
+        </view>
+        
+        <view>
+        <text class="boxtap">备注:</text>
+        {{item.note}}
+        </view>
+    </view>
+    
 </view>
