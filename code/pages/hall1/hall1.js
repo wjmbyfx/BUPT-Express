@@ -64,7 +64,7 @@ Page({
         }
         )
         wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
-            status:'delivering'
+            status:'canceled'
         }})
         .then(res=>{
             

@@ -1,10 +1,11 @@
-<view class="header">接单大厅</view>
+
 
 <view class="order" wx:for="{{orderList}}" wx:key="_id" bindtap="getSelectedOrder">
     <view class="box">
         <view class="location">
         <text style="color: black; font-weight: 700;">收货地址:</text>
         {{item.location}}
+        <text style="color: #2ecc71;  display: inline-block; margin-left: 15vw; text-decoration: underline;">去接单></text>
         </view>
         <view>
         <text class="boxtap">发布时间:</text>
