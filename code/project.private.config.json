@@ -125,6 +125,13 @@
                     "query": "_id=987a453763fe0269025eeb4744eab2f2",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/signup1/signup1",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

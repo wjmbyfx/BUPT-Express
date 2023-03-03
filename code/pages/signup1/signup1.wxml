@@ -1,0 +1,25 @@
+<!--pages/signup1/signup1.wxml-->
+
+<view style="text-align: center;">
+    <text class="bigtitle">请提供信息</text>
+</view>
+<form bindsubmit="handleSubmit">
+<view>
+    <text>称呼方式:(必填)</text>
+    <input type="text"name="username" style="border: 1px solid black;border-radius: 35px;"/> 
+
+    <text>联系方式:(必填)</text>
+    <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;"/>  
+
+    <text>授权码:(必填)</text>
+    <input type="text"name="secretkey" style="border: 1px solid black;border-radius: 35px;"/>  
+</view>
+    
+    <view class="indenttext">
+    点击确定按钮即表示您同意我们的
+    </view>
+    <view class="policytext">
+    <navigator style="display: inline-block;" url="../policy/policy?type=policy">隐私政策</navigator>及<navigator style="display: inline-block;" url="../policy/policy?type=user">用户协议</navigator>
+    </view>
+    <button type="primary" form-type="submit">确定</button>
+</form>

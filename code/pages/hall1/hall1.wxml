@@ -67,7 +67,7 @@
 <view class="box1" >
     <view class="success">已完成订单</view>
             
-    <view wx:if="{{success.length==0}}" style="text-align: center;">当前没有订单!</view>
+    <view wx:if="{{success.length==0}}" style="text-align: center;">当前没有已完成订单!</view>
 
     <view wx:for="{{success}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7;" bindtap="toDetail">
         <view>
@@ -125,7 +125,7 @@
 <view class="box1" >
     <view class="canceled">已取消订单</view>
             
-    <view wx:if="{{canceled.length==0}}" style="text-align: center;">当前没有订单!</view>
+    <view wx:if="{{canceled.length==0}}" style="text-align: center;">当前没有已取消的订单!</view>
 
     <view wx:for="{{canceled}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7;" bindtap="toDetail">
         <view>
