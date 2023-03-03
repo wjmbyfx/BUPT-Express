@@ -9,9 +9,87 @@ Page({
     data: {
 
     },
+    
+    arrive(){
+        if(this.data.currentOrder.status=='cancled'){
+            wx.showToast({
+              title: '订单已取消',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else if(this.data.currentOrder.status=='success'){
+            wx.showToast({
+              title: '订单已完成',
+              icon:'error',
+              duration:1000
+            })
+        }
+        
+        else if(this.data.currentOrder.status=='warning'){
+            wx.showToast({
+              title: '订单出错了',
+              icon:'error',
+              duration:1000
+            })
+        }
+        else{wx.showModal({
+          title:'确认已到达吗?',
+          content:'将发送提示消息给用户'
+          
+        }).then(res=>{
+            if(res.confirm){
+                wx.cloud.callFunction({name:'sendOrderMessage',data:{
+                    _id:this.data._id,
+                    status:'已到达',
+                    note:'您的订单已送达,请及时处理!',
+                    contact:this.data.postman.contact,
+                    location:'您填写的位置',
+                    openid:this.data.currentOrder.openid
+                }}).then(res=>{
+                    console.log(res);
+                    wx.showToast({
+                      title: '成功!',
+                      icon:'success',
+                      duration:1000
+                    })
+                    setTimeout(()=>{
+                        this.onLoad
+                    },1000)
+                })
+            }
+        })
+    }
+    },
+
+    suggest(){
+        wx.navigateTo({
+          url: '/pages/suggest/suggest?_id='+this.data._id,
+
+        })
+    },
 
     cancle(){
+        wx.showModal({
+          title:'确认要取消接单吗?',
+          content:'如果取消次数过多,可能会扣除信誉积分!'
 
+        }).then(res=>{
+            if(res.confirm){
+                wx.cloud.callFunction({name:'postmanCancleOrder',data:{
+                    _id:this.data._id
+                }}).then(res=>{
+                    wx.showToast({
+                      title: '取消成功!',
+                      icon:'success',
+                      duration:1000
+                    })
+                    setTimeout(()=>{
+                        this.onLoad({_id:this.data._id})
+                    },1000)
+                })
+            }
+        })
     },
 
     takeOrder(){
@@ -41,6 +119,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        
         if(options==undefined||options._id==undefined){
             wx.showToast({
               title: '当前无订单!',
@@ -84,6 +163,12 @@ Page({
                     .then(res=>{
                         console.log(res.result==currentOrder.postman);
                         this.setData({openid:res.result})
+                        wx.cloud.callFunction({name:'getPostman',data:{
+                            openid:this.data.openid
+                        }}).then(res=>{
+                            // console.log(res);
+                            this.setData({postman:res.result.data[0]})
+                        })
                         if(res.result==currentOrder.postman){
                             this.setData({isPostman:true})
                         }
@@ -98,7 +183,12 @@ Page({
                     .then(res=>{
                         
                         this.setData({openid:res.result})
-                        
+                        wx.cloud.callFunction({name:'getPostman',data:{
+                            openid:this.data.openid
+                        }}).then(res=>{
+                            // console.log(res);
+                            this.setData({postman:res.result.data[0]})
+                        })
                     })
                     this.setData({isPostman:false})
                 }

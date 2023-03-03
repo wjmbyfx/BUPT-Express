@@ -37,6 +37,12 @@
     <view wx:if="{{note}}">
         {{note}}
     </view>
+    <view class="boxtap" wx:if="{{isPostman}}">
+        图片:
+    </view>
+    <view wx:if="{{isPostman}}">
+        <image src="{{currentOrder.src}}" mode="widthFix" style="width: 50%;"></image> 
+    </view>
 </view>
 
 <view class="box2">
@@ -66,6 +72,17 @@
         </view>
         <view>
             <text>取消接单</text>
+        </view>
+        </view>
+    </view>
+
+    <view class="inbox" wx:if="{{isPostman}}">
+        <view class="cancle" bindtap="arrive">
+        <view>
+            <!-- <image src="/img/cancle.png" mode="widthFix"/> -->
+        </view>
+        <view>
+            <text>确认到达</text>
         </view>
         </view>
     </view>
