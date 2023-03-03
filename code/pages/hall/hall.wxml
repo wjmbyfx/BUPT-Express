@@ -10,7 +10,7 @@
 
 <view class="box1" data-_id="{{currentOrder._id}}" bindtap="getCurrentOrder">
     <view class="ordernow">
-         当前订单
+         最新订单
     </view>
     <view wx:if="{{!currentStatus}}" class="status">当前没有订单
     </view>

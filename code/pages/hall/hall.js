@@ -2,6 +2,8 @@
 const {formatTime}=require('../../utils/util.js')
 const {getStatus}=require('../../utils/status.js')
 const {getLocation}=require('../../utils/getLocation.js')
+//依赖包
+
 Page({
 
     /**
@@ -12,7 +14,6 @@ Page({
         currentOrder:null, //最新订单的对象
         orderList:null,  //所有订单的对象
         currentStatus:null, //最新订单的状态
-        currentLocation:null, //最新订单的地址
         currentSubmitTime:null, //最新订单提交时间
         currentExpectedTime:null, //最新订单预期时间
         isPostman:false
