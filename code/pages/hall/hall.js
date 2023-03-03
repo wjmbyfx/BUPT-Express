@@ -17,7 +17,11 @@ Page({
         currentExpectedTime:null, //最新订单预期时间
         isPostman:false
     },
-
+    becomeDeliver(){
+        wx.navigateTo({
+          url: '/pages/signup1/signup1',
+        })
+    },
     goDeliver(){
         wx.navigateTo({
           url: '/pages/hall1/hall1',
@@ -220,7 +224,7 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-
+        this.onLoad()
     },
 
     /**
@@ -235,6 +239,8 @@ Page({
      */
     onPullDownRefresh() {
         console.log(1);
+        this.onLoad()
+        wx.stopPullDownRefresh()
         
     },
 
@@ -242,7 +248,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-
+        this.onLoad()
     },
 
     /**

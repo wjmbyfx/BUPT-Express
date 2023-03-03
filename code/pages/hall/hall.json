@@ -2,7 +2,8 @@
     "usingComponents": {
         "status":"../../components/status/status"
     },
-    "navigationBarTitleText": "大厅"
+    "navigationBarTitleText": "大厅",
+    "enablePullDownRefresh": true
     
 
 }

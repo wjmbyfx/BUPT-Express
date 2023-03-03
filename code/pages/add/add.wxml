@@ -44,7 +44,7 @@
 
     <view class="inputbox">
         <text class="boxtap">描述(必填):</text>
-        <input class="weui-input"  placeholder="如体积、重量等" type="text" name="description"/>
+        <input class="weui-input"  placeholder="如体积、重量、快递公司、手机尾号等" type="text" name="description"/>
     </view>
 
     <view class="inputbox">

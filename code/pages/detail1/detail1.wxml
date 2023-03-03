@@ -43,6 +43,13 @@
     <view wx:if="{{isPostman&&currentOrder.src!=''}}">
         <image src="{{currentOrder.src}}" mode="widthFix" style="width: 50%;"></image> 
     </view>
+
+    <view class="boxtap">
+        用户联系方式:
+    </view>
+    <view wx:if="{{isPostman&&contact}}">
+        {{contact}}
+    </view>
 </view>
 
 <view class="box2">

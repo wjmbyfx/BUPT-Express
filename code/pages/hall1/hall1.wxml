@@ -1,5 +1,7 @@
 <!--pages/hall1/hall1.wxml-->
-
+<view bindtap="goEdit" style="text-align: right; color: #3498db; text-decoration: underline; margin-top: 1vh;">
+    编辑配送员信息>
+</view>
     
     <!-- <text class="head">公告栏</text> -->
     <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有待配送的订单!</view>
@@ -69,7 +71,7 @@
             
     <view wx:if="{{success.length==0}}" style="text-align: center;">当前没有已完成订单!</view>
 
-    <view wx:for="{{success}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7;" bindtap="toDetail">
+    <view wx:for="{{success}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7; padding-bottom: 1vh;" bindtap="toDetail">
         <view>
             <view  class="info">
                 <view class="child1">
@@ -117,19 +119,21 @@
     </view>
 </view>
 
-<button bindtap="goTakeOrder" type="primary" >去接单</button>
 
 
 
 
 
+
+<view class="child3">
+    
 
 <view class="box1" >
     <view class="canceled">已取消订单</view>
             
     <view wx:if="{{canceled.length==0}}" style="text-align: center;">当前没有已取消的订单!</view>
 
-    <view wx:for="{{canceled}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7;" bindtap="toDetail">
+    <view wx:for="{{canceled}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7; padding-bottom: 1vh;" bindtap="toDetail">
         <view>
             <view  class="info">
                 <view class="child1">
@@ -176,3 +180,6 @@
         </view>
     </view>
 </view>
+</view>
+
+<button bindtap="goTakeOrder" type="primary" >去接单</button>

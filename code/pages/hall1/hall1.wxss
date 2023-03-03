@@ -29,12 +29,13 @@ page {
     margin-left: 5%;
     margin-right: 5%;
     /* margin-top: rpx; */
-    margin-bottom: 2%;
+    margin-bottom: 5%;
     background-color:white ;
     padding: 1vh;
     border-radius: 3vh;
     position: relative;
     margin-top: 2vh;
+    
     
   }
 .inbox1-3{
@@ -133,4 +134,7 @@ page {
     border-color:#bdc3c7 ;
     display: flex;
     justify-content: space-around;
+}
+.child3{
+    height: 30vh;
 }

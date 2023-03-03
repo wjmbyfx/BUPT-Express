@@ -45,13 +45,13 @@ page {
   .user{
       position: fixed;
       bottom: 3%;
-      right: 5%;
+      right: 3%;
   }
 
   .deliver {
     position: fixed;
     bottom: 3%;
-    left: 5%;
+    left: 3%;
   }
   .order{
       /* background-color: blanchedalmond; */

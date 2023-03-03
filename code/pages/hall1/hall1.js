@@ -29,6 +29,11 @@ Page({
 
         })
     },
+    goEdit(){
+        wx.navigateTo({
+          url: '/pages/signup1/signup1',
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -79,7 +84,7 @@ Page({
         }
         )
         wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
-            status:'canceled'
+            status:'cancled'
         }})
         .then(res=>{
             
@@ -120,7 +125,7 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-
+        this.onLoad()
     },
 
     /**
@@ -134,7 +139,8 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
-
+        this.onLoad()
+        wx.stopPullDownRefresh()
     },
 
     /**

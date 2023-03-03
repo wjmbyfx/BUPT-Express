@@ -192,6 +192,11 @@ Page({
                 const expectedtime=formatTime(new Date(currentOrder.expectedtime))
                 this.setData({expectedtime:expectedtime})
 
+                wx.cloud.callFunction({name:'postmanGetUser',data:{openid:this.data.currentOrder.openid}}).then(res=>{
+                    console.log(res);
+                    this.setData({contact:res.result.data[0].contact})
+                })
+
                 if(currentOrder.type=='normal'){
                     const location=getLocation(currentOrder.location.building)+'楼 '+currentOrder.location.floor+'层'
                     this.setData({location:location})
@@ -240,6 +245,7 @@ Page({
                 }
             })
         }
+        
     },
 
     /**
@@ -253,14 +259,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        // this.onLoad({_id:this.data._id})
+        this.onLoad({_id:this.data._id})
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-
+        this.onLoad({_id:this.data._id})
     },
 
     /**
