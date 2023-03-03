@@ -50,7 +50,7 @@ Page({
                     status:'已到达',
                     note:'您的订单已送达,请及时处理!',
                     contact:this.data.postman.contact,
-                    location:'您填写的位置',
+                    location:this.data.location,
                     openid:this.data.currentOrder.openid
                 }}).then(res=>{
                     console.log(res);
@@ -185,7 +185,7 @@ Page({
             .then(res=>{
                 const currentOrder=res.result.data[0]
                 this.setData({currentOrder:currentOrder})
-
+                this.setData({status:currentOrder.status})
                 const time=formatTime(new Date(currentOrder.time))
                 this.setData({time:time})
 
