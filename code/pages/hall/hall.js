@@ -14,7 +14,14 @@ Page({
         currentStatus:null, //最新订单的状态
         currentLocation:null, //最新订单的地址
         currentSubmitTime:null, //最新订单提交时间
-        currentExpectedTime:null //最新订单预期时间
+        currentExpectedTime:null, //最新订单预期时间
+        isPostman:false
+    },
+
+    goDeliver(){
+        wx.navigateTo({
+          url: '/pages/hall1/hall1',
+        })
     },
 
     confirm(e){ 
@@ -106,12 +113,13 @@ Page({
      */
     
     onLoad(options) {
-        {
-
-    
-        
-        
-    } 
+        wx.cloud.callFunction({name:'isPostman'}).then(res=>{
+            console.log('ispostman',res);
+            if(res.result.data.length==1){
+                this.setData({isPostman:true})
+            }
+            
+        })
 
         wx.cloud.callFunction({
             name:'getOrder'
