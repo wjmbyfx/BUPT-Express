@@ -122,7 +122,7 @@
                 {
                     "name": "",
                     "pathName": "pages/detail1/detail1",
-                    "query": "",
+                    "query": "_id=987a453763fe0269025eeb4744eab2f2",
                     "launchMode": "default",
                     "scene": null
                 }

@@ -7,15 +7,16 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
     const status=event.status
+    let toReturn=''
     if(status=='all'){
         
-        let toReturn=cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID}).get()
+        toReturn=await cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID}).get()
         .then(res=>{
             return res
         })
     }
     else{
-        let toReturn=cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID,status:status}).get()
+        toReturn=await cloud.database().collection('order').orderBy('time','asc').where({postman:wxContext.OPENID,status:status}).get()
         .then(res=>{
             return res
         })

@@ -15,6 +15,15 @@ Page({
         canceled:[]
     },
 
+
+    toDetail(e){
+        console.log(e);
+        wx.navigateTo({
+          url: '/pages/detail1/detail1?_id='+e.currentTarget.dataset._id,
+
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

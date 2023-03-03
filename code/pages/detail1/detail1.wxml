@@ -37,4 +37,69 @@
     <view wx:if="{{note}}">
         {{note}}
     </view>
+    <view class="boxtap" wx:if="{{isPostman}}">
+        图片:
+    </view>
+    <view wx:if="{{isPostman&&currentOrder.src!=''}}">
+        <image src="{{currentOrder.src}}" mode="widthFix" style="width: 50%;"></image> 
+    </view>
+</view>
+
+<view class="box2">
+    <view class="head2">
+        订单操作
+    </view>
+
+
+
+    <view class="inbox2">
+
+        <view class="inbox" wx:if="{{!isPostman}}">
+            <view class="confirm" bindtap="takeOrder">
+            <view>
+            <!-- <image src="/img/confirm.png" mode="widthFix"/> -->
+            </view>
+            <view>
+            <text>接单</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="inbox" wx:if="{{isPostman}}">
+        <view class="cancle" bindtap="cancle">
+        <view>
+            <!-- <image src="/img/cancle.png" mode="widthFix"/> -->
+        </view>
+        <view>
+            <text>取消接单</text>
+        </view>
+        </view>
+    </view>
+
+    <view class="inbox" wx:if="{{isPostman}}">
+        <view class="cancle" bindtap="arrive">
+        <view>
+            <!-- <image src="/img/cancle.png" mode="widthFix"/> -->
+        </view>
+        <view>
+            <text>确认到达</text>
+        </view>
+        </view>
+    </view>
+
+    <view class="inbox">
+    <view class="suggest" bindtap="suggest">
+        <view>
+            <!-- <image src="/img/feedback.png" mode="widthFix"/> -->
+        </view>
+        
+        <view>
+            <text>提交反馈</text>
+        </view>
+        
+        
+    </view>
+    </view>
+    </view>
+
 </view>
