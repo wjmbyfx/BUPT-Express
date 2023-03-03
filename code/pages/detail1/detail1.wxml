@@ -48,46 +48,32 @@
 
     <view class="inbox2">
 
-        <view class="inbox">
-        <view class="confirm" bindtap="confirm">
-        <view>
-            <image src="/img/confirm.png" mode="widthFix"/>
-        </view>
-        <view>
-            <text>确认收货</text>
-        </view>
+        <view class="inbox" wx:if="{{!isPostman}}">
+            <view class="confirm" bindtap="takeOrder">
+            <view>
+            <!-- <image src="/img/confirm.png" mode="widthFix"/> -->
+            </view>
+            <view>
+            <text>接单</text>
+            </view>
         </view>
     </view>
 
-    <view class="inbox">
+    <view class="inbox" wx:if="{{isPostman}}">
         <view class="cancle" bindtap="cancle">
         <view>
-            <image src="/img/cancle.png" mode="widthFix"/>
+            <!-- <image src="/img/cancle.png" mode="widthFix"/> -->
         </view>
         <view>
-            <text>取消订单</text>
+            <text>取消接单</text>
         </view>
         </view>
     </view>
-
-
-    <view class="inbox">
-        <view class="edit" bindtap="edit" data-_id="{{_id}}">
-        <view>
-            <image src="/img/edit.png" mode="widthFix"/>
-        </view>
-        <view>
-            <text>修改订单</text>
-        </view>
-        </view>
-    </view>
-
-
 
     <view class="inbox">
     <view class="suggest" bindtap="suggest">
         <view>
-            <image src="/img/feedback.png" mode="widthFix"/>
+            <!-- <image src="/img/feedback.png" mode="widthFix"/> -->
         </view>
         
         <view>

@@ -2,8 +2,8 @@
 
     
     <!-- <text class="head">公告栏</text> -->
-
-<view class="box1" wx:for="{{all}}" wx:key="_id"  data-_id="{{item._id}}">
+    <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有待配送的订单!</view>
+<view class="box1" wx:for="{{all}}" wx:key="_id"  data-_id="{{item._id}}" bindtap="toDetail">
     <view class="ordernow">待配送订单</view>
             
     <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有订单!</view>
@@ -69,7 +69,7 @@
             
     <view wx:if="{{success.length==0}}" style="text-align: center;">当前没有订单!</view>
 
-    <view wx:for="{{success}}" wx:key="_id"  data-_id="{{item._id}}">
+    <view wx:for="{{success}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7;" bindtap="toDetail">
         <view>
             <view  class="info">
                 <view class="child1">
@@ -127,7 +127,7 @@
             
     <view wx:if="{{canceled.length==0}}" style="text-align: center;">当前没有订单!</view>
 
-    <view wx:for="{{canceled}}" wx:key="_id"  data-_id="{{item._id}}">
+    <view wx:for="{{canceled}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7;" bindtap="toDetail">
         <view>
             <view  class="info">
                 <view class="child1">

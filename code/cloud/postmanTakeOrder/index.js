@@ -9,7 +9,7 @@ exports.main = async (event, context) => {
     const openid=wxContext.OPENID
     const _id=event._id
     cloud.database().collection('order').where({_id:_id}).update({data:{
-        postman:_id
+        postman:openid
     }})
     return {
         event,

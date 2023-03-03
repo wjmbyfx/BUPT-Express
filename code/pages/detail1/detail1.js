@@ -10,6 +10,33 @@ Page({
 
     },
 
+    cancle(){
+
+    },
+
+    takeOrder(){
+        wx.showModal({
+          title:'确认接单吗?',
+          content:'接取后随意取消接单可能扣除信誉积分'
+        }).then(res=>{
+            if(res.confirm){
+                wx.cloud.callFunction({name:'postmanTakeOrder',data:{_id:this.data._id}}).then(res=>{
+                    wx.cloud.callFunction({name:'updateOrderStatus',data:{
+                        _id:this.data._id,newStatus:'delivering'
+                    }})
+                    wx.showToast({
+                      title: '接单成功',
+                      duration:1000
+                    })
+                    setTimeout(()=>{
+                        this.onLoad({_id:this.data._id})
+                        
+                    },1000)
+                })
+            }
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -55,7 +82,8 @@ Page({
                 if(currentOrder.postman&&currentOrder.postman!=''){
                     wx.cloud.callFunction({name:'getOpenID'})
                     .then(res=>{
-                        console.log(res);
+                        console.log(res.result==currentOrder.postman);
+                        this.setData({openid:res.result})
                         if(res.result==currentOrder.postman){
                             this.setData({isPostman:true})
                         }
@@ -66,6 +94,12 @@ Page({
                     
                 }
                 else{
+                    wx.cloud.callFunction({name:'getOpenID'})
+                    .then(res=>{
+                        
+                        this.setData({openid:res.result})
+                        
+                    })
                     this.setData({isPostman:false})
                 }
             })
@@ -83,7 +117,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        // this.onLoad({_id:this.data._id})
     },
 
     /**
