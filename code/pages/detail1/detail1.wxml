@@ -38,3 +38,65 @@
         {{note}}
     </view>
 </view>
+
+<view class="box2">
+    <view class="head2">
+        订单操作
+    </view>
+
+
+
+    <view class="inbox2">
+
+        <view class="inbox">
+        <view class="confirm" bindtap="confirm">
+        <view>
+            <image src="/img/confirm.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>确认收货</text>
+        </view>
+        </view>
+    </view>
+
+    <view class="inbox">
+        <view class="cancle" bindtap="cancle">
+        <view>
+            <image src="/img/cancle.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>取消订单</text>
+        </view>
+        </view>
+    </view>
+
+
+    <view class="inbox">
+        <view class="edit" bindtap="edit" data-_id="{{_id}}">
+        <view>
+            <image src="/img/edit.png" mode="widthFix"/>
+        </view>
+        <view>
+            <text>修改订单</text>
+        </view>
+        </view>
+    </view>
+
+
+
+    <view class="inbox">
+    <view class="suggest" bindtap="suggest">
+        <view>
+            <image src="/img/feedback.png" mode="widthFix"/>
+        </view>
+        
+        <view>
+            <text>提交反馈</text>
+        </view>
+        
+        
+    </view>
+    </view>
+    </view>
+
+</view>
