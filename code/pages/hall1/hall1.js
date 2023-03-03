@@ -15,6 +15,12 @@ Page({
         canceled:[]
     },
 
+    goTakeOrder(){
+        wx.navigateTo({
+          url: '/pages/order1/order1',
+        })
+    },
+
 
     toDetail(e){
         console.log(e);
@@ -107,7 +113,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.onLoad()
     },
 
     /**

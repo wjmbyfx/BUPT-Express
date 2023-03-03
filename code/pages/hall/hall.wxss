@@ -42,13 +42,16 @@ page {
     margin-bottom:1vh ;
   }
 
-  button{
+  .user{
       position: fixed;
       bottom: 3%;
       right: 5%;
-      
+  }
 
-      
+  .deliver {
+    position: fixed;
+    bottom: 3%;
+    left: 5%;
   }
   .order{
       /* background-color: blanchedalmond; */
