@@ -5,14 +5,20 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        expectedtime:'',
+        location:'',
+        note:'',
+        status:'',
+        time:'',
+        type:'',
+        _id:'',
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        
     },
 
     /**
