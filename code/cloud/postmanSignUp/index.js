@@ -10,16 +10,27 @@ exports.main = async (event, context) => {
     const username=event.username
     const contact=event.contact
     const key=event.secretkey
+    const type=event.type
     let toReturn=''
     if(key==secretKey){
         toReturn='success'
-        cloud.database().collection('postman').add({data:{
-            openid:openid,
-            username:username,
-            status:1,
-            credit:100,
-            contact:contact
-        }})
+        if(type=='add'){
+            cloud.database().collection('postman').add({data:{
+                openid:openid,
+                username:username,
+                status:1,
+                credit:100,
+                contact:contact
+            }})
+        }
+        if(type=='updated'){
+            cloud.database().collection('postman').update({data:{
+                openid:openid,
+                username:username,
+                contact:contact
+            }})
+        }
+        
     }
     else{
         toReturn='fail'
