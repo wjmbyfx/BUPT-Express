@@ -9,6 +9,13 @@ Page({
     data: {
         
     },
+    getSelectedOrder(e){
+        // console.log(e.currentTarget.dataset._id);
+        const selectedOrder=e.currentTarget.dataset._id
+        wx.navigateTo({
+          url: '/pages/detail1/detail1?_id='+selectedOrder
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载

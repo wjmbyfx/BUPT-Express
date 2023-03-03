@@ -1,82 +1,176 @@
 <!--pages/hall1/hall1.wxml-->
-<view class="headcontainer" wx:for="{{displayOrder}}" wx:key="_id"  data-_id="{{item._id}}">
+
     
     <!-- <text class="head">公告栏</text> -->
 
-<view class="box1" data-_id="{{currentOrder._id}}" bindtap="getCurrentOrder">
-        <view class="ordernow">
-             待配送订单
-        </view>
-        <view wx:if="{{!currentStatus}}" class="status">当前没有订单
-        </view>
-    
-
-        <view wx:if="{{displayOrder.length==0}}">当前没有订单!</view>
-        <view >
-        <view class="box">
+<view class="box1" wx:for="{{all}}" wx:key="_id"  data-_id="{{item._id}}">
+    <view class="ordernow">待配送订单</view>
             
-        
-            <!-- wx:if="{{currentStatus}}" -->
-            <view  class="inbox1-2">
-            <text style="line-height: 45rpx;">送往:</text>
-            <text class="position" wx:if="{{item.location}}">{{item.location}}</text>
-            </view>
-            <!-- wx:if="{{currentStatus}}" -->
-            <view class="note" >
-            <text style="line-height: 45rpx;">备注:</text>
-            <text class="position" wx:if="{{item.note}}">{{item.note}}</text>
-            </view>
-            <view class="inbox1-3">
-            <text>用户昵称:</text>
-            <text wx:if="{{item.username}}">{{item.username}}</text>
-            </view>
-            <!-- wx:if="{{currentStatus}}" -->
-            <view class="inbox1-3" >
-            <!-- wx:if="{{currentStatus}}" -->
-            <view >
-            <text>提交时间:</text>
-            <text wx:if="{{item.time}}">{{item.time}}</text>
-            </view>
+    <view wx:if="{{all.length==0}}">当前没有订单!</view>
+
+    <view>
+        <view>
+            <view  class="info">
+                <view class="child1">
+                    <text >送往:</text>
+                </view>
+                <view class="child">
+                    <text class="position" wx:if="{{item.location}}">{{item.location}}</text>
+                </view>
             </view>
 
-            <view class="inbox1-3" >
-            <!-- wx:if="{{currentStatus}}" -->
-            <view >
+            <view class="info" >
+                <view class="child1">
+                    <text >备注:</text>
+                </view>
+                <view class="child">
+                    
+                    <text class="position" wx:if="{{item.note}}">{{item.note}}</text>
+                </view>
+            </view>
+
+            <view class="info">
+
+                <view class="child1">
+                    <text >用户昵称:</text>
+                    
+                </view>
+                <view class="child">
+                    <view wx:if="{{item.username}}">{{item.username}}</view>
+                </view>
+            
+            </view>
+             <view class="child2">
+                <text >提交时间:</text>
+            <text wx:if="{{item.time}}">{{item.time}}</text>
+             </view>
+            
+        </view>
+    </view>
+
+    <view>
+        <view class="child2">
             <text>期望送达:</text>
             <text wx:if="{{item.expectedtime}}">{{item.expectedtime}}</text>
-            </view>
-            </view>
-            
-            
-        </view>
-        </view>
-        
-    
-        
-        
-        
-    
-    </view>
-    </view>
-    
-    <!-- 订单列表 -->
-    
-    <view class="box2">
-    <view class="box2title">历史订单</view>
-    <view wx:if="{{!orderList.length}}" style="text-align: center;">当前没有订单可以展示</view>
-        <view class="order" bindtap="all">   
-            <text>全部订单></text>
-        </view>
-    
-        <view wx:if="{{orderList}}" wx:for="{{orderList}}" wx:key="_id">
-            <view class="inbox2" data-_id="{{item._id}}" bindtap="getSelectedOrder">
-                
-                <status status="{{item.displayStatus}}"></status>
-                <text>{{item.submitTime}}</text>
-            </view>
-            
         </view>
     </view>
-    <button>刷新</button>
-    <button type="primary" wx:if="{{isMember}}" bindtap="goAdd">去发布</button>
-    <button type="primary" wx:if="{{!isMember}}" bindtap="goSignUp">去注册</button>
+</view>
+            
+
+
+
+
+
+
+
+
+<view class="box1" wx:for="{{success}}" wx:key="_id"  data-_id="{{item._id}}">
+    <view class="success">已完成订单</view>
+            
+    <view wx:if="{{success.length==0}}">当前没有订单!</view>
+
+    <view>
+        <view>
+            <view  class="info">
+                <view class="child1">
+                    <text >送往:</text>
+                </view>
+                <view class="child">
+                    <text class="position" wx:if="{{item.location}}">{{item.location}}</text>
+                </view>
+            </view>
+
+            <view class="info" >
+                <view class="child1">
+                    <text >备注:</text>
+                </view>
+                <view class="child">
+                    
+                    <text class="position" wx:if="{{item.note}}">{{item.note}}</text>
+                </view>
+            </view>
+
+            <view class="info">
+
+                <view class="child1">
+                    <text >用户昵称:</text>
+                    
+                </view>
+                <view class="child">
+                    <view wx:if="{{item.username}}">{{item.username}}</view>
+                </view>
+            
+            </view>
+             <view class="child2">
+                <text >提交时间:</text>
+            <text wx:if="{{item.time}}">{{item.time}}</text>
+             </view>
+            
+        </view>
+    </view>
+
+    <view>
+        <view class="child2">
+            <text>期望送达:</text>
+            <text wx:if="{{item.expectedtime}}">{{item.expectedtime}}</text>
+        </view>
+    </view>
+</view>
+
+
+
+
+
+
+<view class="box1" wx:for="{{canceled}}" wx:key="_id"  data-_id="{{item._id}}">
+    <view class="canceled">已取消订单</view>
+            
+    <view wx:if="{{canceled.length==0}}">当前没有订单!</view>
+
+    <view>
+        <view>
+            <view  class="info">
+                <view class="child1">
+                    <text >送往:</text>
+                </view>
+                <view class="child">
+                    <text class="position" wx:if="{{item.location}}">{{item.location}}</text>
+                </view>
+            </view>
+
+            <view class="info" >
+                <view class="child1">
+                    <text >备注:</text>
+                </view>
+                <view class="child">
+                    
+                    <text class="position" wx:if="{{item.note}}">{{item.note}}</text>
+                </view>
+            </view>
+
+            <view class="info">
+
+                <view class="child1">
+                    <text >用户昵称:</text>
+                    
+                </view>
+                <view class="child">
+                    <view wx:if="{{item.username}}">{{item.username}}</view>
+                </view>
+            
+            </view>
+             <view class="child2">
+                <text >提交时间:</text>
+            <text wx:if="{{item.time}}">{{item.time}}</text>
+             </view>
+            
+        </view>
+    </view>
+
+    <view>
+        <view class="child2">
+            <text>期望送达:</text>
+            <text wx:if="{{item.expectedtime}}">{{item.expectedtime}}</text>
+        </view>
+    </view>
+</view>
