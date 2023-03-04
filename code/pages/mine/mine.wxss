@@ -25,6 +25,13 @@ page{
     justify-content: space-around;
     
 }
+.boxtap3{
+    text-align: left;
+    
+    line-height: 10vh;
+    margin-right: 10vh;
+}
+
 .box1 image {
     position: absolute;
     left:5vh;
@@ -88,7 +95,3 @@ page{
     border-bottom: 1px solid #7f8c8d;
 }
 
-.boxtap3{
-    text-align: center;
-    margin-left: 10%;
-}

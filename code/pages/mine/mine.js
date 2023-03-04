@@ -91,6 +91,7 @@ Page({
             const floor=res.result.data[0].location.floor
             let location=getLocation(building)+'楼 '+ floor+'层'
             this.setData({location:location})
+            this.setData({username:res.result.data[0].username})
         })
     },
 
