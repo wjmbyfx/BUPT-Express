@@ -6,16 +6,14 @@
      <view class="boxtap">
      <view>
          
-         <image src="/img/avatar.png" mode="widthFix" class="headimg"/>
+         
      </view>
      </view>
 
      <view class="boxtap3">
-        <view>
         
-        </view>
         <view>
-            {{username}}
+            <text>你好,</text>{{username}}!
         </view>
         
          
