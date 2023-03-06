@@ -10,6 +10,20 @@ Page({
 
     },
 
+    adminUpdateSecretkey(){
+        wx.cloud.callFunction({name:'adminUpdateSecretkey',data:{
+            newkey:'MIULL'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
+    isAdmin(){
+        wx.cloud.callFunction({name:'isAdmin'}).then(res=>{
+            console.log(res);
+        })
+    },
+
     adminGetOrder(){
         wx.cloud.callFunction({name:'adminGetOrder',data:{
             status:'pending'

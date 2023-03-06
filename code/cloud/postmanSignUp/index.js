@@ -1,10 +1,12 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const secretKey='MIUL' //注册密钥
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+    let secretKey=await cloud.database().collection('token').get().then(res=>{
+        return res.data[0].token;
+    })
     const wxContext = cloud.getWXContext()
     const openid=wxContext.OPENID
     const username=event.username
