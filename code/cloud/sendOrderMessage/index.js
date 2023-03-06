@@ -27,7 +27,7 @@ exports.main = async (event, context) => {
             }
         },
         templateId:'tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0',
-        miniprogram_state:'developer' //记得改状态
+        miniprogram_state:'formal' //记得改状态
     })
     return {
         event,

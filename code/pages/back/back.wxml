@@ -20,3 +20,5 @@
 <button bindtap="postmanGetDutyOrder">postmanGetDutyOrder</button>
 <button bindtap="postmanTakeOrder">postmanTakeOrder</button>
 <button bindtap="adminGetOrder">adminGetOrder</button>
+<button bindtap="isAdmin">isAdmin</button>
+<button bindtap="adminUpdateSecretkey">adminUpdateSecretkey</button>
