@@ -9,6 +9,20 @@ Page({
     },
     handleSubmit(e){
         console.log(e);
+        const newsecret=e.detail.value.newsecret
+        if (newsecret=='') {
+            wx.showToast({
+              title: '请输入新授权码!',
+              duration: 1000,
+              icon:'error' ,
+            })
+            
+        }else{
+            wx.cloud.callFunction({name:'adminUpdateSecretkey',data:{
+                newkey:newsecret
+            }})
+        }
+        
     },
     /**
      * 生命周期函数--监听页面加载
@@ -28,7 +42,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.onLoad()
     },
 
     /**
