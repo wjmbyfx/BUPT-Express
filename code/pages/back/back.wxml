@@ -19,3 +19,4 @@
 <button bindtap="postmanGetOrder">postmanGetOrder</button>
 <button bindtap="postmanGetDutyOrder">postmanGetDutyOrder</button>
 <button bindtap="postmanTakeOrder">postmanTakeOrder</button>
+<button bindtap="adminGetOrder">adminGetOrder</button>

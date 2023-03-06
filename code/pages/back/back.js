@@ -10,6 +10,14 @@ Page({
 
     },
 
+    adminGetOrder(){
+        wx.cloud.callFunction({name:'adminGetOrder',data:{
+            status:'pending'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     postmanTakeOrder(){
         wx.cloud.callFunction({name:'postmanTakeOrder',data:{
             _id:'fc8e646563fe0372025c491b0f809187'
