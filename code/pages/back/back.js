@@ -10,6 +10,12 @@ Page({
 
     },
 
+    adminGetSecretKey(){
+        wx.cloud.callFunction({name:'adminGetSecretKey'}).then(res=>{
+            console.log(res);
+        })
+    },
+
     adminUpdateSecretkey(){
         wx.cloud.callFunction({name:'adminUpdateSecretkey',data:{
             newkey:'MIULL'
