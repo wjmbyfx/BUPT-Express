@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        secret:null
+        secret:''
     },
     handleSubmit(e){
         console.log(e);
@@ -20,7 +20,16 @@ Page({
         }else{
             wx.cloud.callFunction({name:'adminUpdateSecretkey',data:{
                 newkey:newsecret
-            }})
+            }}).then(res=>{
+                wx.showToast({
+                  title: '更新成功!',
+                  duration: 1000,
+                  icon :'success'
+                })
+                setTimeout(()=>{
+                    this.onLoad()
+                },1000)
+            })
         }
         
     },
@@ -28,7 +37,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        wx.cloud.callFunction({
+            name:'adminGetSecretKey'
+        }).then(res=>{
+            this.setData({
+            secret:res.result.data[0].token
+            })
+        })
     },
 
     /**
