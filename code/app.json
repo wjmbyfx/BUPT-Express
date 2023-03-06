@@ -15,7 +15,10 @@
       "pages/hall1/hall1",
       "pages/order1/order1",
       "pages/detail1/detail1",
-      "pages/signup1/signup1"
+      "pages/signup1/signup1",
+      "pages/adminhall/adminhall",
+      "pages/adminorder/adminorder",
+      "pages/secret/secret"
 
   ],
   "window":{

@@ -132,6 +132,27 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/adminhall/adminhall",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/adminorder/adminorder",
+                    "query": "status=all",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/secret/secret",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
