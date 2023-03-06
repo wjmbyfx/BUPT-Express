@@ -1,0 +1,3 @@
+<!--pages/adminhall/adminhall.wxml-->
+<button bindtap="turntoAll">全部订单</button>
+<button bindtap="turntoSecret">修改密钥</button>

@@ -1,4 +1,4 @@
-// pages/order/order.js
+// pages/adminorder/adminorder.js
 const {formatTime}=require('../../utils/util.js')
 const {getLocation}=require('../../utils/getLocation.js')
 Page({
@@ -45,21 +45,21 @@ Page({
             this.setData({displayOrder:this.data.success})
         }
       },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    getSelectedOrder(e){
+      getSelectedOrder(e){
         // console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
         wx.navigateTo({
           url: '/pages/detail/detail?_id='+selectedOrder
         })
     },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
     onLoad(options) {
-        
-            
-    wx.cloud.callFunction({name:'getOrder'
+        wx.cloud.callFunction({name:'adminGetOrder',data:{
+            status:'all'
+        }
     }
     ).then(res=>{
         
@@ -82,7 +82,7 @@ Page({
         // this.setData({displayOrder:res.result.data})
     })
     
-    wx.cloud.callFunction({name:'getOrder',data:{
+    wx.cloud.callFunction({name:'adminGetOrder',data:{
         status:'pending'
     }
     }
@@ -103,7 +103,7 @@ Page({
         }
     })
 
-    wx.cloud.callFunction({name:'getOrder',data:{
+    wx.cloud.callFunction({name:'adminGetOrder',data:{
         status:'delivering'
     }
     }
@@ -124,7 +124,7 @@ Page({
         }
     })
 
-    wx.cloud.callFunction({name:'getOrder',data:{
+    wx.cloud.callFunction({name:'adminGetOrder',data:{
         status:'success'
     }
     }
@@ -147,10 +147,6 @@ Page({
         { name: '派送中',  active: false, index: 2 },
         { name: '已完成',  active: false, index: 3 }]})
     }
-    
-    
-    
-    
     },
 
     /**
@@ -164,7 +160,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        this.onLoad()
+
     },
 
     /**

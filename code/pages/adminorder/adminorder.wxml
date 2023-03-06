@@ -1,0 +1,36 @@
+<!--pages/adminorder/adminorder.wxml-->
+<view class="tab {{tab.active ? 'active' : ''}}" 
+   data-index="{{tab.index}}">
+        <view class="tab-bar">
+                <block wx:for="{{tabs}}" wx:for-item="tab">
+            <view class="tab {{tab.active ? 'active' : ''}}" 
+                    bindtap="tabClick" data-index="{{tab.index}}">
+                    <text class="tab-name">{{tab.name}}</text>
+            </view>
+                </block>
+        </view>
+</view>
+<view wx:if="{{displayOrder.length==0}}">当前没有订单!</view>
+<view wx:for="{{displayOrder}}" wx:key="_id" class="box" data-_id="{{item._id}}" bindtap="getSelectedOrder">
+    <view>
+        <view class="status">
+        <text>订单状态:</text> <status status="{{item.status}}"></status>
+        </view>
+        <view>
+        <text>收货地址:</text>
+            {{item.location}}
+        </view>
+        <view>
+        <text>备注:</text>
+        {{item.note}}
+        </view>
+        <view>
+            <text>期望送达:</text>
+            {{item.expectedtime}}
+        </view>
+        <view>
+            <text>下单时间:</text>
+            {{item.time}}
+        </view>
+    </view>
+</view>
