@@ -15,6 +15,12 @@ Page({
         type:'',
         _id:'',
     },
+
+    handlePreview(){    
+        wx.previewImage({
+          urls: [this.data.currentOrder.src],
+        })
+    },
     
     arrive(){
         if(this.data.currentOrder.status=='cancled'){

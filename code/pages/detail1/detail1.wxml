@@ -41,7 +41,7 @@
         图片:
     </view>
     <view wx:if="{{isPostman&&currentOrder.src!=''}}">
-        <image src="{{currentOrder.src}}" mode="widthFix" style="width: 50%;"></image> 
+        <image src="{{currentOrder.src}}" mode="widthFix" style="width: 50%;" bindtap="handlePreview"></image> 
     </view>
 
     <view class="boxtap">
