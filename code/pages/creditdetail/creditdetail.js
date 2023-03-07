@@ -1,4 +1,4 @@
-// pages/adminhall/adminhall.js
+// pages/creditdetail/creditdetail.js
 Page({
 
     /**
@@ -6,21 +6,6 @@ Page({
      */
     data: {
 
-    },
-    turntoAll(){
-        wx.navigateTo({
-          url: '/pages/adminorder/adminorder?status=all',
-        })
-    },
-    turntoSecret(){
-        wx.navigateTo({
-          url: '/pages/secret/secret',
-        })
-    },
-    turntoCredit(){
-        wx.navigateTo({
-          url: '/pages/creditlist/creditlist',
-        })
     },
 
     /**

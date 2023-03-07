@@ -74,3 +74,4 @@
 <button type="primary" wx:if="{{!isMember}}" bindtap="goSignUp" class="user">去注册</button>
 <button type="primary" wx:if="{{!isPostman}}" bindtap="becomeDeliver" class="deliver">成为派送员</button>
 <button type="primary" wx:if="{{isPostman}}" bindtap="goDeliver" class="deliver">派送员</button>
+

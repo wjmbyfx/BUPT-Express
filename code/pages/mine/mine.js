@@ -10,6 +10,13 @@ Page({
         location:'',
         username:''
     },
+
+    admin(){
+        wx.navigateTo({
+          url: '/pages/adminhall/adminhall',
+        })
+    },
+
     pending(){
         wx.navigateTo({
           url: '/pages/order/order?status=pending',
@@ -54,7 +61,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
+        wx.cloud.callFunction({name:'isAdmin'}).then(res=>{
+            console.log(res);
+            this.setData({isAdmin:res.result})
+        })
         wx.cloud.callFunction({name:'getImage'})
         .then(res=>{
         const src=res.result

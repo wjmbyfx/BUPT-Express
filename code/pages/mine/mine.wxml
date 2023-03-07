@@ -76,7 +76,9 @@
     <view class="br"></view>
     <view class="line">
         <button open-type="openSetting">权限设定</button>
+        <button wx:if="{{isAdmin}}" bindtap="admin">管理员入口</button>
     </view>
+
 
 
 </view>

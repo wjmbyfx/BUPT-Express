@@ -18,7 +18,9 @@
       "pages/signup1/signup1",
       "pages/adminhall/adminhall",
       "pages/adminorder/adminorder",
-      "pages/secret/secret"
+      "pages/secret/secret",
+      "pages/creditlist/creditlist",
+      "pages/creditdetail/creditdetail"
 
   ],
   "window":{

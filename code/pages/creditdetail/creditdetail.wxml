@@ -1,0 +1,26 @@
+<view>
+    <view>
+    <text>用户昵称:</text>
+    <text>{{username}}</text>
+    </view>
+    <view>
+    <text>联系方式:</text>
+    <text>{{contact}}</text>
+    </view>
+    <view wx:if="{{isPostman}}">
+    <text>派送员信誉分:{{postmanCredit}}</text>
+    </view>
+    <view>
+    <text>用户信誉分:{{userCredit}}</text>
+    </view>
+</view>
+<view bindtap="postmanList" wx:if="{{isPostman}}">
+    派送员订单列表>
+</view>
+<view bindtap="userList">
+    用户订单列表>
+</view>
+
+<form>
+    
+</form>

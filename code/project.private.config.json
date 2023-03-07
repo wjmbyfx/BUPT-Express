@@ -153,6 +153,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/creditlist/creditlist",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/creditdetail/creditdetail",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

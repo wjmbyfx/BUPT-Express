@@ -1,25 +1,27 @@
-// pages/adminhall/adminhall.js
+// pages/creditlist/creditlist.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        
+            tabs: [
+                { name: '用户',  active: false, index: 0 },
+                { name: '异常用户',  active: false, index: 1 },
+                { name: '派送员',  active: false, index: 2 },
+                { name: '异常派送员',  active: false, index: 3 }
+              ],
+            all:[],
+            pending:[],
+            delivering:[],
+            success:[],
+            displayCustomer:[]
     },
-    turntoAll(){
+    getSelectedCustomer(e){
+        const selectedCustomer=e.currentTarget.dataset._id
         wx.navigateTo({
-          url: '/pages/adminorder/adminorder?status=all',
-        })
-    },
-    turntoSecret(){
-        wx.navigateTo({
-          url: '/pages/secret/secret',
-        })
-    },
-    turntoCredit(){
-        wx.navigateTo({
-          url: '/pages/creditlist/creditlist',
+          url: '/pages/creditdetail/creditdetail?_id='+selectedCustomer
         })
     },
 
