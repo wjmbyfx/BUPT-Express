@@ -12,12 +12,38 @@ Page({
                 { name: '派送员',  active: false, index: 2 },
                 { name: '异常派送员',  active: false, index: 3 }
               ],
-            all:[],
-            pending:[],
-            delivering:[],
-            success:[],
+            user:[],
+            deviantUser:[],
+            postman:[],
+            deviantPostman:[],
             displayCustomer:[]
     },
+    tabClick(e) {
+        const index = e.currentTarget.dataset.index;
+        const tabs = this.data.tabs
+        tabs.forEach((v,i)=>{
+            if(i==index){
+                console.log(index);
+                v.active=true
+            }
+            else{
+                v.active=false
+            }
+        })
+        this.setData({ tabs:tabs });
+        if (index==0) {
+            this.setData({displayCustomer:this.data.user})
+        }
+        // else if (index==1) {
+        //     this.setData({displayCustomer:this.data.deviantUser})
+        // }
+        // else if (index==2) {
+        //     this.setData({displayCustomer:this.data.postman})
+        // }
+        // else if (index==3) {
+        //     this.setData({displayCustomer:this.data.deviantPostman})
+        // }
+      },
     getSelectedCustomer(e){
         const selectedCustomer=e.currentTarget.dataset._id
         wx.navigateTo({
@@ -29,10 +55,23 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
+        wx.cloud.callFunction({name:'adminGetUser'}).then(res=>{
+            console.log(res);
+            this.setData({user:res.result.data})
+            if (options.status=='user') {
+                this.setData({displayCustomer:this.data.user,
+                tabs:[{ name: '用户',  active: true, index: 0 },
+                { name: '异常用户',  active: false, index: 1 },
+                { name: '派送员',  active: false, index: 2 },
+                { name: '异常派送员',  active: false, index: 3 }]})
+            }
+        })
+
+
+
         if(options==undefined)
     {
-        this.setData({displayOrder:this.data.all,tabs:[{ name: '用户',  active: true, index: 0 },
+        this.setData({displayCustomer:this.data.user,tabs:[{ name: '用户',  active: true, index: 0 },
         { name: '异常用户',  active: false, index: 1 },
         { name: '派送员',  active: false, index: 2 },
         { name: '异常派送员',  active: false, index: 3 }]})

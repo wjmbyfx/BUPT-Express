@@ -1,1 +1,6 @@
 /* pages/creditdetail/creditdetail.wxss */
+.weui-input{
+    border-style: solid;
+    border-radius: 2vh;
+    
+}

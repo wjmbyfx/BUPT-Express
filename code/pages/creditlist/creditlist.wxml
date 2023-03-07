@@ -10,8 +10,8 @@
                 </block>
         </view>
 </view>
-<view wx:if="{{displayCustomer.length==0}}">当前没有此类客户!</view>
-<view wx:for="{{displayCustomer}}" wx:key="_id" class="box" data-_id="{{item._id}}" bindtap="getSelectedCustomer">
+<!-- <view wx:if="{{displayCustomer.length==0}}">当前没有此类客户!</view> -->
+<view wx:for="{{displayCustomer}}" wx:key="_id" class="box" bindtap="getSelectedCustomer" data-openid="{{item._id}}">
     <view>
         <view>
         <text>用户昵称:</text>
@@ -19,7 +19,7 @@
         </view>
         <view>
         <text>用户积分:</text>
-        <text>{{item.usercredit}}</text>
+        <text>{{item.credit}}</text>
         <text>状态:{{item.userstatus}}</text>
         </view>
         <view wx:if="{{isPostman}}">
