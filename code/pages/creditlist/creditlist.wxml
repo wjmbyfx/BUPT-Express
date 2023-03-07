@@ -13,6 +13,19 @@
 <view wx:if="{{displayCustomer.length==0}}">当前没有此类客户!</view>
 <view wx:for="{{displayCustomer}}" wx:key="_id" class="box" data-_id="{{item._id}}" bindtap="getSelectedCustomer">
     <view>
-        
+        <view>
+        <text>用户昵称:</text>
+        <text>{{item.username}}</text>
+        </view>
+        <view>
+        <text>用户积分:</text>
+        <text>{{item.usercredit}}</text>
+        <text>状态:{{item.userstatus}}</text>
+        </view>
+        <view wx:if="{{isPostman}}">
+        <text>派送员积分:</text>
+        <text>{{item.postmancredit}}</text>
+        <text>状态:{{item.postmanstatus}}</text>
+        </view>
     </view>
 </view>

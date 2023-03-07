@@ -29,7 +29,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        
+        if(options==undefined)
+    {
+        this.setData({displayOrder:this.data.all,tabs:[{ name: '用户',  active: true, index: 0 },
+        { name: '异常用户',  active: false, index: 1 },
+        { name: '派送员',  active: false, index: 2 },
+        { name: '异常派送员',  active: false, index: 3 }]})
+    }
     },
 
     /**
