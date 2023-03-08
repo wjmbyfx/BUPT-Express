@@ -10,6 +10,14 @@ Page({
 
     },
 
+    adminGetUser(){
+        wx.cloud.callFunction({name:'adminGetUser',data:{
+            type:'all'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     adminGetSecretKey(){
         wx.cloud.callFunction({name:'adminGetSecretKey'}).then(res=>{
             console.log(res);

@@ -10,12 +10,12 @@ exports.main = async (event, context) => {
     const _=cloud.database().command
     let toReturn=''
     if(type=='all'){
-        toReturn=await cloud.database().collection('user').get().then(res=>{
+        toReturn=await cloud.database().collection('postman').get().then(res=>{
             return res
         })
     }
     else{
-        toReturn=await cloud.database().collection('user').where({credit:_.lt(60)}).get().then(res=>{
+        toReturn=await cloud.database().collection('postman').where({credit:_.lt(60)}).get().then(res=>{
             return res;
         })
     }

@@ -23,3 +23,4 @@
 <button bindtap="isAdmin">isAdmin</button>
 <button bindtap="adminUpdateSecretkey">adminUpdateSecretkey</button>
 <button bindtap="adminGetSecretKey">adminGetSecretKey</button>
+<button bindtap="adminGetUser">adminGetUser</button>
