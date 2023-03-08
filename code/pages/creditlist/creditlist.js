@@ -7,7 +7,7 @@ Page({
     data: {
         
             tabs: [
-                { name: '用户',  active: false, index: 0 },
+                { name: '用户',  active: true, index: 0 },
                 { name: '异常用户',  active: false, index: 1 },
                 { name: '派送员',  active: false, index: 2 },
                 { name: '异常派送员',  active: false, index: 3 }
@@ -34,20 +34,20 @@ Page({
         if (index==0) {
             this.setData({displayCustomer:this.data.user})
         }
-        // else if (index==1) {
-        //     this.setData({displayCustomer:this.data.deviantUser})
-        // }
-        // else if (index==2) {
-        //     this.setData({displayCustomer:this.data.postman})
-        // }
-        // else if (index==3) {
-        //     this.setData({displayCustomer:this.data.deviantPostman})
-        // }
+        else if (index==1) {
+            this.setData({displayCustomer:this.data.deviantUser})
+        }
+        else if (index==2) {
+            this.setData({displayCustomer:this.data.postman})
+        }
+        else if (index==3) {
+            this.setData({displayCustomer:this.data.deviantPostman})
+        }
       },
     getSelectedCustomer(e){
-        const selectedCustomer=e.currentTarget.dataset._id
+        const info=e.currentTarget.dataset
         wx.navigateTo({
-          url: '/pages/creditdetail/creditdetail?_id='+selectedCustomer
+          url: '/pages/creditdetail/creditdetail?info='+info
         })
     },
 
@@ -55,27 +55,37 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        wx.cloud.callFunction({name:'adminGetUser'}).then(res=>{
+        wx.cloud.callFunction({name:'adminGetUser',data:{type:'all'}}).then(res=>{
             console.log(res);
             this.setData({user:res.result.data})
-            if (options.status=='user') {
-                this.setData({displayCustomer:this.data.user,
-                tabs:[{ name: '用户',  active: true, index: 0 },
-                { name: '异常用户',  active: false, index: 1 },
-                { name: '派送员',  active: false, index: 2 },
-                { name: '异常派送员',  active: false, index: 3 }]})
-            }
+            this.setData({displayCustomer:res.result.data})
         })
 
-
-
-        if(options==undefined)
+         if(options==undefined)
     {
         this.setData({displayCustomer:this.data.user,tabs:[{ name: '用户',  active: true, index: 0 },
         { name: '异常用户',  active: false, index: 1 },
         { name: '派送员',  active: false, index: 2 },
         { name: '异常派送员',  active: false, index: 3 }]})
     }
+
+    wx.cloud.callFunction({name:'adminGetUser',data:{type:'error'}}).then(res=>{
+        
+           this.setData({
+               deviantUser:res.result.data
+           })
+        
+    })
+    wx.cloud.callFunction({name:'adminGetPostman',data:{type:'all'}}).then(res=>{
+        this.setData({
+            postman:res.result.data
+        })
+    })
+    wx.cloud.callFunction({name:'adminGetPostman',data:{type:'error'}}).then(res=>{
+        this.setData({
+            deviantPostman:res.result.data
+        })
+    })
     },
 
     /**

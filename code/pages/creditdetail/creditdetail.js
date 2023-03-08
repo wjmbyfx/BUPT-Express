@@ -11,7 +11,7 @@ Page({
     handleSubmit(e){
         console.log(e);
         const credit=e.userCredit
-        if (credit<='0'||credit>100) {
+        if (credit<='0'||credit>'100') {
             wx.showToast({
               title: '请填写合法数据!',
               duration: 1000,
@@ -32,11 +32,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // const currentopenid=options.openid
-        const currentopenid="oa3g04-e6ryuS9o0VHCsH8EcuePc"
-        this.setData({
-            openid:currentopenid
-        })
+        console.log(options);
+        const currentopenid=options.openid
+        // const currentopenid="oa3g04-e6ryuS9o0VHCsH8EcuePc"
+        // this.setData({
+        //     openid:currentopenid
+        // })
         
     },
 

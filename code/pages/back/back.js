@@ -12,7 +12,7 @@ Page({
 
     adminGetUser(){
         wx.cloud.callFunction({name:'adminGetUser',data:{
-            type:'all'
+            type:'error'
         }}).then(res=>{
             console.log(res);
         })
