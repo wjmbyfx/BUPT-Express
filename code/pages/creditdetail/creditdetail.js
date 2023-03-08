@@ -29,7 +29,22 @@ Page({
                     openid:this.data.openid,credit:credit
                 }
             })
+            if (this.data.isPostman==true) {
+                wx.cloud.callFunction({
+            
+                    name:'adminUpdatePostman',data:{
+                        openid:this.data.openid,credit:pcredit
+                    }
+                })
+            }
+            wx.showToast({
+              title: '更新成功',
+              duration:100,
+              icon: "success"
+            })
+            this.onLoad({openid:this.data.openid})
         }
+
         
     },
     /**
