@@ -6,12 +6,16 @@ Page({
      */
     data: {
         isPostman:false,
-        openid:''
+        username:'',
+        contact:'',
+        userCredit:'',
+        postmanCredit:'',
     },
     handleSubmit(e){
-        console.log(e);
-        const credit=e.userCredit
-        if (credit<='0'||credit>'100') {
+        const credit=parseInt(e.detail.value.credit)
+        const pcredit=parseInt(e.detail.value.pcredit)
+        console.log(credit);
+        if (credit<=0||credit>100||pcredit<=0||pcredit>100) {
             wx.showToast({
               title: '请填写合法数据!',
               duration: 1000,
@@ -34,10 +38,31 @@ Page({
     onLoad(options) {
         console.log(options);
         const currentopenid=options.openid
-        // const currentopenid="oa3g04-e6ryuS9o0VHCsH8EcuePc"
-        // this.setData({
-        //     openid:currentopenid
-        // })
+        this.setData({
+            openid:currentopenid
+        })
+        wx.cloud.callFunction({name:'adminGetSpecificUser',data:{
+            openid:this.data.openid
+        }}).then(res=>{
+            // console.log(res);
+            this.setData({
+                username:res.result.data[0].username,
+                userCredit:res.result.data[0].credit,
+                contact:res.result.data[0].contact
+            })
+        })
+        wx.cloud.callFunction({name:'adminGetSpecificPostman',data:{
+            openid:this.data.openid
+        }}).then(res=>{
+            console.log(res);
+            if (res.result.data.length!=0) {
+                this.setData({
+                    isPostman:true,
+                    postmanCredit:res.result.data[0].credit
+                })
+
+            }
+        })
         
     },
 

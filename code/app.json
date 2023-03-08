@@ -20,7 +20,8 @@
       "pages/adminorder/adminorder",
       "pages/secret/secret",
       "pages/creditlist/creditlist",
-      "pages/creditdetail/creditdetail"
+      "pages/creditdetail/creditdetail",
+      "pages/FAQ/FAQ"
 
   ],
   "window":{

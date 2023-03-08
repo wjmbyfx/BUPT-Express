@@ -1,0 +1,14 @@
+/* pages/FAQ/FAQ.wxss */
+.head{
+    text-align: center;
+    font-size: x-large;
+    font-weight: 800;
+}
+.head1{
+    font-size: larger;
+    font-weight: 700;
+}
+.para{
+    font-size: large;
+    font-weight: 400;
+}

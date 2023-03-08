@@ -1,40 +1,41 @@
-<view>
+<view class="box">
     <view>
-    <text>用户昵称:</text>
+    <text  class="tap">用户昵称:</text>
     <text>{{username}}</text>
     </view>
     <view>
-    <text>联系方式:</text>
+    <text class="tap">联系方式:</text>
     <text>{{contact}}</text>
     </view>
     <view wx:if="{{isPostman}}">
-    <text>派送员信誉分:{{postmanCredit}}</text>
+    <text class="tap">派送员信誉分:</text>
+    <text class="credit">{{postmanCredit}}</text>
     </view>
     <view>
-    <text>用户信誉分:{{userCredit}}</text>
+    <text class="tap">用户信誉分:</text>
+    <text class="credit">{{userCredit}}</text>
     </view>
-</view>
-<view bindtap="postmanList" wx:if="{{isPostman}}">
-    派送员订单列表>
-</view>
-<view bindtap="userList">
-    用户订单列表>
 </view>
 
-<form bindsubmit="handleSubmit">
-    <view>
+
+
+<form bindsubmit="handleSubmit" >
+    <view class="box">
+    <view class="tap">
         更新用户积分:
     </view>
     <view>
-        <input selection-start="2" class="weui-input" type="number" name="credit" placeholder="请填入用户积分" value="{{userCredit}}"/>
+        <input selection-start="2" class="weui-input" type="number" name="credit" placeholder="请填入用户积分" value="{{credit}}"/>
     </view>
     <view wx:if="{{isPostman}}">
-        <view>
-        更新用户积分:
+        <view class="tap">
+        更新派送员积分:
         </view>
         <view>
-        <input selection-start="2" class="weui-input" type="number" name="credit" placeholder="请填入派送员积分" value="{{postmanCredit}}"/>
+        <input selection-start="2" class="weui-input" type="number" name="pcredit" placeholder="请填入派送员积分 " value="{{pcredit}}"/>
         </view>
     </view>
-    <button form-type="submit">提交修改</button>
+    <button form-type="submit" type="primary">提交修改</button>
+</view>
 </form>
+

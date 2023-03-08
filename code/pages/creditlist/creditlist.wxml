@@ -13,19 +13,19 @@
 <!-- <view wx:if="{{displayCustomer.length==0}}">当前没有此类客户!</view> -->
 <view wx:for="{{displayCustomer}}" wx:key="_id" class="box" bindtap="getSelectedCustomer" data-openid="{{item.openid}}">
     <view>
-        <view>
-        <text>用户昵称:</text>
-        <text>{{item.username}}</text>
+        <view class="inbox">
+        <text class="tap">用户昵称:</text>
+        <text class="surtap">{{item.username}}</text>
         </view>
-        <view>
-        <text>用户积分:</text>
-        <text>{{item.credit}}</text>
-        <text>状态:{{item.userstatus}}</text>
+        <view class="inbox">
+        <text class="tap">用户积分:</text>
+        <text class="credit">{{item.credit}}</text>
         </view>
-        <view wx:if="{{isPostman}}">
-        <text>派送员积分:</text>
+        <view wx:if="{{isPostman}}" class="inbox">
+        <text class="tap">派送员积分:</text>
         <text>{{item.postmancredit}}</text>
-        <text>状态:{{item.postmanstatus}}</text>
+        <text class="tap">状态:</text>
+        <text>{{item.postmanstatus}}</text>
         </view>
     </view>
 </view>

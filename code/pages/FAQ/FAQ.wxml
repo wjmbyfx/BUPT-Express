@@ -1,0 +1,32 @@
+<!--pages/FAQ/FAQ.wxml-->
+<view class="head">
+    填写标准说明
+</view>
+<view class="para">
+    根据沙河校区目前情况，快递代取主要分为以下三类:
+</view>
+<view class="head1">
+    1.菜鸟驿站快递
+</view>
+<view class="para">
+    该类型快递需上传用户个人出库码，并备注取件码。出库码在菜鸟APP中会在点击页面后刷新，所以需要用户保证截图后不再点击刷新以确保派送员能正确出库。
+</view>
+<view class="head1">
+    2.顺丰快递
+</view>
+<view class="para">
+    
+</view>
+<view class="head1">
+    3.京东快递
+</view>
+<view class="para">
+    
+</view>
+<view class="head1">
+    4.邮政快递
+</view>
+<view class="para">
+    
+</view>
+

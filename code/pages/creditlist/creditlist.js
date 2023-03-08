@@ -45,9 +45,9 @@ Page({
         }
       },
     getSelectedCustomer(e){
-        const info=e.currentTarget.dataset
+        const openid=e.currentTarget.dataset.openid
         wx.navigateTo({
-          url: '/pages/creditdetail/creditdetail?info='+info
+          url: '/pages/creditdetail/creditdetail?openid='+openid
         })
     },
 

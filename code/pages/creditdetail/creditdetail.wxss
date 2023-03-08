@@ -3,4 +3,24 @@
     border-style: solid;
     border-radius: 2vh;
     
+    
+}
+.tap{
+    font-weight: 700;
+}
+.credit{
+    color: #e74c3c;
+    font-weight: 900;
+}
+.box{
+    margin: 5vh;
+    font-size: larger;
+}
+.button{
+    position: fixed;
+    left: 1px;
+    right: 1px;
+    bottom: 5vh;
+    margin: auto;
+
 }

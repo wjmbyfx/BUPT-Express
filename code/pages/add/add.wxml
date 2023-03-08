@@ -44,16 +44,19 @@
 
     <view class="inputbox">
         <text class="boxtap">描述(必填):</text>
-        <input class="weui-input"  placeholder="如体积,重量、快递公司等" type="text" name="description"/>
+        <input class="weui-input"  placeholder="如体积、重量、快递公司等" type="text" name="description"/>
     </view>
 
     <view class="inputbox">
         <text class="boxtap">备注(可选):</text>
-        <input class="weui-input"  placeholder="如手机尾号、收货姓名等" type="text" name="note"/>
+        
+        <input class="weui-input"  placeholder="如手机尾号、取件码、姓名等" type="text" name="note"/>
     </view>
+    
+
 
     <view class="inputbox">
-        <text class="boxtap">图片(代取码等,可选):</text>
+        <text class="boxtap">图片(出库码等,可选):</text>
         <image wx:if="{{src!=''}}" src="{{src}}" mode="widthFix" style="width: 50%;"></image>
         <view wx:if="{{src==''}}" class="picker" bindtap="handleUpload" style="text-decoration: underline;">点击上传</view>
         <view wx:if="{{src!=''}}" class="picker" bindtap="handleRemove" style="text-decoration: underline;">点击删除</view>
@@ -61,6 +64,10 @@
 
     
     <button form-type="submit" type="primary">发布</button>
+    <view style="text-align: center;" bindtap="faq">
+        <text class="faq">填写标准说明></text>
+    </view>
 </view>
 </form>
+
 

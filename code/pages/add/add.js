@@ -17,6 +17,11 @@ Page({
     handleRemove(){
         this.setData({src:''})
     },
+    faq(){
+        wx.navigateTo({
+          url: '/pages/FAQ/FAQ',
+        })
+    },
 
     handleUpload(){
         wx.chooseMedia({

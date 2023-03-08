@@ -33,3 +33,20 @@ page{
 text{
     font-weight: 700;
 }
+.tap{
+    font-weight: 900;
+    font-size: larger;
+}
+.surtap{
+    color: #2ecc71;
+    font-weight: 700;
+    font-size: larger;
+}
+.credit{
+    color: #e74c3c;
+    font-weight: 900;
+    font-size: larger;
+}
+.inbox{
+    margin-top:1vh;
+}

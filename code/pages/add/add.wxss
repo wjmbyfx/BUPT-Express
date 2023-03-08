@@ -41,3 +41,9 @@ input{
     background-color:white ;
     padding: 3vh;
 }
+.faq{
+    text-decoration: underline;
+    color: #3498db;
+    margin-left: 8%;
+    
+}
