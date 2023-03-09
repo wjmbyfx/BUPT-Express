@@ -73,7 +73,18 @@
         <text>及</text>
         <text bindtap="handlePolicy" class="policy">隐私政策</text>
     </view>
+
+
     <view class="br"></view>
+
+    <view class="line" bindtap="credit">
+        信誉积分查询
+    </view>
+    <view class="br">
+        
+    </view>
+
+    
     <view class="line">
         <button open-type="openSetting">权限设定</button>
         <button wx:if="{{isAdmin}}" bindtap="admin">管理员入口</button>

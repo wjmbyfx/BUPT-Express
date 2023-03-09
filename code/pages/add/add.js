@@ -88,6 +88,26 @@ Page({
                             wx.cloud.callFunction({name:'getUser'})
                             .then(res=>{
                                 console.log(res);
+                                if(this.data.currentUser.credit<60){
+                                    wx.showModal({
+                                      title:'您的信誉积分过低',
+                                      content:'您当前的信誉积分低于60分,可能由于多次不守信导致,如果您有任何疑问,可前往反馈界面进行反馈'
+                                    }).then(res=>{
+                                        if(res.confirm){
+                                            wx.navigateTo({
+                                              url: '/pages/suggest/suggest',
+                                            })
+                                        }
+                                        else{
+                                            wx.switchTab({
+                                              url: '/pages/hall/hall',
+                                            })
+                                        }
+                                    })
+                                }
+                                else{
+
+                                
                                 wx.cloud.callFunction({name:'addOrder',data:{
                                     type:'normal',
                                     expectedtime:time,
@@ -109,6 +129,7 @@ Page({
                                         })
                                     },1000)
                                 })
+                            }
                             })
                         }
                         else{
@@ -166,7 +187,26 @@ Page({
         // console.log(1);
         
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
+            console.log(res);
             this.setData({openid:res.result.data[0].openid})
+            this.setData({currentUser:res.result.data[0]})
+            if(this.data.currentUser.credit<60){
+                wx.showModal({
+                  title:'您的信誉积分过低',
+                  content:'您当前的信誉积分低于60分,可能由于多次不守信导致,如果您有任何疑问,可前往反馈界面进行反馈'
+                }).then(res=>{
+                    if(res.confirm){
+                        wx.navigateTo({
+                          url: '/pages/suggest/suggest',
+                        })
+                    }
+                    else{
+                        wx.switchTab({
+                          url: '/pages/hall/hall',
+                        })
+                    }
+                })
+            }
         })
     },
 
@@ -184,6 +224,23 @@ Page({
      */
     onShow() {
         // this.onLoad()
+        if(this.data.currentUser.credit<60){
+            wx.showModal({
+              title:'您的信誉积分过低',
+              content:'您当前的信誉积分低于60分,可能由于多次不守信导致,如果您有任何疑问,可前往反馈界面进行反馈'
+            }).then(res=>{
+                if(res.confirm){
+                    wx.navigateTo({
+                      url: '/pages/suggest/suggest',
+                    })
+                }
+                else{
+                    wx.switchTab({
+                      url: '/pages/hall/hall',
+                    })
+                }
+            })
+        }
         const {mustSignUp}=require('../../utils/mustSignUp.js')
         mustSignUp()
     },

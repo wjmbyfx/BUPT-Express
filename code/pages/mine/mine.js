@@ -11,6 +11,13 @@ Page({
         username:''
     },
 
+    credit(){
+        wx.showToast({
+          title: ''+this.data.currentUser.credit,
+          duration:1000
+        })
+    },
+
     admin(){
         wx.navigateTo({
           url: '/pages/adminhall/adminhall',
@@ -77,6 +84,7 @@ Page({
             let location=getLocation(building)+'楼 '+ floor+'层'
             this.setData({location:location})
             this.setData({username:res.result.data[0].username})
+            this.setData({currentUser:res.result.data[0]})
         })
         
         

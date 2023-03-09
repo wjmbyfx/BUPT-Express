@@ -7,9 +7,9 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
     let toReturn = null;
-    await cloud.database().collection('user').where({openid:wxContext.OPENID})
+    toReturn=await cloud.database().collection('user').where({openid:wxContext.OPENID})
     .get().then(res=>{
-        toReturn=res
+        return res
     })
     return toReturn
 }
