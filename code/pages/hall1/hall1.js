@@ -12,7 +12,8 @@ Page({
         displayCanceled:[],
         all:[],
         success:[],
-        canceled:[]
+        canceled:[],
+        credit:''
     },
 
     goTakeOrder(){
@@ -39,6 +40,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        wx.cloud.callFunction({name:'getPostman'}).then(res=>{
+            this.setData({
+                credit:res.result.data[0].credit
+            })
+        })
         wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
             status:'delivering'
         }})

@@ -133,10 +133,12 @@ Page({
             
             console.log(res);
             if(res.result.data.length!=0){
-
+                let currentOrder=res.result.data[0]; //获取最新订单
+                currentOrder.note=currentOrder.note.slice(0,8)+'...'
             {
+                
                 this.setData({orderList:res.result.data})
-                this.setData({currentOrder:res.result.data[0]})
+                this.setData({currentOrder:currentOrder})
                 
                 const currentStatus=res.result.data[0].status;
                 this.setData({currentStatus:currentStatus}) //设置当前订单的状态
@@ -146,7 +148,6 @@ Page({
                 } //判断是否展示确认收货按钮
             }
 
-            const currentOrder=res.result.data[0]; //获取最新订单
             
             const location=currentOrder.location;
             {
@@ -165,6 +166,7 @@ Page({
             // console.log(currentOrder.expectedtime);
             this.setData({currentExpectedTime:  formatTime(currentExpectedTime)})
             } //设置提交和送达时间
+            
 
         }
 

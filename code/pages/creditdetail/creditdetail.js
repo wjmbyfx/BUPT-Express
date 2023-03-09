@@ -39,7 +39,7 @@ Page({
             }
             wx.showToast({
               title: '更新成功',
-              duration:100,
+              duration:1000,
               icon: "success"
             })
             this.onLoad({openid:this.data.openid})

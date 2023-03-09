@@ -2,6 +2,10 @@
 <view bindtap="goEdit" style="text-align: right; color: #3498db; text-decoration: underline; margin-top: 1vh;">
     编辑配送员信息>
 </view>
+<view style="text-align: right; margin-right: 1vh;">
+    当前信誉积分:
+    <text style="font-weight: 700;font-size: large; color: #e74c3c;">{{credit}}</text>
+</view>
     
     <!-- <text class="head">公告栏</text> -->
     <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有待配送的订单!</view>
