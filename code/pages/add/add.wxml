@@ -31,7 +31,7 @@
             {{date}}
             <text>-</text>
             </picker>
-            <picker mode="time" value="{{time}}" start="09:00" end="21:00" bindchange="bindTimeChange" name="time" class="picker">
+            <picker mode="time" value="{{time}}" start="07:00" end="23:00" bindchange="bindTimeChange" name="time" class="picker">
       {{time}}
             </picker>
             <text>{{'<'}}--点击以变更</text>
@@ -64,7 +64,7 @@
 
     
     <button form-type="submit" type="primary" wx:if="{{buttonChange}}">发布</button>
-    <button  type="default" wx:if="{{buttonChange}}">请稍等</button>
+    <button  type="default" wx:if="{{!buttonChange}}">请稍等</button>
     
 
     <view style="text-align: center;" bindtap="faq">

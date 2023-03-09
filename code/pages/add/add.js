@@ -7,14 +7,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        date:'2022-02-23',
-        time:'12:00',
+        date:'',
+        time:'',
         inputDisabled: null,
         location:null,
         src:'',
         buttonChange:true,
         currentUser:''
     },
+    
 
     handleRemove(){
         this.setData({src:''})
@@ -190,6 +191,17 @@ Page({
      */
     onLoad(options) {
         // console.log(1);
+        var now = new Date();
+        var year = now.getFullYear(); // 获取当前年份
+        var month = now.getMonth() + 1; // 获取当前月份，注意月份是从0开始的，需要加1
+        var day = now.getDate(); // 获取当前日期
+        var hour = now.getHours(); // 获取当前小时
+        var minute = now.getMinutes(); // 获取当前分钟
+        console.log(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':');
+        this.setData({
+            date:year + '-' + month + '-' + day,
+            time:hour + ':' + minute
+        })
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
             // console.log(res);
             this.setData({openid:res.result.data[0].openid})
