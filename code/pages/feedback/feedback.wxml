@@ -1,0 +1,18 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="head">
+    反馈列表
+</view>
+<view wx:if="{{displayFeedback.length==0}}">当前没有反馈!</view>
+<view wx:for="{{displayFeedback}}" wx:key="_id" class="box">
+    <view>
+        
+        <view>
+        <text>用户昵称::</text>
+            {{item.username}}
+        </view>
+        <view>
+            <text>反馈内容:</text>
+            {{item.text}}
+        </view>
+    </view>
+</view>

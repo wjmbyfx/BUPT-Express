@@ -1,31 +1,11 @@
-// pages/adminhall/adminhall.js
+// pages/feedback/feedback.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
-    },
-    turntoAll(){
-        wx.navigateTo({
-          url: '/pages/adminorder/adminorder?status=all',
-        })
-    },
-    turntoSecret(){
-        wx.navigateTo({
-          url: '/pages/secret/secret',
-        })
-    },
-    turntoCredit(){
-        wx.navigateTo({
-          url: '/pages/creditlist/creditlist?status=user',
-        })
-    },
-    turntoCredit(){
-        wx.navigateTo({
-          url: '/pages/feedback/feedback',
-        })
+        displayOrder:[1,2,3]
     },
 
     /**

@@ -21,7 +21,8 @@
       "pages/secret/secret",
       "pages/creditlist/creditlist",
       "pages/creditdetail/creditdetail",
-      "pages/FAQ/FAQ"
+      "pages/FAQ/FAQ",
+      "pages/feedback/feedback"
 
   ],
   "window":{
