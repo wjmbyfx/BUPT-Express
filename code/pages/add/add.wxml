@@ -63,9 +63,12 @@
     </view>
 
     
-    <button form-type="submit" type="primary">发布</button>
+    <button form-type="submit" type="primary" wx:if="{{buttonChange}}">发布</button>
+    <button  type="default" wx:if="{{buttonChange}}">请稍等</button>
+    
+
     <view style="text-align: center;" bindtap="faq">
-        <text class="faq">填写标准说明></text>
+        <text class="faq">填写标准说明</text>
     </view>
 </view>
 </form>

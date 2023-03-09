@@ -22,7 +22,7 @@ Page({
           url: '/pages/creditlist/creditlist?status=user',
         })
     },
-    turntoCredit(){
+    turntoFeedback(){
         wx.navigateTo({
           url: '/pages/feedback/feedback',
         })

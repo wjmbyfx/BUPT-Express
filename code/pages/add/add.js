@@ -11,7 +11,9 @@ Page({
         time:'12:00',
         inputDisabled: null,
         location:null,
-        src:''
+        src:'',
+        buttonChange:true,
+        currentUser:''
     },
 
     handleRemove(){
@@ -106,7 +108,7 @@ Page({
                                     })
                                 }
                                 else{
-
+                                    this.setData({buttonChange:false})
                                 
                                 wx.cloud.callFunction({name:'addOrder',data:{
                                     type:'normal',
@@ -132,7 +134,10 @@ Page({
                             }
                             })
                         }
-                        else{
+                        else{   
+                                this.setData({
+                                    buttonChange:false
+                                })
                                 wx.cloud.callFunction({name:'addOrder',data:{
                                     expectedtime:time,
                                     type:'customize',
@@ -185,9 +190,8 @@ Page({
      */
     onLoad(options) {
         // console.log(1);
-        
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
-            console.log(res);
+            // console.log(res);
             this.setData({openid:res.result.data[0].openid})
             this.setData({currentUser:res.result.data[0]})
             if(this.data.currentUser.credit<60){
@@ -208,6 +212,8 @@ Page({
                 })
             }
         })
+        console.log('11234');
+        console.log(this.data);
     },
 
     
