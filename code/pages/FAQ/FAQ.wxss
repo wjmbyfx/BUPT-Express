@@ -7,8 +7,10 @@
 .head1{
     font-size: larger;
     font-weight: 700;
+    padding: 1vh;
 }
 .para{
+    padding: 1vh;
     font-size: large;
     font-weight: 400;
 }

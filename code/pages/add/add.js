@@ -1,4 +1,4 @@
-const mustSignUp=require('../../utils/mustSignUp')
+// const mustSignUp=require('../../utils/mustSignUp')
 
 // pages/add/add.js
 Page({
@@ -9,8 +9,8 @@ Page({
     data: {
         date:'',
         time:'',
-        inputDisabled: null,
-        location:null,
+        inputDisabled: false,
+        location:'',
         src:'',
         buttonChange:true,
         currentUser:'',
@@ -34,32 +34,25 @@ Page({
           mediaType:'image',
 
         }).then(res=>{
-            console.log(res);
             const tempFilePath=res.tempFiles[0].tempFilePath
             const timeStamp=Date.now()
             let that = this
             wx.cloud.uploadFile({cloudPath:this.data.openid+' '+timeStamp,filePath:tempFilePath,
                 success(res){
-                    
-                    
                     that.setData({src:res.fileID})
                 }})
         })
     },
 
     bindDateChange(e){
-        // console.log(e);
         this.setData({date:e.detail.value})
     },
 
     bindTimeChange(e){
-        // console.log(e);
         this.setData({time:e.detail.value})
     },
 
     handleSubmit(e){
-        console.log(1);
-        console.log(e);
         const description=e.detail.value.description
         const location=e.detail.value.location
         const username=e.detail.value.username
@@ -107,7 +100,6 @@ Page({
                         if (option=='option1') {
                             wx.cloud.callFunction({name:'getUser'})
                             .then(res=>{
-                                console.log(res);
                                 if(this.data.currentUser.credit<60){
                                     wx.showModal({
                                       title:'您的信誉积分过低',
@@ -188,7 +180,6 @@ Page({
 
 
     onOptionChange: function(event) {
-        console.log(event);
         if (event.detail.value === 'option1') {
           this.setData({
             inputDisabled: true,
@@ -214,7 +205,7 @@ Page({
         var day = now.getDate(); // 获取当前日期
         var hour = now.getHours(); // 获取当前小时
         var minute = now.getMinutes(); // 获取当前分钟
-        console.log(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':');
+        
         this.setData({
             date:year + '-' + month + '-' + day,
             time:hour + ':' + minute,
@@ -222,7 +213,6 @@ Page({
             minute:minute
         })
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
-            // console.log(res);
             this.setData({openid:res.result.data[0].openid})
             this.setData({currentUser:res.result.data[0]})
             if(this.data.currentUser.credit<60){
@@ -243,8 +233,6 @@ Page({
                 })
             }
         })
-        console.log('11234');
-        console.log(this.data);
     },
 
     
@@ -260,7 +248,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        // this.onLoad()
         if(this.data.currentUser.credit<60){
             wx.showModal({
               title:'您的信誉积分过低',
