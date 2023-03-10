@@ -6,7 +6,7 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 // 云函数入口函数
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
-    let toReturn=await cloud.database().collection('suggest').get().then(res=>{
+    let toReturn=await cloud.database().collection('suggest').orderBy('time','desc').get().then(res=>{
         return res;
     })
     return toReturn;
