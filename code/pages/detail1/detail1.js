@@ -122,6 +122,10 @@ Page({
 
         }).then(res=>{
             if(res.confirm){
+                wx.cloud.callFunction({name:'adminUpdatePostman',data:{
+                    openid:this.data.openid,
+                    credit:this.data.postman.credit-10
+                }})
                 wx.cloud.callFunction({name:'postmanCancleOrder',data:{
                     _id:this.data._id
                 }}).then(res=>{
