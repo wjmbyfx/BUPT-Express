@@ -9,25 +9,14 @@
     1.菜鸟驿站快递
 </view>
 <view class="para">
-    该类型快递需上传用户个人出库码，并备注取件码。出库码在菜鸟APP中会在点击页面后刷新，所以需要用户保证截图后不再点击刷新以确保派送员能正确出库。
+    该类型快递需上传用户个人出库码截图，并备注取件码。出库码在菜鸟APP中会在点击页面后刷新，所以需要用户保证截图后不再点击刷新以确保派送员能正确出库。
 </view>
+
 <view class="head1">
-    2.顺丰快递
+    2.京东、邮政、顺丰快递
 </view>
 <view class="para">
-    
-</view>
-<view class="head1">
-    3.京东快递
-</view>
-<view class="para">
-    
-</view>
-<view class="head1">
-    4.邮政快递
-</view>
-<view class="para">
-    
+    该类型快递需用户提供手机尾号后四位及姓名，建议附带快递页面截图或是取件短信截图
 </view>
 <view class="head1">
     二、信誉分说明

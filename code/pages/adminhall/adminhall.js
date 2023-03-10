@@ -27,6 +27,24 @@ Page({
           url: '/pages/feedback/feedback',
         })
     },
+    resetUserCredit(){
+        wx.cloud.callFunction({name:'adminRenewUserCredit'}).then(
+            wx.showToast({
+              title: '重置成功',
+              icon: 'success',
+              duration:1000
+            })
+        )
+    },
+    resetPostmanCredit(){
+        wx.cloud.callFunction({name:'adminRenewPostmanCredit'}).then(
+            wx.showToast({
+              title: '重置成功',
+              icon: 'success',
+              duration:1000
+            })
+        )
+    },
 
     /**
      * 生命周期函数--监听页面加载

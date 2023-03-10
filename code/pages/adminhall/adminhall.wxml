@@ -3,3 +3,5 @@
 <button bindtap="turntoSecret">修改密钥</button>
 <button bindtap="turntoCredit">信誉分管理</button>
 <button bindtap="turntoFeedback">反馈列表</button>
+<button bindtap="resetUserCredit" type="primary">重置用户信誉分</button>
+<button bindtap="resetPostmanCredit" type="primary">重置派送员信誉分</button>
