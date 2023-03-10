@@ -23,7 +23,7 @@ Page({
         const tabs = this.data.tabs
         tabs.forEach((v,i)=>{
             if(i==index){
-                console.log(index);
+                //console.log(index);
                 v.active=true
             }
             else{
@@ -56,7 +56,7 @@ Page({
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'adminGetUser',data:{type:'all'}}).then(res=>{
-            console.log(res);
+            //console.log(res);
             this.setData({user:res.result.data})
             this.setData({displayCustomer:res.result.data})
         })

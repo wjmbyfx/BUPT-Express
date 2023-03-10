@@ -21,10 +21,11 @@ Page({
     },
     tabClick(e) {
         const index = e.currentTarget.dataset.index;
+        this.setData({index:index})
         const tabs = this.data.tabs
         tabs.forEach((v,i)=>{
-            if(i==index){
-                console.log(index);
+            if(i==this.data.index){
+                //console.log(index);
                 v.active=true
             }
             else{
@@ -32,17 +33,21 @@ Page({
             }
         })
         this.setData({ tabs:tabs });
-        if (index==0) {
+        if (this.data.index==0) {
             this.setData({displayOrder:this.data.all})
+            this.setData({status:'all'})
         }
-        else if (index==1) {
+        else if (this.data.index==1) {
             this.setData({displayOrder:this.data.pending})
+            this.setData({status:'pending'})
         }
-        else if (index==2) {
+        else if (this.data.index==2) {
             this.setData({displayOrder:this.data.delivering})
+            this.setData({status:'delivering'})
         }
-        else if (index==3) {
+        else if (this.data.index==3) {
             this.setData({displayOrder:this.data.success})
+            this.setData({status:'success'})
         }
       },
 
@@ -50,20 +55,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     getSelectedOrder(e){
-        // console.log(e.currentTarget.dataset._id);
+        // //console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
         wx.navigateTo({
           url: '/pages/detail/detail?_id='+selectedOrder
         })
     },
     onLoad(options) {
-        
+        this.setData({status:options.status})
             
     wx.cloud.callFunction({name:'getOrder'
     }
     ).then(res=>{
         
-        // console.log(res.result.data);
+        // //console.log(res.result.data);
         res.result.data.forEach((v,i)=>{
             v.expectedtime=formatTime(new Date(v.expectedtime))
             if(v.type=='normal'){
@@ -139,7 +144,7 @@ Page({
         
     })
     if(options==undefined)
-        // console.log(options.status);
+        // //console.log(options.status);
         
     {
         this.setData({displayOrder:this.data.all,tabs:[{ name: '全部',  active: true, index: 0 },
@@ -164,7 +169,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        this.onLoad()
+        this.onLoad({status:this.data.status})
     },
 
     /**

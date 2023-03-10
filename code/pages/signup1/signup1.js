@@ -33,7 +33,7 @@ handleSubmit(e){
             secretkey:secretkey,
             type:type
         }}).then(res=>{
-            console.log(res);
+            ////console.log(res);
             if (res.result.msg=='fail') {
                 wx.showToast({
                   title: '授权码有误!',
@@ -71,13 +71,19 @@ handleSubmit(e){
         })
     }
 },
+faq(){
+    wx.navigateTo({
+      url: '/pages/FAQ/FAQ?page='+'postman',
+    })
+    
+},
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'isPostman'}).then(res=>{
-            console.log('ispostman',res);
+            ////console.log('ispostman',res);
             if(res.result.data.length==1){
                 this.setData({isPostman:true})
             }

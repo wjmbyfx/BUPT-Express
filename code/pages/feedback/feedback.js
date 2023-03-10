@@ -19,7 +19,7 @@ Page({
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'adminGetSuggest'}).then(res=>{
-            console.log(res);
+            //console.log(res);
             this.setData({
                 displayFeedback:res.result.data
             })

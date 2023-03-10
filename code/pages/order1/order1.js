@@ -10,7 +10,7 @@ Page({
         
     },
     getSelectedOrder(e){
-        // console.log(e.currentTarget.dataset._id);
+        // //console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
         wx.navigateTo({
           url: '/pages/detail1/detail1?_id='+selectedOrder
@@ -49,7 +49,7 @@ Page({
      */
     onShow() {
         wx.cloud.callFunction({name:'getPostman'}).then(res=>{
-            console.log(res);
+            //console.log(res);
             this.setData({openid:res.result.data[0].openid})
             this.setData({currentUser:res.result.data[0]})
             if(this.data.currentUser.credit<60){

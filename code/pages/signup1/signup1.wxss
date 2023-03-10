@@ -15,6 +15,12 @@ form{
     margin-bottom: 2vh;
     
 }
+.faq{
+    text-decoration: underline;
+    color: #2980b9;
+    text-align: center;
+    margin-top: 2vh;
+}
 radio-group{
     padding-left: 3vh;
     padding-right: 3vh;

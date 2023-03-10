@@ -28,14 +28,14 @@ Page({
               
             },1500)
         })
-        console.log(options);
+        //console.log(options);
         let type=options.type;
         if(!type){
             type='policy'
         }
         wx.cloud.callFunction({name:'getPolicy',data:{'type':type}})
         .then(res=>{
-            console.log(res);
+            //console.log(res);
             
             this.setData({src:res.result.text})
         })

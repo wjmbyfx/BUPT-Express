@@ -30,7 +30,7 @@ Page({
           mediaType:'image',
 
         }).then(res=>{
-            console.log(res);
+            //console.log(res);
             const tempFilePath=res.tempFiles[0].tempFilePath
             const timeStamp=Date.now()
             let that = this
@@ -50,19 +50,19 @@ Page({
     },
 
     bindDateChange(e){
-        // console.log(e);
+        // //console.log(e);
         const newDate=e.detail.value
         this.setData({displayDate:newDate})
     },
 
     bindTimeChange(e){
-        // console.log(e);
+        // //console.log(e);
         const newTime=e.detail.value
         this.setData({displayTime:newTime})
     },
 
     handleSubmit(e){
-        console.log(e);
+        //console.log(e);
         const newType=e.detail.value.type
         let newLocation=e.detail.value.location
         const newNote=e.detail.value.description+' '+e.detail.value.note
@@ -70,7 +70,7 @@ Page({
         const newTime=this.data.displayTime;
         const newTimeObj=new Date(newDate+' '+newTime)
         let newTimeStamp=newTimeObj.getTime()
-        console.log(newTimeStamp);
+        //console.log(newTimeStamp);
         if(newType=='normal'){
             wx.cloud.callFunction({name:'getUser'})
             .then(res=>{
@@ -130,8 +130,8 @@ Page({
 
     onOptionChange(event) {
         const type=event.detail.value
-        console.log(event);
-        console.log(type);
+        //console.log(event);
+        //console.log(type);
         if(type=='normal'){
             this.setData({
                 isDefault:true

@@ -16,7 +16,7 @@ Page({
     },
 
     handleSubmit(e){
-        // console.log(e);
+        // //console.log(e);
         const content=e.detail.value.content
         if(content!=''){
 

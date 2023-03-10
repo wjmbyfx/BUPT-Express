@@ -14,7 +14,7 @@ Page({
     handleSubmit(e){
         const credit=parseInt(e.detail.value.credit)
         const pcredit=parseInt(e.detail.value.pcredit)
-        console.log(credit);
+        //console.log(credit);
         if (credit<=0||credit>100||pcredit<=0||pcredit>100) {
             wx.showToast({
               title: '请填写合法数据!',
@@ -58,7 +58,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        console.log(options);
+        //console.log(options);
         const currentopenid=options.openid
         this.setData({
             openid:currentopenid
@@ -66,7 +66,7 @@ Page({
         wx.cloud.callFunction({name:'adminGetSpecificUser',data:{
             openid:this.data.openid
         }}).then(res=>{
-            // console.log(res);
+            // //console.log(res);
             this.setData({
                 username:res.result.data[0].username,
                 userCredit:res.result.data[0].credit,
@@ -76,7 +76,7 @@ Page({
         wx.cloud.callFunction({name:'adminGetSpecificPostman',data:{
             openid:this.data.openid
         }}).then(res=>{
-            console.log(res);
+            //console.log(res);
             if (res.result.data.length!=0) {
                 this.setData({
                     isPostman:true,

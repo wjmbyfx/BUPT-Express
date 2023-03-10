@@ -8,7 +8,7 @@ Page({
         secret:''
     },
     handleSubmit(e){
-        console.log(e);
+        //console.log(e);
         const newsecret=e.detail.value.newsecret
         if (newsecret=='') {
             wx.showToast({

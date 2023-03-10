@@ -24,7 +24,7 @@ Page({
 
 
     toDetail(e){
-        console.log(e);
+        //console.log(e);
         wx.navigateTo({
           url: '/pages/detail1/detail1?_id='+e.currentTarget.dataset._id,
 

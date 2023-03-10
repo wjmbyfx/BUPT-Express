@@ -14,6 +14,9 @@
     <text>授权码:(必填)</text>
     <input type="text"name="secretkey" style="border: 1px solid black;border-radius: 35px;"/>  
 </view>
+<view bindtap="faq" class="faq">
+    <text style="text-decoration: underline;">如何获取授权码?</text> 
+</view>
     
     <view class="indenttext">
     点击确定按钮即表示您同意我们的

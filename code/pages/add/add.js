@@ -24,7 +24,7 @@ Page({
     },
     faq(){
         wx.navigateTo({
-          url: '/pages/FAQ/FAQ',
+          url: '/pages/FAQ/FAQ?page='+'customer',
         })
     },
 
@@ -68,7 +68,7 @@ Page({
         let inminute=parseInt(arr[1])
         let chour=parseInt(this.data.hour)
         let cminute=parseInt(this.data.minute)
-        console.log(inhour,chour,inminute,cminute);
+        //console.log(inhour,chour,inminute,cminute);
         if(description==''||(option=='option2'&&location=='')||option=='') {wx.showToast({
             title: '请填写信息！',
             duration: 1000,
@@ -86,7 +86,7 @@ Page({
               tmplIds: ['tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0'
               ],
             }).then(res=>{
-                console.log(res);
+                //console.log(res);
                 if(res['tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0']
                 =='reject'){
                     wx.showToast({

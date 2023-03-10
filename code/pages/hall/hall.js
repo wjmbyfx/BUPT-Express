@@ -50,7 +50,7 @@ Page({
         }
         else{
             const _id=this.data.currentOrder._id
-            console.log(_id);
+            //console.log(_id);
             wx.showModal({
               title:'确认要收货吗?'
               

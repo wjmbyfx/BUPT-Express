@@ -24,7 +24,7 @@ Page({
         const tabs = this.data.tabs
         tabs.forEach((v,i)=>{
             if(i==index){
-                console.log(index);
+                //console.log(index);
                 v.active=true
             }
             else{
@@ -46,7 +46,7 @@ Page({
         }
       },
       getSelectedOrder(e){
-        // console.log(e.currentTarget.dataset._id);
+        // //console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
         wx.navigateTo({
           url: '/pages/detail/detail?_id='+selectedOrder
@@ -63,7 +63,7 @@ Page({
     }
     ).then(res=>{
         
-        // console.log(res.result.data);
+        // //console.log(res.result.data);
         res.result.data.forEach((v,i)=>{
             v.expectedtime=formatTime(new Date(v.expectedtime))
             if(v.type=='normal'){
@@ -139,7 +139,7 @@ Page({
         
     })
     if(options==undefined)
-        // console.log(options.status);
+        // //console.log(options.status);
         
     {
         this.setData({displayOrder:this.data.all,tabs:[{ name: '全部',  active: true, index: 0 },
