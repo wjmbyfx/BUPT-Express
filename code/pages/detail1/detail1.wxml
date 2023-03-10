@@ -31,10 +31,10 @@
     <view wx:if="{{location}}" style="color: #3498db; font-weight: 700;" >
         {{location}}
     </view>
-    <view class="boxtap">
+    <view class="boxtap" wx:if="{{isPostman}}">
         备注:
     </view>
-    <view wx:if="{{note}}">
+    <view wx:if="{{isPostman&&note}}">
         {{note}}
     </view>
     <view class="boxtap" wx:if="{{isPostman}}">
@@ -44,7 +44,7 @@
         <image src="{{currentOrder.src}}" mode="widthFix" style="width: 50%;" bindtap="handlePreview"></image> 
     </view>
 
-    <view class="boxtap">
+    <view class="boxtap" wx:if="{{isPostman&&contact}}">
         用户联系方式:
     </view>
     <view wx:if="{{isPostman&&contact}}">

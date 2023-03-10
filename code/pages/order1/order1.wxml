@@ -16,10 +16,10 @@
         {{item.expectedtime}}
         </view>
         
-        <view>
+        <!-- <view>
         <text class="boxtap">备注:</text>
         {{item.note}}
-        </view>
+        </view> -->
 
     </view>
     
