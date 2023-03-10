@@ -25,14 +25,14 @@
         更新用户积分:
     </view>
     <view>
-        <input selection-start="2" class="weui-input" type="number" name="credit" placeholder="请填入用户积分" value="{{credit}}"/>
+        <input selection-start="2" class="weui-input" type="number" name="credit" placeholder="请填入用户积分" value="{{userCredit}}"/>
     </view>
     <view wx:if="{{isPostman}}">
         <view class="tap">
         更新派送员积分:
         </view>
         <view>
-        <input selection-start="2" class="weui-input" type="number" name="pcredit" placeholder="请填入派送员积分 " value="{{pcredit}}"/>
+        <input selection-start="2" class="weui-input" type="number" name="pcredit" placeholder="请填入派送员积分 " value="{{postmanCredit}}"/>
         </view>
     </view>
     <button form-type="submit" type="primary">提交修改</button>

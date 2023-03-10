@@ -27,7 +27,7 @@
         
         <text class="boxtap">预期送达(必选):</text>
         <view class="line">
-            <picker  mode="date" value="{{date}}" start="2023-02-23" end="2033-02-23" bindchange="bindDateChange" name="date" class="picker">
+            <picker  mode="date" value="{{date}}" start="{{date}}" end="2033-02-23" bindchange="bindDateChange" name="date" class="picker">
             {{date}}
             <text>-</text>
             </picker>

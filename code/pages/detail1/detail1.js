@@ -50,6 +50,7 @@ Page({
           content:'将发送提示消息给用户'
           
         }).then(res=>{
+            this.setData({buttonchange:false})
             if(res.confirm){
                 wx.cloud.callFunction({name:'sendOrderMessage',data:{
                     _id:this.data._id,
@@ -65,6 +66,7 @@ Page({
                       icon:'success',
                       duration:1000
                     })
+                    
                     setTimeout(()=>{
                         this.onLoad
                     },1000)
@@ -171,7 +173,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
+        this.setData({buttonchange:true})
         if(options==undefined||options._id==undefined){
             wx.showToast({
               title: '当前无订单!',

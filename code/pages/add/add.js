@@ -13,7 +13,9 @@ Page({
         location:null,
         src:'',
         buttonChange:true,
-        currentUser:''
+        currentUser:'',
+        hour:'',
+        minute: ''
     },
     
 
@@ -56,6 +58,7 @@ Page({
     },
 
     handleSubmit(e){
+        console.log(1);
         console.log(e);
         const description=e.detail.value.description
         const location=e.detail.value.location
@@ -66,11 +69,25 @@ Page({
         var time=e.detail.value.date+" "+e.detail.value.time;
         time=new Date(time)
         time=time.valueOf();
+        let str=e.detail.value.time
+        let arr=str.split(':')
+        let inhour=parseInt(arr[0])
+        let inminute=parseInt(arr[1])
+        let chour=parseInt(this.data.hour)
+        let cminute=parseInt(this.data.minute)
+        console.log(inhour,chour,inminute,cminute);
         if(description==''||(option=='option2'&&location=='')||option=='') {wx.showToast({
             title: '请填写信息！',
             duration: 1000,
             icon:'error',
           })}
+          else if(e.detail.value.date==this.data.date&&(inhour<chour||(inhour==chour&&inminute<=cminute+20)||(inhour=chour+1&&60-cminute+inminute<=20))){
+            wx.showToast({
+              title: '请填写有效时间!',
+              icon: "error",
+              duration: 1000
+            })
+          }
         else{
             wx.requestSubscribeMessage({
               tmplIds: ['tYbs9s4DZfdcp880gkYTa-3-O0E2SD6x6_xW9mCAKR0'
@@ -200,7 +217,9 @@ Page({
         console.log(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':');
         this.setData({
             date:year + '-' + month + '-' + day,
-            time:hour + ':' + minute
+            time:hour + ':' + minute,
+            hour:hour,
+            minute:minute
         })
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
             // console.log(res);

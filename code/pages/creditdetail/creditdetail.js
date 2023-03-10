@@ -38,11 +38,18 @@ Page({
                 })
             }
             wx.showToast({
-              title: '更新成功',
-              duration:1000,
-              icon: "success"
+                title: '更新成功',
+                duration:1000,
+                icon: "success"
+              }).then(res=>{
+                setTimeout(()=>{
+                    // wx.reLaunch({
+                    //     url: '/pages/creditdetail/creditdetail?openid='+this.data.openid,
+                    // })
+                    this.onLoad({openid:this.data.openid})
+                },1000)
             })
-            this.onLoad({openid:this.data.openid})
+              
         }
 
         

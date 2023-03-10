@@ -1,1 +1,4 @@
 /* pages/adminhall/adminhall.wxss */
+button{
+    margin: 5vh;
+}

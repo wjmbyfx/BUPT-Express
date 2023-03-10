@@ -37,7 +37,7 @@ Page({
                     }
                     else{
                         wx.reLaunch({
-                          url: '/pages/hall1/hall1',
+                          url: '/pages/hall/hall',
                         })
                     }
                 })
