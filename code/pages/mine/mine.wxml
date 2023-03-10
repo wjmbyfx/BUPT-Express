@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<view style="height: 35vh;">
+<view style="height: 35vh;" >
     <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
 </view>
 <view class="box1">

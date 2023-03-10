@@ -60,7 +60,6 @@ Page({
                     location:this.data.location,
                     openid:this.data.currentOrder.openid
                 }}).then(res=>{
-                    console.log(res);
                     wx.showToast({
                       title: '成功!',
                       icon:'success',
@@ -68,7 +67,7 @@ Page({
                     })
                     
                     setTimeout(()=>{
-                        this.onLoad
+                        this.onLoad({_id:this.data._id})
                     },1000)
                 })
             }
@@ -205,7 +204,6 @@ Page({
                 this.setData({expectedtime:expectedtime})
 
                 wx.cloud.callFunction({name:'postmanGetUser',data:{openid:this.data.currentOrder.openid}}).then(res=>{
-                    console.log(res);
                     this.setData({contact:res.result.data[0].contact})
                 })
 
@@ -224,12 +222,10 @@ Page({
                 if(currentOrder.postman&&currentOrder.postman!=''){
                     wx.cloud.callFunction({name:'getOpenID'})
                     .then(res=>{
-                        console.log(res.result==currentOrder.postman);
                         this.setData({openid:res.result})
                         wx.cloud.callFunction({name:'getPostman',data:{
                             openid:this.data.openid
                         }}).then(res=>{
-                            // console.log(res);
                             this.setData({postman:res.result.data[0]})
                         })
                         if(res.result==currentOrder.postman){
@@ -249,7 +245,6 @@ Page({
                         wx.cloud.callFunction({name:'getPostman',data:{
                             openid:this.data.openid
                         }}).then(res=>{
-                            // console.log(res);
                             this.setData({postman:res.result.data[0]})
                         })
                     })

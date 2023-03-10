@@ -1,6 +1,6 @@
 // pages/hall/hall.js
 const {formatTime}=require('../../utils/util.js')
-const {getStatus}=require('../../utils/status.js')
+// const {getStatus}=require('../../utils/status.js')
 const {getLocation}=require('../../utils/getLocation.js')
 //依赖包
 
@@ -10,12 +10,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        src:null,
-        currentOrder:null, //最新订单的对象
-        orderList:null,  //所有订单的对象
-        currentStatus:null, //最新订单的状态
-        currentSubmitTime:null, //最新订单提交时间
-        currentExpectedTime:null, //最新订单预期时间
+        src:'',
+        currentOrder:'', //最新订单的对象
+        orderList:'',  //所有订单的对象
         isPostman:false
     },
     becomeDeliver(){
@@ -98,7 +95,6 @@ Page({
     },
 
     getSelectedOrder(e){
-        // console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
         wx.navigateTo({
           url: '/pages/detail/detail?_id='+selectedOrder
@@ -106,7 +102,6 @@ Page({
     },
 
     getCurrentOrder(e){
-        // console.log(e);
         const current_id=e.currentTarget.dataset._id
         wx.navigateTo({
           url: '/pages/detail/detail?_id='+current_id
@@ -119,7 +114,6 @@ Page({
     
     onLoad(options) {
         wx.cloud.callFunction({name:'isPostman'}).then(res=>{
-            console.log('ispostman',res);
             if(res.result.data.length==1){
                 this.setData({isPostman:true})
             }
@@ -131,41 +125,44 @@ Page({
         })
         .then(res=>{
             
-            console.log(res);
+
             if(res.result.data.length!=0){
                 let currentOrder=res.result.data[0]; //获取最新订单
                 currentOrder.note=currentOrder.note.slice(0,8)+'...'
+            
             {
+                const location=currentOrder.location;
+                if(currentOrder.type=='normal'){
+                    currentOrder.location=getLocation(location.building)+'楼 '+location.floor+'层'
+                }
+            }
+
+            {
+                    let currentSubmitTime=new Date(currentOrder.time)
+                    currentOrder.time=formatTime(currentSubmitTime)
+                    
+                    let currentExpectedTime=new Date(currentOrder.expectedtime)
+                    currentOrder.expectedtime=formatTime(currentExpectedTime)
+                    
+            } //设置提交和送达时间
                 
+
+
+
                 this.setData({orderList:res.result.data})
                 this.setData({currentOrder:currentOrder})
                 
-                const currentStatus=res.result.data[0].status;
-                this.setData({currentStatus:currentStatus}) //设置当前订单的状态
                 
-                if(this.data.currentStatus=='pending'||this.data.currentStatus=='delivering'){
+                
+                if(this.data.currentOrder.status=='pending'||this.data.currentOrder.status=='delivering'){
                     this.setData({displayConfirm:true})
                 } //判断是否展示确认收货按钮
-            }
+            
 
             
-            const location=currentOrder.location;
-            {
-                if(currentOrder.type=='normal'){
-                    this.setData({currentTransLocation:getLocation(location.building)+'楼 '+location.floor+'层'})
-                }
-                else{
-                    this.setData({currentTransLocation:location})
-                }
-            } //设置地址
+            
 
-            {
-            let currentSubmitTime=new Date(currentOrder.time)
-            this.setData({currentSubmitTime:formatTime(currentSubmitTime)}) //设置提交时间
-            let currentExpectedTime=new Date(currentOrder.expectedtime)
-            // console.log(currentOrder.expectedtime);
-            this.setData({currentExpectedTime:  formatTime(currentExpectedTime)})
-            } //设置提交和送达时间
+            
             
 
         }
@@ -203,7 +200,6 @@ Page({
         
         wx.cloud.callFunction({name:'isMember'})
         .then(res=>{
-            console.log(res);
             this.setData({isMember:res.result})
         })
         
@@ -241,7 +237,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
-        console.log(1);
         this.onLoad()
         wx.stopPullDownRefresh()
         

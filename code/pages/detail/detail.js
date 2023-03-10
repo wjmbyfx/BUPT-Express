@@ -54,7 +54,6 @@ Page({
         
         else{
             const _id=this.data._id
-            console.log(_id);
             wx.showModal({
               title:'确认要收货吗?'
               
@@ -84,7 +83,6 @@ Page({
     },
 
     edit(e){
-        // console.log(e);
         if(this.data.status=='cancled'){
             wx.showToast({
               title: '订单已取消',
@@ -156,8 +154,6 @@ Page({
                         _id:this.data._id,
                         newStatus:'cancled'
                     }}).then(res=>{
-                        console.log(res);
-                    }).then(res=>{
                         wx.showToast({
                           title: '取消成功',
                           icon:'success',
@@ -207,7 +203,7 @@ Page({
             .then(res=>{
                 if(res.result){
 
-                    console.log(res);
+                    
                     const currentOrder=res.result.data[0] //所请求的订单对象
                     let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
                     let location=currentOrder.location //地址,可能为字符串或对象
@@ -222,7 +218,6 @@ Page({
 
                      const postmaneOpenId=currentOrder.postman
                      wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
-                         console.log(res);
                          const postmanContact=res.result.data[0].contact
                          this.setData({postmanContact:postmanContact})
                      })
@@ -255,8 +250,6 @@ Page({
             }})
             .then(res=>{
                 if(res.result){
-
-                    console.log(res);
                     const currentOrder=res.result.data[0] //所请求的订单对象
                     let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
                     let location=currentOrder.location //地址,可能为字符串或对象
@@ -269,7 +262,7 @@ Page({
                      //设置当前订单的状态
                      const postmaneOpenId=currentOrder.postman
                      wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
-                         console.log(res);
+                         
                          const postmanContact=res.result.data[0].contact
                          this.setData({postmanContact:postmanContact})
                      })

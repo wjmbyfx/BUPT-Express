@@ -1,6 +1,7 @@
 // pages/mine/mine.js
 const {getLocation}=require('../../utils/getLocation')
 const {mustSignUp}=require('../../utils/mustSignUp')
+
 Page({
 
     /**
@@ -69,7 +70,6 @@ Page({
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'isAdmin'}).then(res=>{
-            console.log(res);
             this.setData({isAdmin:res.result})
         })
         wx.cloud.callFunction({name:'getImage'})
@@ -78,7 +78,6 @@ Page({
         this.setData({src:src})})
         wx.cloud.callFunction({name:'getUser'})
         .then(res=>{
-            console.log(res);
             const building=res.result.data[0].location.building
             const floor=res.result.data[0].location.floor
             let location=getLocation(building)+'楼 '+ floor+'层'
@@ -104,7 +103,6 @@ Page({
         mustSignUp()
         wx.cloud.callFunction({name:'getUser'})
         .then(res=>{
-            console.log(res);
             const building=res.result.data[0].location.building
             const floor=res.result.data[0].location.floor
             let location=getLocation(building)+'楼 '+ floor+'层'
