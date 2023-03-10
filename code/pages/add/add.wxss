@@ -44,6 +44,6 @@ input{
 .faq{
     text-decoration: underline;
     color: #3498db;
-    margin-left: 8%;
+    
     
 }
