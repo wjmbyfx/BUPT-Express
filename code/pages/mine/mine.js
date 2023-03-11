@@ -72,10 +72,6 @@ Page({
         wx.cloud.callFunction({name:'isAdmin'}).then(res=>{
             this.setData({isAdmin:res.result})
         })
-        wx.cloud.callFunction({name:'getImage'})
-        .then(res=>{
-        const src=res.result
-        this.setData({src:src})})
         wx.cloud.callFunction({name:'getUser'})
         .then(res=>{
             const building=res.result.data[0].location.building

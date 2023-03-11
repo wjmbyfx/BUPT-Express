@@ -1,7 +1,7 @@
 <!--pages/signup/signup.wxml-->
 
 <view style="height: 27vh;">
-    <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
+    <image  src="cloud://buptexpress-5goetp5o571a721f.6275-buptexpress-5goetp5o571a721f-1316844506/ill02.png" mode="widthFix" style="width: 100%;"/>
 </view>
 <view style="left: 15%;">
     <text class="bigtitle">请提供信息</text>

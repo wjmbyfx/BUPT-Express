@@ -7,19 +7,12 @@ Page({
     data: {
         displayFeedback:[]
     },
-    getSelectedFeedback(){
-        wx.navigateTo({
-          url: '/pages/feedbackdetail/feedbackdetail?_id='
-          +e.currentTarget.dataset._id,
-        })
-    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'adminGetSuggest'}).then(res=>{
-            //console.log(res);
             this.setData({
                 displayFeedback:res.result.data
             })

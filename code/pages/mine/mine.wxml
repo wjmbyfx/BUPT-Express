@@ -1,6 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <view style="height: 35vh;" >
-    <image  src="{{src}}" mode="widthFix" style="width: 100%;"/>
+    <image  src="cloud://buptexpress-5goetp5o571a721f.6275-buptexpress-5goetp5o571a721f-1316844506/ill01.png" mode="widthFix" style="width: 100%;"/>
 </view>
 <view class="box1">
      <view class="boxtap">
