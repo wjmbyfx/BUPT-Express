@@ -7,7 +7,9 @@ Page({
     data: {
         src:null,
         
-        isMember:null
+        isMember:null,
+        username:'',
+        contact:''
 
 
     },
@@ -19,7 +21,7 @@ Page({
         const username=e.detail.value.username
         // console.log(building);
         // console.log(floor)
-        if(building==''||floor==''||username=='') {wx.showToast({
+        if(building==''||floor==''||username==''||contact=='') {wx.showToast({
           title: '请填写信息！',
           duration: 1000,
           icon:'error',
@@ -76,7 +78,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
+        wx.cloud.callFunction({name:'getUser'}).then(res=>{
+            // console.log(res);
+            this.setData({
+                username:res.result.data[0].username,
+                contact:res.result.data[0].contact
+            })
+        })
         
     },
 

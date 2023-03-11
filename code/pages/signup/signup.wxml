@@ -1,6 +1,6 @@
 <!--pages/signup/signup.wxml-->
 
-<view style="height: 27vh;">
+<view class="topimg">
     <image  src="cloud://buptexpress-5goetp5o571a721f.6275-buptexpress-5goetp5o571a721f-1316844506/ill02.png" mode="widthFix" style="width: 100%;"/>
 </view>
 <view style="left: 15%;">
@@ -34,10 +34,10 @@
     </radio-group>
 
     <text>称呼方式:(必填)</text>
-    <input type="text"name="username" style="border: 1px solid black;border-radius: 35px;"/> 
+    <input type="text"name="username" style="border: 1px solid black;border-radius: 35px;" value="{{username}}"/> 
 
-    <text>联系方式:(可选)</text>
-    <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;"/> 
+    <text>联系方式:(必填)</text>
+    <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;" value="{{contact}}"/> 
     <view class="indenttext">
     点击确定按钮即表示您同意我们的
     </view>
