@@ -6,7 +6,7 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }) // 使用当前云环境
 // 云函数入口函数
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
-    const openid=wxContext.OPENID
+    const openid=event.openid
     let toReturn=await cloud.database().collection('postman').where({openid:openid}).get()
     .then(res=>{
         return res

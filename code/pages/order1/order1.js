@@ -48,28 +48,31 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        wx.cloud.callFunction({name:'getPostman'}).then(res=>{
-            //console.log(res);
-            this.setData({openid:res.result.data[0].openid})
-            this.setData({currentUser:res.result.data[0]})
-            if(this.data.currentUser.credit<60){
-                wx.showModal({
-                  title:'您的信誉积分过低',
-                  content:'您当前的信誉积分低于60分,可能由于多次不守信导致,如果您有任何疑问,可前往反馈界面进行反馈'
-                }).then(res=>{
-                    if(res.confirm){
-                        wx.navigateTo({
-                          url: '/pages/suggest/suggest',
-                        })
-                    }
-                    else{
-                        wx.reLaunch({
-                          url: '/pages/hall1/hall1',
-                        })
-                    }
-                })
-            }
+        wx.cloud.callFunction({name:'getOpenID'}).then(res=>{
+            wx.cloud.callFunction({name:'getPostman',data:{openid:res.result}}).then(res=>{
+                //console.log(res);
+                this.setData({openid:res.result.data[0].openid})
+                this.setData({currentUser:res.result.data[0]})
+                if(this.data.currentUser.credit<60){
+                    wx.showModal({
+                      title:'您的信誉积分过低',
+                      content:'您当前的信誉积分低于60分,可能由于多次不守信导致,如果您有任何疑问,可前往反馈界面进行反馈'
+                    }).then(res=>{
+                        if(res.confirm){
+                            wx.navigateTo({
+                              url: '/pages/suggest/suggest',
+                            })
+                        }
+                        else{
+                            wx.reLaunch({
+                              url: '/pages/hall1/hall1',
+                            })
+                        }
+                    })
+                }
+            })
         })
+        
     },
 
     /**

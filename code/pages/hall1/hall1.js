@@ -40,11 +40,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        wx.cloud.callFunction({name:'getPostman'}).then(res=>{
-            this.setData({
-                credit:res.result.data[0].credit
+        wx.cloud.callFunction({name:'getOpenID'}).then(res=>{
+            wx.cloud.callFunction({name:'getPostman',data:{openid:res.result}}).then(res=>{
+                this.setData({
+                    credit:res.result.data[0].credit
+                })
             })
         })
+        
         wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
             status:'delivering'
         }})
