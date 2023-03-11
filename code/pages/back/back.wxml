@@ -24,3 +24,4 @@
 <button bindtap="adminUpdateSecretkey">adminUpdateSecretkey</button>
 <button bindtap="adminGetSecretKey">adminGetSecretKey</button>
 <button bindtap="adminGetUser">adminGetUser</button>
+<button bindtap="sendSMS">sendSMS</button>

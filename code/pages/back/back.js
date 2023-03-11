@@ -10,6 +10,14 @@ Page({
 
     },
 
+    sendSMS(){
+        wx.cloud.callFunction({name:'postmanSendSuccessSMS',data:{
+            mobile:'18811580695',nationcode:'86'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     adminGetUser(){
         wx.cloud.callFunction({name:'adminGetUser',data:{
             type:'error'
