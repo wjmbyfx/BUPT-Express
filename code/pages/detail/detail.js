@@ -150,6 +150,9 @@ Page({
                 content: '确认要取消订单吗?',
               }).then(res=>{
                   if(res.confirm){
+                      wx.cloud.callFunction({name:'userCancleSendSMS',data:{
+                          mobile:this.data.postmanContact,nationcode:'86'
+                      }})
                     wx.cloud.callFunction({name:'updateOrderStatus',data:{
                         _id:this.data._id,
                         newStatus:'cancled'
@@ -205,6 +208,7 @@ Page({
 
                     
                     const currentOrder=res.result.data[0] //所请求的订单对象
+                    this.setData({currentOrder:currentOrder})
                     let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
                     let location=currentOrder.location //地址,可能为字符串或对象
                     const note=currentOrder.note //备注和描述

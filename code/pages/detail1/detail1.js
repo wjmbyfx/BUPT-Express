@@ -125,6 +125,9 @@ Page({
 
         }).then(res=>{
             if(res.confirm){
+                wx.cloud.callFunction({name:'postmanCancleSendSMS',data:{
+                    mobile:this.data.contact,nationcode:'86'
+                }})
                 wx.cloud.callFunction({name:'adminUpdatePostman',data:{
                     openid:this.data.openid,
                     credit:this.data.postman.credit-10
@@ -175,6 +178,8 @@ Page({
                         this.onLoad({_id:this.data._id})
                         
                     },1000)
+                    
+                    
                 })
             }
         })
@@ -232,7 +237,7 @@ Page({
                     .then(res=>{
                         this.setData({openid:res.result})
                         wx.cloud.callFunction({name:'getPostman',data:{
-                            openid:this.data.openid
+                            openid:this.data.currentOrder.postman
                         }}).then(res=>{
                             this.setData({postman:res.result.data[0]})
                         })
@@ -251,7 +256,7 @@ Page({
                         
                         this.setData({openid:res.result})
                         wx.cloud.callFunction({name:'getPostman',data:{
-                            openid:this.data.openid
+                            openid:this.data.currentOrder.postman
                         }}).then(res=>{
                             this.setData({postman:res.result.data[0]})
                         })
