@@ -68,12 +68,14 @@ Page({
         let inminute=parseInt(arr[1])
         let chour=parseInt(this.data.hour)
         let cminute=parseInt(this.data.minute)
+        console.log(e.detail.value.date+'a',this.data.date);
         //console.log(inhour,chour,inminute,cminute);
         if(description==''||(option=='option2'&&location=='')||option=='') {wx.showToast({
             title: '请填写信息！',
             duration: 1000,
             icon:'error',
           })}
+          
           else if(e.detail.value.date==this.data.date&&(inhour<chour||(inhour==chour&&inminute<=cminute+20)||(inhour=chour+1&&60-cminute+inminute<=20))){
             wx.showToast({
               title: '请填写有效时间!',

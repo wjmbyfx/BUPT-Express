@@ -79,11 +79,13 @@ Page({
      */
     onLoad(options) {
         wx.cloud.callFunction({name:'getUser'}).then(res=>{
-            // console.log(res);
-            this.setData({
-                username:res.result.data[0].username,
-                contact:res.result.data[0].contact
-            })
+            //  console.log(res);
+            if (res.result.data.length!=0) {
+                this.setData({
+                    username:res.result.data[0].username,
+                    contact:res.result.data[0].contact
+                })
+            }
         })
         
     },
