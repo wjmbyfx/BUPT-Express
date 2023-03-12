@@ -152,7 +152,9 @@ Page({
                   if(res.confirm){
                       wx.cloud.callFunction({name:'userCancleSendSMS',data:{
                           mobile:this.data.postmanContact,nationcode:'86'
-                      }})
+                      }}).then(res=>{
+                          console.log(res);
+                      })
                     wx.cloud.callFunction({name:'updateOrderStatus',data:{
                         _id:this.data._id,
                         newStatus:'cancled'
