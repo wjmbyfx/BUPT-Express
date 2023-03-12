@@ -15,7 +15,9 @@ Page({
         buttonChange:true,
         currentUser:'',
         hour:'',
-        minute: ''
+        minute: '',
+        cdate:'',
+        ctime:''
     },
     
 
@@ -68,13 +70,18 @@ Page({
         let inminute=parseInt(arr[1])
         let chour=parseInt(this.data.hour)
         let cminute=parseInt(this.data.minute)
+        let arr1=e.detail.value.date.split('-')
+        let arr2=this.data.cdate.split('-')
+        // console.log(parseInt(arr1[0]),parseInt(arr2[0]),parseInt(arr1[1]),parseInt(arr2[1]),parseInt(arr1[2]),parseInt(arr2[2]));
+        // console.log(parseInt(arr1[0])==parseInt(arr2[0])&&parseInt(arr1[1])==parseInt(arr2[1])&&parseInt(arr1[2])==parseInt(arr2[2]));
         //console.log(inhour,chour,inminute,cminute);
         if(description==''||(option=='option2'&&location=='')||option=='') {wx.showToast({
             title: '请填写信息！',
             duration: 1000,
             icon:'error',
           })}
-          else if(e.detail.value.date==this.data.date&&(inhour<chour||(inhour==chour&&inminute<=cminute+20)||(inhour=chour+1&&60-cminute+inminute<=20))){
+          
+          else if((parseInt(arr1[0])==parseInt(arr2[0])&&parseInt(arr1[1])==parseInt(arr2[1])&&parseInt(arr1[2])==parseInt(arr2[2]))&&(inhour<chour||(inhour==chour&&inminute<=cminute+20)||(inhour=chour+1&&60-cminute+inminute<=20))){
             wx.showToast({
               title: '请填写有效时间!',
               icon: "error",
@@ -209,6 +216,8 @@ Page({
         this.setData({
             date:year + '-' + month + '-' + day,
             time:hour + ':' + minute,
+            cdate:year + '-' + month + '-' + day,
+            ctime:hour + ':' + minute,
             hour:hour,
             minute:minute
         })
