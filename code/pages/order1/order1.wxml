@@ -15,6 +15,10 @@
         <text style="color: black; font-weight: 700;">期望送达:</text>
         {{item.expectedtime}}
         </view>
+        <view>
+        <text class="boxtap">用户昵称:</text>
+        {{item.username}}
+        </view>
         
         <!-- <view>
         <text class="boxtap">备注:</text>
