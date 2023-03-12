@@ -55,7 +55,9 @@ Page({
                 wx.cloud.callFunction({name:'postmanSendSuccessSMS',data:{
                     mobile:this.data.contact,
                     nationcode:'86'
-                }})
+                }}).then(res=>{
+                    console.log(res);
+                })
                 wx.cloud.callFunction({name:'sendOrderMessage',data:{
                     _id:this.data._id,
                     status:'已到达',
@@ -127,7 +129,9 @@ Page({
             if(res.confirm){
                 wx.cloud.callFunction({name:'postmanCancleSendSMS',data:{
                     mobile:this.data.contact,nationcode:'86'
-                }})
+                }}).then(res=>{
+                    console.log(res);
+                })
                 wx.cloud.callFunction({name:'adminUpdatePostman',data:{
                     openid:this.data.openid,
                     credit:this.data.postman.credit-10
@@ -165,7 +169,9 @@ Page({
                 wx.cloud.callFunction({name:'postmanSendTakeSMS',data:{
                     mobile:this.data.contact,
                     nationcode:'86'
-                }})
+                }}).then(res=>{
+                    console.log(res);
+                })
                 wx.cloud.callFunction({name:'postmanTakeOrder',data:{_id:this.data._id}}).then(res=>{
                     wx.cloud.callFunction({name:'updateOrderStatus',data:{
                         _id:this.data._id,newStatus:'delivering'
