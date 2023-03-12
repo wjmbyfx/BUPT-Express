@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
     const status=event.status
     let toReturn=''
-    const skip=event.skip*6
+    const skip=event.skip*8
     if(status=='all'){
         toReturn = await cloud.database().collection('order').orderBy('time','asc').limit(6).skip(skip).get()
     .then(res=>{
@@ -17,7 +17,7 @@ exports.main = async (event, context) => {
     }
     else{
 
-        toReturn = await cloud.database().collection('order').orderBy('time','asc').where({status:status}).limit(6).skip(skip).get()
+        toReturn = await cloud.database().collection('order').orderBy('time','asc').where({status:status}).limit(8).skip(skip).get()
         .then(res=>{
             return res
         })
