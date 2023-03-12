@@ -73,7 +73,9 @@ Page({
                     })
                     
                     setTimeout(()=>{
-                        this.onLoad({_id:this.data._id})
+                        wx.navigateBack({
+                          delta: 1,
+                        })
                     },1000)
                 })
             }

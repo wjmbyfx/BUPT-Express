@@ -7,7 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        
+        scrollIndex:0
     },
     getSelectedOrder(e){
         // //console.log(e.currentTarget.dataset._id);
@@ -23,7 +23,7 @@ Page({
     onLoad(options) {
         
         wx.cloud.callFunction({name:'postmanGetOrder',data:{
-            status:'pending'
+            status:'pending',skip:this.data.scrollIndex
         }}).then(res=>{
             const orderList=res.result.data
             orderList.forEach((v,i)=>{
@@ -93,15 +93,30 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
+        this.setData({scrollIndex:0})
         this.onLoad()
         wx.stopPullDownRefresh()
+        
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-
+        this.setData({scrollIndex:this.data.scrollIndex+1})
+        wx.cloud.callFunction({name:'postmanGetOrder',data:{
+            status:'pending',skip:this.data.scrollIndex
+        }}).then(res=>{
+            const orderList=res.result.data
+            orderList.forEach((v,i)=>{
+                v.time=formatTime(new Date(v.time))
+                v.expectedtime=formatTime(new Date(v.expectedtime))
+                if(v.type=='normal'){
+                    v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+                }
+            })
+            this.setData({orderList:this.data.orderList.concat(res.result.data)})
+        })
     },
 
     /**

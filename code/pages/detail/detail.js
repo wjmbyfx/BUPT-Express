@@ -17,7 +17,8 @@ Page({
         type:'',
         _id:'',
         src:'',
-        postmanContact:''
+        postmanContact:'',
+        scrollIndex:0
 
         
     },
@@ -307,6 +308,7 @@ Page({
      */
     onShow() {
         this.onLoad({_id:this.data._id})
+        this.setData({scrollIndex:0})
     },
 
     /**
