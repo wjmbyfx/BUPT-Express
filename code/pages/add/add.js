@@ -134,6 +134,7 @@ Page({
                                     location:res.result.data[0].location,
                                     status:'pending',
                                     src:this.data.src,
+                                    username:this.data.currentUser.username
                                     
                                 }}).then(res=>{
                                     wx.showToast({

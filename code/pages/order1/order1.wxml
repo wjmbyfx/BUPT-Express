@@ -15,6 +15,10 @@
         <text style="color: black; font-weight: 700;">期望送达:</text>
         {{item.expectedtime}}
         </view>
+        <view class="expectedtime" style="color: #27ae60;">
+        <text style="color: black; font-weight: 700;" wx:if="{{item.username}}">用户名:</text>
+        {{item.username}}
+        </view>
         
         <!-- <view>
         <text class="boxtap">备注:</text>

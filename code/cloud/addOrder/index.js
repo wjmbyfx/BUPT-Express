@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
 
 
-
+        const username=event.username
         const time=Date.now()
         const openid=wxContext.OPENID
         const status=event.status
@@ -30,7 +30,8 @@ exports.main = async (event, context) => {
         note:note,
         time:time,
         src:src,
-        postman:''
+        postman:'',
+        username:username
     }}).then(res=>{
         toReturn=res
     })
