@@ -1,8 +1,34 @@
 /* pages/policy/policy.wxss */
+page{
+    background-color: #ecf0f1;
+}
 button{
     height: 57px;
     position: fixed;
     bottom: 2vh;
     left: 5px;
     right: 5px;
+}
+
+.head{
+    font-size: large;
+    font-weight: 900;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+.body{
+    height: 85vh;
+    
+    
+}
+.box{
+    margin: 3vh;
+    border-radius: 3vh;
+    background-color:white;
+    padding: 1vh;
+}
+.mhead{
+    font-size: large;
+    font-weight: 900;
+    text-align: center;
 }

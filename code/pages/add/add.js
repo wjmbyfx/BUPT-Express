@@ -29,6 +29,18 @@ Page({
           url: '/pages/FAQ/FAQ?page='+'customer',
         })
     },
+    handleUser(){
+        wx.navigateTo({
+          url: '../policy/policy?type=user',
+        })
+    },
+
+    handlePolicy(){
+        wx.navigateTo({
+          url: '../policy/policy?type=policy',
+        })
+    },
+
 
     handleUpload(){
         wx.chooseMedia({
@@ -134,6 +146,7 @@ Page({
                                     location:res.result.data[0].location,
                                     status:'pending',
                                     src:this.data.src,
+                                    username:this.data.currentUser.username
                                     
                                 }}).then(res=>{
                                     wx.showToast({
