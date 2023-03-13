@@ -29,6 +29,18 @@ Page({
           url: '/pages/FAQ/FAQ?page='+'customer',
         })
     },
+    handleUser(){
+        wx.navigateTo({
+          url: '../policy/policy?type=user',
+        })
+    },
+
+    handlePolicy(){
+        wx.navigateTo({
+          url: '../policy/policy?type=policy',
+        })
+    },
+
 
     handleUpload(){
         wx.chooseMedia({

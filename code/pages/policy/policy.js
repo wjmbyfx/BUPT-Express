@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        src:null,
+        etype:null
     },
     sign(){
         wx.cloud.callFunction({name:'sign'})
@@ -17,31 +17,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.setData({src:null})
-        setTimeout(()=>{
-            wx.showToast({
-              title: 'loading',
-              duration: 2000,
-              icon: 'loading',
-            //   image: 'image',
-              mask: true,
-              
-            },1500)
-        })
-        //console.log(options);
+       
         let type=options.type;
-        if(!type){
-            type='policy'
+        if(!type||type=='policy'){
+            this.setData({etype:1})
         }
-        wx.cloud.callFunction({name:'getPolicy',data:{'type':type}})
-        .then(res=>{
-            //console.log(res);
-            
-            this.setData({src:res.result.text})
-        })
-        .catch(err=>{
-            console.error(err);
-        })
+        else if (type=='user') {
+            this.setData({etype:0})
+        }
+        
+        
     },
 
     /**
