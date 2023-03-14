@@ -18,8 +18,8 @@ page {
     text-align: start;
 }
 .child2{
-    width: 70%;
-    text-align: start;
+    
+    text-align: center;
     margin-left: 15vw;
 }
 
