@@ -19,6 +19,9 @@
 </view>
     
     <view class="indenttext">
+        <view>
+            以上信息自愿填写
+        </view>
     点击确定按钮即表示您同意我们的
     </view>
     <view class="policytext">

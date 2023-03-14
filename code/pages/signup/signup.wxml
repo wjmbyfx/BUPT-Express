@@ -39,7 +39,14 @@
     <text>联系方式:(必填)</text>
     <input type="text"name="contact" style="border: 1px solid black;border-radius: 35px;" value="{{contact}}"/> 
     <view class="indenttext">
-    点击确定按钮即表示您同意我们的
+        <view>
+            以上信息自愿填写
+        </view>
+        <view>
+            点击确定按钮即表示您同意我们的
+        </view>
+    
+        
     </view>
     <view class="policytext">
     <navigator style="display: inline-block;" url="../policy/policy?type=policy">隐私政策</navigator>及<navigator style="display: inline-block;" url="../policy/policy?type=user">用户协议</navigator>
