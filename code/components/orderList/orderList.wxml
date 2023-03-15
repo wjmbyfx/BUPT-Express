@@ -1,6 +1,6 @@
 <!--components/orderList/orderList.wxml-->
 
-<view wx:if="{{!orderList||orderList.length==0}}" style="text-align: center;">当前没有待接取订单!</view>
+<view wx:if="{{!orderList||orderList.length==0}}" style="text-align: center;">当前没有可查看的订单!</view>
 <view class="order" wx:for="{{orderList}}" wx:key="_id" data-_id="{{item._id}}" bindtap="goVerify">
     <view class="box">
         <text class="boxtap">订单状态:</text>

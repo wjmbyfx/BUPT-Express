@@ -1,5 +1,7 @@
 {
     "usingComponents": {
-        "status":"../../components/status/status"
+        "detail":"/components/detail/detail",
+        "orderOperation":"/components/orderOperation/orderOperation"
+
     }
 }

@@ -16,7 +16,7 @@ Page({
         console.log(e);
         const _id=e.detail._id
         wx.navigateTo({
-          url: '/pages/detail2/detail2?_id='+_id,
+          url: '/pages/detail2/detail2?_id='+_id+'&role=admin',
         })
     },
 
@@ -50,7 +50,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.onLoad()
     },
 
     /**
