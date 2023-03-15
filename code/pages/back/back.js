@@ -70,7 +70,7 @@ Page({
 
     postmanGetOrder(){
         wx.cloud.callFunction({name:'postmanGetOrder',data:{
-            status:'pending'
+            status:'notVerified',skip:0,building:'all'
         }}).then(res=>{
             console.log(res);
         })

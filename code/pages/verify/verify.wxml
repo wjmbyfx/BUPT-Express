@@ -1,0 +1,3 @@
+<!--pages/verify/verify.wxml-->
+<!-- <text>pages/verify/verify.wxml</text> -->
+<orderList orderList="{{orderList}}" bind:goVerify="goVerify"></orderList>

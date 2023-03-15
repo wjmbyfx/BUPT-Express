@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "status":"../../components/status/status"
+    }
+}

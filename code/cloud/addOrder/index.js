@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
     await cloud.database().collection('order')
     .add({data:{
         openid:openid,
-        status:status,
+        status:'notVerified',
         type:type,
         location:location,
         expectedtime:expectedtime,
@@ -31,7 +31,8 @@ exports.main = async (event, context) => {
         time:time,
         src:src,
         postman:'',
-        username:username
+        username:username,
+        verified:false
     }}).then(res=>{
         toReturn=res
     })
