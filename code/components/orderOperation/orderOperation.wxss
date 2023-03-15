@@ -1,4 +1,7 @@
-
+/* pages/detail/detail.wxss */
+page{
+    background-color:#ecf0f1 ;
+}
 .head1{
     text-align: center;
     color: #2ecc71;
