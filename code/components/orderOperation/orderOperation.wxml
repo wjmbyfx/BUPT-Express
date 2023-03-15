@@ -1,5 +1,5 @@
 <!--components/orderOperation/orderOperation.wxml-->
-<view class="box2">
+<view class="box2" wx:if="{{status=='active'}}">
     <view class="head2">
         订单操作
     </view>
@@ -62,16 +62,16 @@
 
     <view class="inbox2" wx:if="{{role=='postman'}}">
 
-<view class="inbox" wx:if="{{!isPostman}}">
-    <view class="confirm" bindtap="takeOrder">
-    <view>
-    <image src="/img/takeOrder.png" mode="widthFix"/>
-    </view>
-    <view>
-    <text>接单</text>
-    </view>
-</view>
-</view>
+        <view class="inbox" wx:if="{{!isPostman}}">
+            <view class="confirm" bindtap="takeOrder">
+                <view>
+                    <image src="/img/takeOrder.png" mode="widthFix"/>
+                </view>
+            <view>
+            <text>接单</text>
+            </view>
+        </view>
+        </view>
 
 <view class="inbox" wx:if="{{isPostman}}">
 <view class="cancle" bindtap="cancle">

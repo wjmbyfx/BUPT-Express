@@ -25,11 +25,17 @@ Component({
      * 组件的方法列表
      */
     methods: {
-    },
+        handleImageTap(){
+            wx.previewImage({
+              urls: [this.data.currentOrder.src],
+              
+            })
+        },
 
-    ready(){
-        console.log(this.data);
-        const _id=this.data._id;
+        
+
+        reload(){
+            const _id=this.data._id;
         wx.cloud.callFunction({name:'getSpecificOrder',data:{
             _id:_id
         }}).then(res=>{
@@ -56,5 +62,10 @@ Component({
             
             this.setData({currentOrder:currentOrder})
         })
+        }
+    },
+
+    ready(){
+        this.reload();
     }
 })

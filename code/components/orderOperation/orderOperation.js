@@ -18,13 +18,20 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        status:'active'
+        
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
+        suggest(){
+            wx.navigateTo({
+              url: '/pages/suggest/suggest?_id='+this.data._id,
+            })
+        },
+
         acceptOrder(){
             wx.showModal({
               title:'是否要过审?'
@@ -39,8 +46,9 @@ Component({
                           duration:1000
                         })
                         setTimeout(()=>{
-                            this.triggerEvent('getBack',{},{})
+                            this.triggerEvent('reload',{},{})
                         },1000)
+                        this.setData({status:'deactive'})
                     })
                 }
             })
@@ -59,11 +67,12 @@ Component({
                           duration:1000
                         })
                         setTimeout(()=>{
-                            this.triggerEvent("getBack",{},{})
+                            this.triggerEvent("reload",{},{})
                         },1000)
+                        this.setData({status:'deactive'})
                     })
                 }
             })
-        }
+        } //拒绝订单
     }
 })
