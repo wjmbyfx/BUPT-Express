@@ -7,8 +7,21 @@ Page({
      * 页面的初始数据
      */
     data: {
-        scrollIndex:0
+        scrollIndex:0,
+        region: ['全部','雁北A', '雁北B', '雁北C', '雁北D1', '雁北D2', '雁北E', '雁南S2', '雁南S3', '雁南S4', '雁南S5', '雁南S6','其他'],
+        index: 0
     },
+    bindRegionChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+    
+        let valueMap = {'全部':'all','雁北A': 'NA', '雁北B': 'NB', '雁北C': 'NC', '雁北D1': 'ND1', '雁北D2': 'ND2', '雁北E': 'NE', '雁南S2': 'S2', '雁南S3': 'S3', '雁南S4': 'S4', '雁南S5': 'S5', '雁南S6': 'S6','其他':'other'}
+        let value = valueMap[this.data.region[e.detail.value]]
+        console.log('选中值为', value)
+    
+        this.setData({
+          index: e.detail.value
+        })
+      },
     getSelectedOrder(e){
         // //console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
@@ -25,6 +38,7 @@ Page({
         wx.cloud.callFunction({name:'postmanGetOrder',data:{
             status:'pending',skip:this.data.scrollIndex
         }}).then(res=>{
+            console.log(res);
             const orderList=res.result.data
             orderList.forEach((v,i)=>{
                 v.time=formatTime(new Date(v.time))
