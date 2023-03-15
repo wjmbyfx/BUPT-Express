@@ -1,0 +1,57 @@
+<!--pages/comment/comment.wxml-->
+<form bindsubmit="onSend">
+<view class="box2">
+    <view class="inbox" bindtap="good">
+        <view>
+        <image src="/img/shit.png" mode="widthFix" class="icon"/>
+        </view>
+        <text>差评</text>
+    </view>
+    <view class="inbox" bindtap="ok">
+        <view>
+        <image src="/img/ok.png" mode="widthFix" class="icon"/>
+        </view>
+        <text>中评</text>
+    </view>
+    <view class="inbox" bindtap="all">
+        <view>
+        <image src="/img/good.png" mode="widthFix" class="icon"/>
+        </view>
+        差评
+    </view>
+</view>
+<view class="box2">
+    <textarea name="content"  cols="30" rows="10" placeholder="写下你的评价。若是对评价有异议也可通过反馈来联系我们" auto-focus="true" value="{{content}}"></textarea>
+</view>
+<button type="primary" >提交评价</button>
+</form>
+<view class="head">
+    我的评价
+</view>
+<view class="box2">
+    <view>
+        {{grade}}
+    </view>
+    <view>
+        评价内容:
+    </view>
+    <view>
+        
+    </view>
+</view>
+
+<view class="head">
+    对方评价
+</view>
+
+<view class="box2">
+    <view>
+        {{grade}}
+    </view>
+    <view>
+        评价内容:
+    </view>
+    <view>
+        
+    </view>
+</view>
