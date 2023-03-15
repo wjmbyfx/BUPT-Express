@@ -1,11 +1,11 @@
-<view>
-<view>
+<view style="white-space: nowrap;">
+    <view style="display: inline-block;">
     筛选收货地址:
-</view>
+    </view>
   <picker mode="selector" range="{{region}}" bindchange="bindRegionChange">
-    <view class="picker">
+    <view class="picker" >
         
-      {{region[index]}}
+      {{'>'}}{{region[index]}}
     </view>
   </picker>
 </view>

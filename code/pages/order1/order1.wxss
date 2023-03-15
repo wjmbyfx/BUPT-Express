@@ -56,4 +56,8 @@ text{
 .picker{
     color: #3498db;
     text-decoration: underline;
+    display: inline-block;
+    font-size: large;
+    font-weight: 600;
+    
 }
