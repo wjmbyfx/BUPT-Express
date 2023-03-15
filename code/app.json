@@ -22,7 +22,11 @@
       "pages/creditlist/creditlist",
       "pages/creditdetail/creditdetail",
       "pages/FAQ/FAQ",
-      "pages/feedback/feedback"
+      "pages/feedback/feedback",
+      "pages/verify/verify",
+      "pages/detail2/detail2"
+      
+      
 
   ],
   "window":{

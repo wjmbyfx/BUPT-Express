@@ -1,0 +1,33 @@
+<!--components/orderList/orderList.wxml-->
+
+<view wx:if="{{!orderList||orderList.length==0}}" style="text-align: center;">当前没有待接取订单!</view>
+<view class="order" wx:for="{{orderList}}" wx:key="_id" data-_id="{{item._id}}" bindtap="goVerify">
+    <view class="box">
+        <text class="boxtap">订单状态:</text>
+        <status status="{{item.status}}" style="display: inline-block;"></status>
+        <view class="location">
+        <text style="color: black; font-weight: 700;">收货地址:</text>
+        {{item.location}}
+        
+        </view>
+        <view>
+        <text class="boxtap">发布时间:</text>
+        {{item.time}}
+        </view>
+        <view class="expectedtime">
+        <text style="color: black; font-weight: 700;">期望送达:</text>
+        {{item.expectedtime}}
+        </view>
+        <view class="expectedtime" style="color: #27ae60;">
+        <text style="color: black; font-weight: 700;" wx:if="{{item.username}}">用户名:</text>
+        {{item.username}}
+        </view>
+        
+        <!-- <view>
+        <text class="boxtap">备注:</text>
+        {{item.note}}
+        </view> -->
+
+    </view>
+    
+</view>

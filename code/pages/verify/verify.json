@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "orderList":"../../components/orderList/orderList"
+    },
+    "navigationBarTitleText": "订单审核"
+}

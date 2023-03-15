@@ -1,0 +1,4 @@
+/* pages/verify/verify.wxss */
+Page{
+    background-color: #ecf0f1;
+}
