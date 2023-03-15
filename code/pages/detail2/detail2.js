@@ -16,6 +16,11 @@ Page({
         })
     },
 
+    reload(){
+        const detail=this.selectComponent('.detail')
+        detail.reload();
+    },
+
 
     /**
      * 生命周期函数--监听页面加载
