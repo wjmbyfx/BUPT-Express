@@ -23,7 +23,8 @@ exports.main = async (event, context) => {
                 status:1,
                 credit:100,
                 contact:contact,
-                score:5
+                score:5,
+                count:0
             }})
         }
         if(type=='updated'){
