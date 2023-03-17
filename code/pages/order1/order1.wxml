@@ -26,7 +26,7 @@
         {{item.expectedtime}}
         </view>
         <view class="expectedtime" style="color: #27ae60;">
-        <text style="color: black; font-weight: 700;" wx:if="{{item.username}}">用户名:</text>
+        <text style="color: black; font-weight: 700;" >用户名:</text>
         {{item.username}}
         </view>
         
