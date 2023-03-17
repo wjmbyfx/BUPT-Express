@@ -33,7 +33,8 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "ignoreUploadUnusedFiles": true
+        "ignoreUploadUnusedFiles": true,
+        "condition": false
     },
     "compileType": "miniprogram",
     "condition": {},

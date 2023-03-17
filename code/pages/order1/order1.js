@@ -7,8 +7,29 @@ Page({
      * 页面的初始数据
      */
     data: {
-        scrollIndex:0
+        scrollIndex:0,
+        region: ['全部','雁北A', '雁北B', '雁北C', '雁北D1', '雁北D2', '雁北E', '雁南S2', '雁南S3', '雁南S4', '雁南S5', '雁南S6'],
+        index:0,
+        tap:'all'
     },
+    bindRegionChange: function (e) {
+        // console.log('picker发送选择改变，携带值为', e.detail.value)
+        
+        let valueMap = {'全部':'all','雁北A': 'NA', '雁北B': 'NB', '雁北C': 'NC', '雁北D1': 'ND1', '雁北D2': 'ND2', '雁北E': 'NE', '雁南S2': 'S2', '雁南S3': 'S3', '雁南S4': 'S4', '雁南S5': 'S5', '雁南S6': 'S6'}
+        let value = valueMap[this.data.region[e.detail.value]]
+        // console.log('选中值为', value)
+        this.setData({
+            tap: value
+        })
+        this.setData({
+          index: e.detail.value,
+          
+        })
+        this.onLoad({
+            index:this.data.index,
+            tap:this.data.tap
+        })
+      },
     getSelectedOrder(e){
         // //console.log(e.currentTarget.dataset._id);
         const selectedOrder=e.currentTarget.dataset._id
@@ -21,11 +42,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        
+        if(options.tap!=undefined){
+        this.setData({
+            index:options.index,
+            tap:options.tap
+        })}
+        console.log(this.data.tap);
         wx.cloud.callFunction({name:'postmanGetOrder',data:{
-            status:'pending',skip:this.data.scrollIndex
+            status:'pending',skip:this.data.scrollIndex,building:this.data.tap
         }}).then(res=>{
+<<<<<<< HEAD
             // console.log(res);
+=======
+            console.log(res);
+>>>>>>> 8ab0eeb563ac953ef93e61eaa6f40fad6e97f239
             const orderList=res.result.data
             orderList.forEach((v,i)=>{
                 v.time=formatTime(new Date(v.time))

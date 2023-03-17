@@ -53,3 +53,11 @@ text{
     font-weight: 900;
     color: #e74c3c;
 }
+.picker{
+    color: #3498db;
+    text-decoration: underline;
+    display: inline-block;
+    font-size: large;
+    font-weight: 600;
+    
+}

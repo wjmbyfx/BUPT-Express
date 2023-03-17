@@ -22,7 +22,23 @@ openid(string)
 
 _id(string)
 
-status(string) pending 未接单 delivering 派送中 finished 已完成 cancled 用户取消 warning 出错 arrived 待取件
+status(string) 
+
+notVerified待审核
+
+rejected 审核不通过
+
+pending 未接单 
+
+delivering 派送中 
+
+success已完成 
+
+cancled 用户取消 
+
+warning 出错 
+
+arrived 待取件
 
 type:normal (使用默认地址) customize(使用自定义地址)
 

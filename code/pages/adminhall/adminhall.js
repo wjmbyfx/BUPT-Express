@@ -7,6 +7,13 @@ Page({
     data: {
 
     },
+
+    verify(){
+        wx.navigateTo({
+          url: '../verify/verify',
+        })
+    },
+
     turntoAll(){
         wx.navigateTo({
           url: '/pages/adminorder/adminorder?status=all',

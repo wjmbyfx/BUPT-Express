@@ -181,6 +181,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/verify/verify",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/detail2/detail2",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

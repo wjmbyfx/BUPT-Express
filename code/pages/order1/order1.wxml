@@ -1,4 +1,14 @@
-
+<view style="white-space: nowrap;">
+    <view style="display: inline-block;">
+    筛选收货地址:
+    </view>
+  <picker mode="selector" range="{{region}}" bindchange="bindRegionChange">
+    <view class="picker" >
+        
+      {{'>'}}{{region[index]}}
+    </view>
+  </picker>
+</view>
 <view wx:if="{{!orderList||orderList.length==0}}" style="text-align: center;">当前没有待接取订单!</view>
 <view class="order" wx:for="{{orderList}}" wx:key="_id" bindtap="getSelectedOrder" data-_id="{{item._id}}">
     <view class="box">
@@ -28,3 +38,6 @@
     </view>
     
 </view>
+
+
+
