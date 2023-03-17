@@ -25,3 +25,4 @@
 <button bindtap="adminGetSecretKey">adminGetSecretKey</button>
 <button bindtap="adminGetUser">adminGetUser</button>
 <button bindtap="sendSMS">sendSMS</button>
+<button bindtap="userCommentPostman">userCommentPostman</button>

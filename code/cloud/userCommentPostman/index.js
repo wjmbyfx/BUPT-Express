@@ -8,10 +8,12 @@ exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
     const score=event.score
     const count=event.count
-    const openid=event.openid
-    cloud.database().collection('postman').where({openid:openid}).update({data:{
-        score:score,
-        count:count
+    const targetOpenid=event.openid
+    const content=event.content
+    const time=Date.now()
+    const oid=event.oid
+    cloud.database().collection('comment').add({data:{
+        targetOpenid:targetOpenid,openid:wxContext.OPENID,score:score,content:content,time:time,oid:oid,me:'user'
     }})
     return {
         event,

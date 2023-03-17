@@ -10,6 +10,14 @@ Page({
 
     },
 
+    userCommentPostman(){
+        wx.cloud.callFunction({name:'userCommentPostman',data:{
+            score:5,targetOpenid:"oa3g046QCEe5OIh-1SwwWCRs1jiQ",content:'test',oid:'93e4b6a0641175b2049ab1e713362671'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     sendSMS(){
         wx.cloud.callFunction({name:'postmanSendSuccessSMS',data:{
             mobile:'18811580695',nationcode:'86'

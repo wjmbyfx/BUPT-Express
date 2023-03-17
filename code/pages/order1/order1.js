@@ -51,11 +51,7 @@ Page({
         wx.cloud.callFunction({name:'postmanGetOrder',data:{
             status:'pending',skip:this.data.scrollIndex,building:this.data.tap
         }}).then(res=>{
-<<<<<<< HEAD
             // console.log(res);
-=======
-            console.log(res);
->>>>>>> 8ab0eeb563ac953ef93e61eaa6f40fad6e97f239
             const orderList=res.result.data
             orderList.forEach((v,i)=>{
                 v.time=formatTime(new Date(v.time))
