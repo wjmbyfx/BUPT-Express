@@ -19,7 +19,7 @@ exports.main = async (event, context) => {
         }
         if(event.isMember==false){
             await cloud.database().collection('user')
-            .add({data:{username:event.username,location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100,status:1,score:5}})
+            .add({data:{username:event.username,location:{building:event.building,floor:event.floor},contact:event.contact,openid:wxContext.OPENID,credit:100,status:1,score:5,count:0}})
             type='signUp'
         }
         return {msg:'success',type:type}

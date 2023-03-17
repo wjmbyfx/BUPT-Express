@@ -75,3 +75,13 @@ status
 credit
 
 contact
+
+
+
+5.评价表
+
+openid
+
+score
+
+content
