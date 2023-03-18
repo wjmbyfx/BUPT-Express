@@ -39,26 +39,26 @@
     </view>
 
     <view>
-    <view class="boxtap" wx:if="{{src!=''}}">
-        图片:
-    </view>
-    <view wx:if="{{src}}">
-        <image src="{{src}}" mode="widthFix" show-menu-by-longpress="true" style="height: 5%;" data-src="{{src}}" bindtap="handleImageTap"></image>
+        <view class="boxtap" wx:if="{{src!=''}}">
+            图片:
+        </view>
+        <view wx:if="{{src}}">
+            <image src="{{src}}" mode="widthFix" show-menu-by-longpress="true" style="height: 5%;" data-src="{{src}}" bindtap="handleImageTap"></image>
+        </view>
+
+
+        <view class="boxtap" wx:if="{{postmanContact}}">
+            配送员联系方式:
+        </view>
+        <view wx:if="{{postmanContact}}">
+            {{postmanContact}}
+        </view>
+
+
     </view>
 
 
-    <view class="boxtap" wx:if="{{postmanContact}}">
-        配送员联系方式:
-    </view>
-    <view wx:if="{{postmanContact}}">
-        {{postmanContact}}
-    </view>
 
-
-    </view>
-
-    
-    
 
 </view>
 
@@ -74,55 +74,55 @@
     <view class="inbox2">
 
         <view class="inbox">
-        <view class="confirm" bindtap="confirm">
-        <view>
-            <image src="/img/confirm.png" mode="widthFix"/>
+            <view class="confirm" bindtap="confirm">
+                <view>
+                    <image src="/img/confirm.png" mode="widthFix" />
+                </view>
+                <view>
+                    <text>确认收货</text>
+                </view>
+            </view>
         </view>
-        <view>
-            <text>确认收货</text>
-        </view>
-        </view>
-    </view>
 
-    <view class="inbox">
-        <view class="cancle" bindtap="cancle">
-        <view>
-            <image src="/img/cancle.png" mode="widthFix"/>
+        <view class="inbox">
+            <view class="cancle" bindtap="cancle">
+                <view>
+                    <image src="/img/cancle.png" mode="widthFix" />
+                </view>
+                <view>
+                    <text>取消订单</text>
+                </view>
+            </view>
         </view>
-        <view>
-            <text>取消订单</text>
-        </view>
-        </view>
-    </view>
-
-
-    <view class="inbox">
-        <view class="edit" bindtap="edit" data-_id="{{_id}}">
-        <view>
-            <image src="/img/edit.png" mode="widthFix"/>
-        </view>
-        <view>
-            <text>修改订单</text>
-        </view>
-        </view>
-    </view>
 
 
+        <view class="inbox">
+            <view class="edit" bindtap="edit" data-_id="{{_id}}">
+                <view>
+                    <image src="/img/edit.png" mode="widthFix" />
+                </view>
+                <view>
+                    <text>修改订单</text>
+                </view>
+            </view>
+        </view>
 
-    <view class="inbox">
-    <view class="suggest" bindtap="suggest">
-        <view>
-            <image src="/img/feedback.png" mode="widthFix"/>
+
+
+        <view class="inbox">
+            <view class="suggest" bindtap="suggest">
+                <view>
+                    <image src="/img/feedback.png" mode="widthFix" />
+                </view>
+
+                <view>
+                    <text>提交反馈</text>
+                </view>
+            </view>
         </view>
-        
-        <view>
-            <text>提交反馈</text>
-        </view>
-        
-        
-    </view>
-    </view>
+
     </view>
 
 </view>
 
+<button type="primary" bindtap="comment" wx:if="{{status=='success'}}">去评价</button>

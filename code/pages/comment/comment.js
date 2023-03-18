@@ -5,13 +5,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        identity:'user',
+        score:5
+    },
+    ok(){
+        this.setData({score:3})
+    },
+    bad(){
+        this.setData({score:1})
+    },
+    onSend(e){
+        console.log(e);
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        // console.log(options);
+        this.setData({identity : options.identity})
 
     },
 

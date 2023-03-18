@@ -13,7 +13,7 @@
         </view>
         <text>中评</text>
     </view>
-    <view class="inbox" bindtap="all">
+    <view class="inbox" bindtap="bad">
         <view>
         <image src="/img/good.png" mode="widthFix" class="icon"/>
         </view>
@@ -23,7 +23,7 @@
 <view class="box2">
     <textarea name="content"  cols="30" rows="10" placeholder="写下你的评价。若是对评价有异议也可通过反馈来联系我们" auto-focus="true" value="{{content}}"></textarea>
 </view>
-<button type="primary" >提交评价</button>
+<button type="primary" form-type="submit">提交评价</button>
 </form>
 <view class="head">
     我的评价

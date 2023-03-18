@@ -128,6 +128,11 @@ Page({
           url: '/pages/suggest/suggest?_id='+this.data._id
         })
     },
+    comment(){
+        wx.navigateTo({
+          url: '/pages/comment/comment?identity='+'user',
+        })
+    },
 
     cancle(){
         if(this.data.status=='cancled'){
