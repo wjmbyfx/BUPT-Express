@@ -10,6 +10,26 @@ Page({
         _id:'',
     },
 
+    sendAccept(){
+        const detail=this.selectComponent('.detail')
+        const mobile=detail.data.currentOrder.userContact
+        wx.cloud.callFunction({'name':'adminSendAcceptSMS',data:{
+            mobile:mobile,nationcode:'86'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
+    sendReject(){
+        const detail=this.selectComponent('.detail')
+        const mobile=detail.data.currentOrder.userContact
+        wx.cloud.callFunction({'name':'adminSendRejectSMS',data:{
+            mobile:mobile,nationcode:'86'
+        }}).then(res=>{
+            console.log(res);
+        })
+    },
+
     getBack(){
         wx.navigateBack({
           delta: 1,
