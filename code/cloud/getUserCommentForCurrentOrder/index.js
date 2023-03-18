@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
     const _id=event._id;
     const me='user'
-    let toReturn=await cloud.database().collection('comment').where({oid:_id,me:me}).get().then(res=>{
+    let toReturn=await cloud.database().collection('comment').where({oid:_id,me:me}).orderBy('time','desc').get().then(res=>{
         return res;
     })
     return toReturn;
