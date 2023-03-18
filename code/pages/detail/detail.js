@@ -72,9 +72,7 @@ Page({
                               duration:1000
                             })
                             setTimeout(()=>{
-                                wx.navigateBack({
-                                  delta: 1,
-                                })
+                                this.onLoad({_id:this.data.currentOrder._id})
                             },1000)
                         })
                         
@@ -131,7 +129,7 @@ Page({
     },
     comment(){
         wx.navigateTo({
-          url: '/pages/comment/comment?identity='+'user'+'&&postmanopenid='+this.data.postmanOpenid,
+          url: '/pages/comment/comment?identity='+'user'+'&&postmanopenid='+this.data.postmanOpenid+'&&_id='+this.data._id
         })
     },
 
