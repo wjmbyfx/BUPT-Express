@@ -33,10 +33,12 @@ Component({
         },
 
         acceptOrder(){
+            
             wx.showModal({
               title:'是否要过审?'
             }).then(res=>{
                 if(res.confirm){
+                    this.triggerEvent('sendAccept')
                     wx.cloud.callFunction({name:'adminUpdateOrderStatus',data:{
                         newStatus:'pending',_id:this.data._id
                         
@@ -59,6 +61,7 @@ Component({
               title:'是否要拒绝订单?'
             }).then(res=>{
                 if(res.confirm){
+                    this.triggerEvent('sendReject')
                     wx.cloud.callFunction({name:'adminUpdateOrderStatus',data:{
                         newStatus:'rejected',_id:this.data._id
                     }}).then(res=>{

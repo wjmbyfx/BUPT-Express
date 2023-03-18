@@ -1,2 +1,2 @@
 <detail _id="{{_id}}" role="{{role}}" class="detail"></detail>
-<orderOperation _id="{{_id}}" role="{{role}}" bind:getBack="getBack" bind:reload="reload"></orderOperation>
+<orderOperation _id="{{_id}}" role="{{role}}" bind:getBack="getBack" bind:reload="reload" bind:sendAccept="sendAccept" bind:sendReject="sendReject"></orderOperation>
