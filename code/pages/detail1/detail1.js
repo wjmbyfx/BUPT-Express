@@ -16,6 +16,12 @@ Page({
         _id:'',
     },
 
+    comment(){
+        wx.navigateTo({
+          url: '/pages/comment/comment?identity=postman&_id='+this.data._id
+        })
+    },
+
     handlePreview(){    
         wx.previewImage({
           urls: [this.data.currentOrder.src],

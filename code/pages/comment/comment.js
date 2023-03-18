@@ -42,22 +42,43 @@ Page({
         })
     },
     onSend(e) {
-        wx.cloud.callFunction({
-            name: 'userCommentPostman',
-            data: {
-                score: this.data.score,
-                oid: this.data._id,
-                content: e.detail.value.content
-            }
-        }).then(res => {
-            wx.showToast({
-                title: '成功',
-                icon: "success",
-                duration: 1000
+        if(this.data.identity=='user'){
+            wx.cloud.callFunction({
+                name: 'userCommentPostman',
+                data: {
+                    score: this.data.score,
+                    oid: this.data._id,
+                    content: e.detail.value.content
+                }
+            }).then(res => {
+                wx.showToast({
+                    title: '成功',
+                    icon: "success",
+                    duration: 1000
+                })
+                this.onLoad({identity:this.data.identity,
+                postmanOpenid:this.data.postmanOpenid,_id:this.data._id})
             })
-            this.onLoad({identity:this.data.identity,
-            postmanOpenid:this.data.postmanOpenid,_id:this.data._id})
-        })
+        }
+        if(this.data.identity=='postman'){
+            wx.cloud.callFunction({
+                name: 'postmanCommentUser',
+                data: {
+                    score: this.data.score,
+                    oid: this.data._id,
+                    content: e.detail.value.content
+                }
+            }).then(res => {
+                wx.showToast({
+                    title: '成功',
+                    icon: "success",
+                    duration: 1000
+                })
+                this.onLoad({identity:this.data.identity,
+                postmanOpenid:this.data.postmanOpenid,_id:this.data._id})
+            })
+        }
+        
 
     },
 
@@ -71,65 +92,13 @@ Page({
             postmanOpenid: options.postmanopenid,
             _id: options._id
         })
-        if (this.data.identity == 'user') {
+     
             wx.cloud.callFunction({
                 name: 'getUserCommentForCurrentOrder',
                 data: {
                     _id: this.data._id
                 }
             }).then(res => {
-                console.log(res);
-                
-                if (res.result.data.length != 0) {
-                    this.setData({
-                        isCommented: true,
-                        grade: res.result.data[0].score,
-                    rcontent: res.result.data[0].content
-                    })
-                }
-
-            })
-            wx.cloud.callFunction({
-                name: 'getPostmanCommentForCurrentOrder',
-                data: {
-                    _id: this.data._id
-                }
-            }).then(res => {
-                //  console.log(res);
-                if (res.result.data.length != 0) {
-                    this.setData({
-                        pisCommented: true,
-                    pgrade: res.result.data[0].score,
-                    rcontent: res.result.data[0].content
-                })
-            }
-
-            })
-        } else{
-            wx.cloud.callFunction({
-                name: 'getPostmanCommentForCurrentOrder',
-                data: {
-                    _id: this.data._id
-                }
-            }).then(res => {
-                // console.log(res);
-                
-                if (res.result.data.length != 0) {
-                    this.setData({
-                        pisCommented: true,
-                        pgrade: res.result.data[0].score,
-                        pcontent: res.result.data[0].content
-                    })
-                }
-
-            })
-            wx.cloud.callFunction({
-                name: 'getUserCommentForCurrentOrder',
-                data: {
-                    _id: this.data._id
-                }
-            }).then(res => {
-                // console.log(res);
                 
                 if (res.result.data.length != 0) {
                     this.setData({
@@ -140,8 +109,23 @@ Page({
                 }
 
             })
-        }
+            wx.cloud.callFunction({
+                name: 'getPostmanCommentForCurrentOrder',
+                data: {
+                    _id: this.data._id
+                }
+            }).then(res => {
+                 console.log(res);
+                if (res.result.data.length != 0) {
+                    this.setData({
+                        pisCommented: true,
+                    pgrade: res.result.data[0].score,
+                    pcontent: res.result.data[0].content
+                })
+            }
 
+            })
+        
 
 
 
