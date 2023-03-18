@@ -5,25 +5,58 @@ Page({
      * 页面的初始数据
      */
     data: {
-        identity:'user',
-        score:5
+        identity: 'user',
+        score: 5,
+        postmanOpenid: '',
+        
     },
-    ok(){
-        this.setData({score:3})
+    ok(e) {
+
+        this.setData({
+            score: 3,
+            _num:2
+        })
     },
-    bad(){
-        this.setData({score:1})
+    bad(e) {
+        this.setData({
+            score: 1,
+            _num:1
+        })
     },
-    onSend(e){
+    good(e) {
         console.log(e);
+        this.setData({
+            score: 5,
+            _num:3
+        })
+    },
+    onSend(e) {
+        wx.cloud.callFunction({name:'userCommentPostman',data:{
+            score:this.data.score,
+            openid:this.data.postmanOpenid,
+            content:e.detail.value.content
+        }}).then(res=>{
+            wx.showToast({
+              title: '成功',
+              icon: "success",
+              duration :1000
+            })
+        })
+        
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // console.log(options);
-        this.setData({identity : options.identity})
+        //console.log(options);
+        this.setData({
+            identity: options.identity,
+            postmanOpenid: options.postmanopenid
+        })
+
+
+
 
     },
 

@@ -14,9 +14,17 @@ page{
     align-items: center;
     
 }
+
+
 .inbox{
     width: 35%;
     text-align: center;
+
+}
+.inbox1{
+    width: 35%;
+    text-align: center;
+
 }
 .icon{
     width: 40%;
@@ -29,4 +37,8 @@ page{
 }
 .box2{
     padding: 2vh;
+}
+
+.cur{
+    border :1px solid #3498db
 }
