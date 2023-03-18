@@ -1,57 +1,74 @@
 <!--pages/comment/comment.wxml-->
-<form bindsubmit="onSend">
-<view class="box2">
-    <view class="inbox" bindtap="good">
-        <view>
-        <image src="/img/shit.png" mode="widthFix" class="icon"/>
-        </view>
-        <text>差评</text>
-    </view>
-    <view class="inbox" bindtap="ok">
-        <view>
-        <image src="/img/ok.png" mode="widthFix" class="icon"/>
-        </view>
-        <text>中评</text>
-    </view>
-    <view class="inbox" bindtap="bad">
-        <view>
-        <image src="/img/good.png" mode="widthFix" class="icon"/>
-        </view>
-        差评
-    </view>
+<view class="box">
+    <view>当前订单:</view>
+    <text style="color: #3498db;" bindtap="toDetail">{{_id}}</text>
 </view>
-<view class="box2">
-    <textarea name="content"  cols="30" rows="10" placeholder="写下你的评价。若是对评价有异议也可通过反馈来联系我们" auto-focus="true" value="{{content}}"></textarea>
-</view>
-<button type="primary" form-type="submit">提交评价</button>
+<form bindsubmit="onSend" wx:if="{{!isCommented}}">
+    <view class="box2">
+        <view class="inbox" bindtap="bad" data-num="1" class="inbox inbox1 {{_num==1?'cur':''}}">
+            <view>
+                <image src="/img/shit.png" mode="widthFix" class="icon" />
+            </view>
+            <text>差评</text>
+        </view>
+        <view class="inbox" bindtap="ok" data-num="2" class="inbox inbox1 {{_num==2?'cur':''}}">
+            <view>
+                <image src="/img/ok.png" mode="widthFix" class="icon" />
+            </view>
+            <text>中评</text>
+        </view>
+        <view class="inbox" bindtap="good" data-num="3" class="inbox inbox1 {{_num==3?'cur':''}}">
+            <view>
+                <image src="/img/good.png" mode="widthFix" class="icon" />
+            </view>
+            好评
+        </view>
+    </view>
+    <view class="box2">
+        <textarea name="content" cols="30" rows="10" placeholder="写下你的评价。若是对评价有异议也可通过反馈来联系我们" auto-focus="true" value="{{content}}"></textarea>
+    </view>
+    <button type="primary" form-type="submit">提交评价</button>
 </form>
-<view class="head">
-    我的评价
-</view>
-<view class="box2">
-    <view>
-        {{grade}}
+<view wx:if="{{isCommented}}">
+    <view class="head">
+        我的评价
     </view>
-    <view>
-        评价内容:
-    </view>
-    <view>
-        
+    <view class="box">
+        <view>
+            <view wx:if="{{grade==5}}" style="color: #2ecc71; font-weight: 700;">
+                好评
+            </view>
+            <view wx:if="{{grade==3}}" style="color: #f1c40f; font-weight: 700;">
+                中评
+            </view>
+            <view wx:if="{{grade==1}}" style="color: #e74c3c; font-weight: 700;">
+                差评
+            </view>
+        </view>
+        <view>
+            评价内容:{{rcontent}}
+        </view>
     </view>
 </view>
 
-<view class="head">
-    对方评价
-</view>
-
-<view class="box2">
-    <view>
-        {{grade}}
+<view wx:if="{{pisCommented}}">
+    <view class="head">
+        对方评价
     </view>
-    <view>
-        评价内容:
-    </view>
-    <view>
-        
+    <view class="box">
+        <view>
+            <view wx:if="{{pgrade==5}}" style="color: #2ecc71; font-weight: 700;">
+                好评
+            </view>
+            <view wx:if="{{pgrade==3}}" style="color: #f1c40f; font-weight: 700;">
+                中评
+            </view>
+            <view wx:if="{{pgrade==1}}" style="color: #e74c3c; font-weight: 700;">
+                差评
+            </view>
+        </view>
+        <view>
+            评价内容: {{rcontent}}
+        </view>
     </view>
 </view>

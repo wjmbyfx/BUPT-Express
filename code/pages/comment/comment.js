@@ -5,25 +5,147 @@ Page({
      * 页面的初始数据
      */
     data: {
-        identity:'user',
-        score:5
+        identity: 'user',
+        score: 5,
+        postmanOpenid: '',
+        _id: '',
+        grade: '',
+        pgrade:'',
+        rcontent: '',
+        pcontent:'',
+        isCommented: false,
+        pisCommented: false
+
     },
-    ok(){
-        this.setData({score:3})
+    ok(e) {
+
+        this.setData({
+            score: 3,
+            _num: 2
+        })
     },
-    bad(){
-        this.setData({score:1})
+    bad(e) {
+        this.setData({
+            score: 1,
+            _num: 1
+        })
     },
-    onSend(e){
-        console.log(e);
+    good(e) {
+        this.setData({
+            score: 5,
+            _num: 3
+        })
+    },
+    toDetail() {
+        wx.navigateTo({
+            url: '/pages/detail/detail?_id=' + this.data._id,
+        })
+    },
+    onSend(e) {
+        wx.cloud.callFunction({
+            name: 'userCommentPostman',
+            data: {
+                score: this.data.score,
+                oid: this.data._id,
+                content: e.detail.value.content
+            }
+        }).then(res => {
+            wx.showToast({
+                title: '成功',
+                icon: "success",
+                duration: 1000
+            })
+            this.onLoad({identity:this.data.identity,
+            postmanOpenid:this.data.postmanOpenid,_id:this.data._id})
+        })
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // console.log(options);
-        this.setData({identity : options.identity})
+        //console.log(options);
+        this.setData({
+            identity: options.identity,
+            postmanOpenid: options.postmanopenid,
+            _id: options._id
+        })
+        if (this.data.identity == 'user') {
+            wx.cloud.callFunction({
+                name: 'getUserCommentForCurrentOrder',
+                data: {
+                    _id: this.data._id
+                }
+            }).then(res => {
+                console.log(res);
+                
+                if (res.result.data.length != 0) {
+                    this.setData({
+                        isCommented: true,
+                        grade: res.result.data[0].score,
+                    rcontent: res.result.data[0].content
+                    })
+                }
+
+            })
+            wx.cloud.callFunction({
+                name: 'getPostmanCommentForCurrentOrder',
+                data: {
+                    _id: this.data._id
+                }
+            }).then(res => {
+                //  console.log(res);
+                if (res.result.data.length != 0) {
+                    this.setData({
+                        pisCommented: true,
+                    pgrade: res.result.data[0].score,
+                    rcontent: res.result.data[0].content
+                })
+            }
+
+            })
+        } else{
+            wx.cloud.callFunction({
+                name: 'getPostmanCommentForCurrentOrder',
+                data: {
+                    _id: this.data._id
+                }
+            }).then(res => {
+                // console.log(res);
+                
+                if (res.result.data.length != 0) {
+                    this.setData({
+                        pisCommented: true,
+                        pgrade: res.result.data[0].score,
+                        pcontent: res.result.data[0].content
+                    })
+                }
+
+            })
+            wx.cloud.callFunction({
+                name: 'getUserCommentForCurrentOrder',
+                data: {
+                    _id: this.data._id
+                }
+            }).then(res => {
+                // console.log(res);
+                
+                if (res.result.data.length != 0) {
+                    this.setData({
+                        isCommented: true,
+                        grade: res.result.data[0].score,
+                        rcontent: res.result.data[0].content
+                    })
+                }
+
+            })
+        }
+
+
+
+
+
 
     },
 

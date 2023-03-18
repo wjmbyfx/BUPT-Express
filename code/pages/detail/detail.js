@@ -18,7 +18,8 @@ Page({
         _id:'',
         src:'',
         postmanContact:'',
-        scrollIndex:0
+        scrollIndex:0,
+        postmanOpenid:''
 
         
     },
@@ -71,9 +72,7 @@ Page({
                               duration:1000
                             })
                             setTimeout(()=>{
-                                wx.navigateBack({
-                                  delta: 1,
-                                })
+                                this.onLoad({_id:this.data.currentOrder._id})
                             },1000)
                         })
                         
@@ -130,7 +129,7 @@ Page({
     },
     comment(){
         wx.navigateTo({
-          url: '/pages/comment/comment?identity='+'user',
+          url: '/pages/comment/comment?identity='+'user'+'&&postmanopenid='+this.data.postmanOpenid+'&&_id='+this.data._id
         })
     },
 
@@ -229,6 +228,7 @@ Page({
                      //设置当前订单的状态
 
                      const postmaneOpenId=currentOrder.postman
+                     this.setData({postmanOpenid:currentOrder.postman})
                      wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
                          const postmanContact=res.result.data[0].contact
                          this.setData({postmanContact:postmanContact})

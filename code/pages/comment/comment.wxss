@@ -5,7 +5,7 @@ page{
 .box2{
     border-radius: 2vh;
     background-color: white;
-    margin-top: 3vh;
+    margin-top: 1.5vh;
     margin-left: 5%;
     margin-right: 5%;
     padding: 2vh;
@@ -14,9 +14,17 @@ page{
     align-items: center;
     
 }
+
+
 .inbox{
     width: 35%;
     text-align: center;
+
+}
+.inbox1{
+    width: 35%;
+    text-align: center;
+
 }
 .icon{
     width: 40%;
@@ -29,4 +37,17 @@ page{
 }
 .box2{
     padding: 2vh;
+}
+
+.cur{
+    border :1px solid #3498db
+}
+.box{
+    border-radius: 2vh;
+    background-color: white;
+    margin-top: 1.5vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1.5vh;
+    padding: 4vh;
 }
