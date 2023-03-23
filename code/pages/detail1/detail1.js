@@ -59,6 +59,9 @@ Page({
         }).then(res=>{
             this.setData({buttonchange:false})
             if(res.confirm){
+                wx.cloud.callFunction({name:'updateOrderStatus',data:{
+                    newStatus:'arrived',_id:this.data.currentOrder._id
+                }})
                 wx.cloud.callFunction({name:'postmanSendSuccessSMS',data:{
                     mobile:this.data.contact,
                     nationcode:'86'

@@ -13,7 +13,8 @@ Page({
         all:[],
         success:[],
         canceled:[],
-        credit:''
+        credit:'',
+        arrived:[]
     },
 
     goTakeOrder(){
@@ -40,6 +41,28 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        wx.cloud.callFunction({name:'postmanGetDutyOrder',data:{
+            status:'arrived'
+        }})
+        .then(res=>{
+            
+            res.result.data.forEach((v,i)=>{
+                v.expectedtime=formatTime(new Date(v.expectedtime))
+                v.time=formatTime(new Date(v.time))
+                wx.cloud.callFunction({name:'postmanGetUser',data:{
+                    openid:v.openid
+                }}).then(result=>{
+                    const username=result.result.data[0].username
+                    v.username=username
+                    if(v.type=='normal'){
+                        v.location=getLocation(v.location.building)+'楼 '+v.location.floor+'层'
+                    }
+                    this.setData({arrived:res.result.data})
+                    
+                })
+            })
+        }
+        )
         wx.cloud.callFunction({name:'getOpenID'}).then(res=>{
             wx.cloud.callFunction({name:'getPostman',data:{openid:res.result}}).then(res=>{
                 this.setData({
