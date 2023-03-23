@@ -78,7 +78,7 @@
         </view>
     </view>
 
-    <view class="inbox" wx:if="{{isPostman}}">
+    <view class="inbox" wx:if="{{isPostman&&status!='success'&&status!='arrived'}}">
         <view class="cancle" bindtap="cancle">
         <view>
             <image src="/img/cancle.png" mode="widthFix"/>
@@ -89,7 +89,7 @@
         </view>
     </view>
 
-    <view class="inbox" wx:if="{{isPostman}}">
+    <view class="inbox" wx:if="{{isPostman&&status=='delivering'}}">
         <view class="cancle" bindtap="arrive">
         <view>
             <image src="/img/arrived.png" mode="widthFix"/>

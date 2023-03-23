@@ -79,7 +79,7 @@
 
     <view class="inbox2">
 
-        <view class="inbox">
+        <view class="inbox" wx:if="{{status=='arrived'}}">
             <view class="confirm" bindtap="confirm">
                 <view>
                     <image src="/img/confirm.png" mode="widthFix" />
@@ -90,7 +90,7 @@
             </view>
         </view>
 
-        <view class="inbox">
+        <view class="inbox" wx:if="{{status!='success'&&status!='rejected'}}">
             <view class="cancle" bindtap="cancle">
                 <view>
                     <image src="/img/cancle.png" mode="widthFix" />
@@ -102,7 +102,7 @@
         </view>
 
 
-        <view class="inbox">
+        <view class="inbox" wx:if="{{status!='success'&&status!='rejected'}}">
             <view class="edit" bindtap="edit" data-_id="{{_id}}">
                 <view>
                     <image src="/img/edit.png" mode="widthFix" />
