@@ -31,6 +31,12 @@
     <view wx:if="{{location}}" style="color: #3498db; font-weight: 700;" >
         {{location}}
     </view>
+    <view class="boxtap">
+        用户信誉积分:
+    </view>
+    <view style="color: #e74c3c; font-weight: 700;">
+        {{userCredit}}
+    </view>
     <view class="boxtap" wx:if="{{isPostman}}">
         备注:
     </view>

@@ -14,6 +14,7 @@ Page({
         time:'',
         type:'',
         _id:'',
+        userCredit:0
     },
 
     comment(){
@@ -231,7 +232,8 @@ Page({
                 this.setData({expectedtime:expectedtime})
 
                 wx.cloud.callFunction({name:'postmanGetUser',data:{openid:this.data.currentOrder.openid}}).then(res=>{
-                    this.setData({contact:res.result.data[0].contact})
+                    this.setData({contact:res.result.data[0].contact,
+                    userCredit:res.result.data[0].credit})
                 })
 
                 if(currentOrder.type=='normal'){

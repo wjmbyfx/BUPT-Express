@@ -53,6 +53,12 @@
         <view wx:if="{{postmanContact}}">
             {{postmanContact}}
         </view>
+        <view class="boxtap" wx:if="{{postmanCredit}}">
+            配送员信誉积分:
+        </view>
+        <view style="color: #e74c3c;" wx:if="{{postmanCredit}}">
+            {{postmanCredit}}
+        </view>
 
 
     </view>

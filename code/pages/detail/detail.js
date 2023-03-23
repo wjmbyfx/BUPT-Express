@@ -1,6 +1,10 @@
 // pages/detail/detail.js
-const {formatTime}=require('../../utils/util.js')
-const {getLocation}=require('../../utils/getLocation')
+const {
+    formatTime
+} = require('../../utils/util.js')
+const {
+    getLocation
+} = require('../../utils/getLocation')
 
 Page({
 
@@ -8,298 +12,326 @@ Page({
      * 页面的初始数据
      */
     data: {
-        
-        expectedtime:'',
-        location:'',
-        note:'',
-        status:'',
-        time:'',
-        type:'',
-        _id:'',
-        src:'',
-        postmanContact:'',
-        scrollIndex:0,
-        postmanOpenid:''
 
-        
+        expectedtime: '',
+        location: '',
+        note: '',
+        status: '',
+        time: '',
+        type: '',
+        _id: '',
+        src: '',
+        postmanContact: '',
+        scrollIndex: 0,
+        postmanOpenid: '',
+        postmanCredit: 0
+
+
     },
 
-    handleImageTap(){
+    handleImageTap() {
         wx.previewImage({
-          urls: [this.data.src],
+            urls: [this.data.src],
         })
     },
 
-    confirm(e){ 
-        if(this.data.status=='cancled'){
+    confirm(e) {
+        if (this.data.status == 'cancled') {
             wx.showToast({
-              title: '订单已取消',
-              icon:'error',
-              duration:1000
+                title: '订单已取消',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        else if(this.data.status=='success'){
+        } else if (this.data.status == 'success') {
             wx.showToast({
-              title: '订单已完成',
-              icon:'error',
-              duration:1000
+                title: '订单已完成',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        
-        else if(this.data.status=='warning'){
+        } else if (this.data.status == 'warning') {
             wx.showToast({
-              title: '订单出错了',
-              icon:'error',
-              duration:1000
+                title: '订单出错了',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        
-        else{
-            const _id=this.data._id
+        } else {
+            const _id = this.data._id
             wx.showModal({
-              title:'确认要收货吗?'
-              
-            }).then(res=>{
-                
-                if(res.confirm){
-                    wx.cloud.callFunction({name:'updateOrderStatus',data:{
-                         _id:_id,
-                        newStatus:'success'
-                        }}).then(res=>{
-                            wx.showToast({
-                              title: '收货成功!',
-                              icon:'success',
-                              duration:1000
-                            })
-                            setTimeout(()=>{
-                                this.onLoad({_id:this.data.currentOrder._id})
-                            },1000)
+                title: '确认要收货吗?'
+
+            }).then(res => {
+
+                if (res.confirm) {
+                    wx.cloud.callFunction({
+                        name: 'updateOrderStatus',
+                        data: {
+                            _id: _id,
+                            newStatus: 'success'
+                        }
+                    }).then(res => {
+                        wx.showToast({
+                            title: '收货成功!',
+                            icon: 'success',
+                            duration: 1000
                         })
-                        
-                    
+                        setTimeout(() => {
+                            this.onLoad({
+                                _id: this.data.currentOrder._id
+                            })
+                        }, 1000)
+                    })
+
+
                 }
             })
         }
     },
 
-    edit(e){
-        if(this.data.status=='cancled'){
+    edit(e) {
+        if (this.data.status == 'cancled') {
             wx.showToast({
-              title: '订单已取消',
-              icon:'error',
-              duration:1000
+                title: '订单已取消',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        
-        
-        else if(this.data.status=='success'){
+        } else if (this.data.status == 'success') {
             wx.showToast({
-              title: '订单已完成',
-              icon:'error',
-              duration:1000
+                title: '订单已完成',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        else if(this.data.status=='warning'){
+        } else if (this.data.status == 'warning') {
             wx.showToast({
-              title: '订单出错了',
-              icon:'error',
-              duration:1000
+                title: '订单出错了',
+                icon: 'error',
+                duration: 1000
             })
-        }
-
-        else if(this.data.status=='arrived'){
+        } else if (this.data.status == 'arrived') {
             wx.showToast({
-              title: '订单已送达',
-              icon:'error',
-              duration:1000
+                title: '订单已送达',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        else{
-            const _id=e.currentTarget.dataset._id
+        } else {
+            const _id = e.currentTarget.dataset._id
             wx.navigateTo({
-                url: '/pages/edit/edit?_id='+_id
+                url: '/pages/edit/edit?_id=' + _id
             })
         }
 
     },
-    suggest(){
+    suggest() {
         wx.navigateTo({
-          url: '/pages/suggest/suggest?_id='+this.data._id
+            url: '/pages/suggest/suggest?_id=' + this.data._id
         })
     },
-    comment(){
+    comment() {
         wx.navigateTo({
-          url: '/pages/comment/comment?identity='+'user'+'&postmanopenid='+this.data.postmanOpenid+'&_id='+this.data._id
+            url: '/pages/comment/comment?identity=' + 'user' + '&postmanopenid=' + this.data.postmanOpenid + '&_id=' + this.data._id
         })
     },
 
-    cancle(){
-        if(this.data.status=='cancled'){
+    cancle() {
+        if (this.data.status == 'cancled') {
             wx.showToast({
-              title: '无法重复取消',
-              icon:'error',
-              duration:1000
+                title: '无法重复取消',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        
-        else if(this.data.status=='success'){
+        } else if (this.data.status == 'success') {
             wx.showToast({
-              title: '订单已完成',
-              icon:'error',
-              duration:1000
+                title: '订单已完成',
+                icon: 'error',
+                duration: 1000
             })
-        }
-        else{
+        } else {
             wx.showModal({
                 title: '提示',
                 content: '确认要取消订单吗?',
-              }).then(res=>{
-                  if(res.confirm){
-                      wx.cloud.callFunction({name:'userCancleSendSMS',data:{
-                          mobile:this.data.postmanContact,nationcode:'86'
-                      }}).then(res=>{
-                          console.log(res);
-                      })
-                    wx.cloud.callFunction({name:'updateOrderStatus',data:{
-                        _id:this.data._id,
-                        newStatus:'cancled'
-                    }}).then(res=>{
-                        wx.showToast({
-                          title: '取消成功',
-                          icon:'success',
-                          duration:1000
-                        })
-                        setTimeout(()=>{
-                            wx.navigateBack({
-                              delta:1
-                            })
-                        },1000)
+            }).then(res => {
+                if (res.confirm) {
+                    wx.cloud.callFunction({
+                        name: 'userCancleSendSMS',
+                        data: {
+                            mobile: this.data.postmanContact,
+                            nationcode: '86'
+                        }
+                    }).then(res => {
+                        console.log(res);
                     })
-                  }
-              })
-            
+                    wx.cloud.callFunction({
+                        name: 'updateOrderStatus',
+                        data: {
+                            _id: this.data._id,
+                            newStatus: 'cancled'
+                        }
+                    }).then(res => {
+                        wx.showToast({
+                            title: '取消成功',
+                            icon: 'success',
+                            duration: 1000
+                        })
+                        setTimeout(() => {
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        }, 1000)
+                    })
+                }
+            })
+
         }
-        
-        
+
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        if(options!=undefined){
+        if (options != undefined) {
 
-        
-        if(options._id=='undefined'){
-            wx.showToast({
-              title: '当前没有订单',
-              icon:'error',
-              duration:1000
-            }).then(res=>{
-                setTimeout(()=>{
-                    wx.navigateBack({
-                      delta: 1,
+
+            if (options._id == 'undefined') {
+                wx.showToast({
+                    title: '当前没有订单',
+                    icon: 'error',
+                    duration: 1000
+                }).then(res => {
+                    setTimeout(() => {
+                        wx.navigateBack({
+                            delta: 1,
+                        })
+                    }, 1000)
+                })
+            } else if (options != undefined) {
+
+                const current_id = options._id; //所需订单的_id
+                this.setData({
+                    _id: current_id
+                })
+                wx.cloud.callFunction({
+                        name: 'getSpecificOrder',
+                        data: {
+                            _id: this.data._id
+                        }
                     })
-                },1000)
-            })
-        }
-        else if(options!=undefined){
-        
-            const current_id=options._id; //所需订单的_id
-            this.setData({_id:current_id})
-            wx.cloud.callFunction({name:'getSpecificOrder',data:{
-                _id:this.data._id
-            }})
-            .then(res=>{
-                if(res.result){
+                    .then(res => {
+                        if (res.result) {
 
-                    
-                    const currentOrder=res.result.data[0] //所请求的订单对象
-                    this.setData({currentOrder:currentOrder})
-                    let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
-                    let location=currentOrder.location //地址,可能为字符串或对象
-                    const note=currentOrder.note //备注和描述
-                    const status=currentOrder.status //订单状态 调用外部方法获取中文值
-                    let time=new Date(currentOrder.time) //提交时间
-                    const type=currentOrder.type //location种类
-                    const _id=currentOrder._id
-                    const src=currentOrder.src
 
-                     //设置当前订单的状态
+                            const currentOrder = res.result.data[0] //所请求的订单对象
+                            this.setData({
+                                currentOrder: currentOrder
+                            })
+                            let expectedtime = new Date(currentOrder.expectedtime) //期望送达时间
+                            let location = currentOrder.location //地址,可能为字符串或对象
+                            const note = currentOrder.note //备注和描述
+                            const status = currentOrder.status //订单状态 调用外部方法获取中文值
+                            let time = new Date(currentOrder.time) //提交时间
+                            const type = currentOrder.type //location种类
+                            const _id = currentOrder._id
+                            const src = currentOrder.src
 
-                     const postmaneOpenId=currentOrder.postman
-                     this.setData({postmanOpenid:currentOrder.postman})
-                     wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
-                         const postmanContact=res.result.data[0].contact
-                         this.setData({postmanContact:postmanContact})
-                     })
+                            //设置当前订单的状态
 
-                    time=formatTime(time)
-                    expectedtime=formatTime(expectedtime)
-                    if (type=='normal') {
-                        location=getLocation(location.building)+'楼 '+ location.floor+'层'
-                    }
-                    this.setData({expectedtime:expectedtime,
-                        location:location,
-                        transLocation:getLocation(location),
-                        note:note,
-                        status:status,
-                        time:time,
-                        type:type,
-                        _id:_id,
-                        src:src
+                            const postmaneOpenId = currentOrder.postman
+                            this.setData({
+                                postmanOpenid: currentOrder.postman
+                            })
+                            wx.cloud.callFunction({
+                                name: 'getPostman',
+                                data: {
+                                    openid: postmaneOpenId
+                                }
+                            }).then(res => {
+                                const postmanContact = res.result.data[0].contact
+                                this.setData({
+                                    postmanContact: postmanContact,
+                                    postmanCredit:res.result.data[0].credit
+                                })
+                            })
+
+                            time = formatTime(time)
+                            expectedtime = formatTime(expectedtime)
+                            if (type == 'normal') {
+                                location = getLocation(location.building) + '楼 ' + location.floor + '层'
+                            }
+                            this.setData({
+                                expectedtime: expectedtime,
+                                location: location,
+                                transLocation: getLocation(location),
+                                note: note,
+                                status: status,
+                                time: time,
+                                type: type,
+                                _id: _id,
+                                src: src
+                            })
+                        }
                     })
-                }
-            })
-            
-        }
-        else{
-        
-            const current_id=this.data._id; //所需订单的_id
-            this.setData({_id:current_id})
-            wx.cloud.callFunction({name:'getSpecificOrder',data:{
-                _id:this.data._id
-            }})
-            .then(res=>{
-                if(res.result){
-                    const currentOrder=res.result.data[0] //所请求的订单对象
-                    let expectedtime=new Date(currentOrder.expectedtime) //期望送达时间
-                    let location=currentOrder.location //地址,可能为字符串或对象
-                    const note=currentOrder.note //备注和描述
-                    const status=currentOrder.status //订单状态 调用外部方法获取中文值
-                    let time=new Date(currentOrder.time) //提交时间
-                    const type=currentOrder.type //location种类
-                    const _id=currentOrder._id
-                        
-                     //设置当前订单的状态
-                     const postmaneOpenId=currentOrder.postman
-                     wx.cloud.callFunction({name:'getPostman',data:{openid:postmaneOpenId}}).then(res=>{
-                         
-                         const postmanContact=res.result.data[0].contact
-                         this.setData({postmanContact:postmanContact})
-                     })
 
+            } else {
 
-                    time=formatTime(time)
-                    expectedtime=formatTime(expectedtime)
-                    if (type=='normal') {
-                        location=getLocation(location.building)+'楼 '+ location.floor+'层'
-                    }
-                    this.setData({expectedtime:expectedtime,
-                        location:location,
-                        transLocation:getLocation(location),
-                        note:note,
-                        status:status,
-                        time:time,
-                        type:type,
-                        _id:_id
+                const current_id = this.data._id; //所需订单的_id
+                this.setData({
+                    _id: current_id
+                })
+                wx.cloud.callFunction({
+                        name: 'getSpecificOrder',
+                        data: {
+                            _id: this.data._id
+                        }
                     })
-                }
-            })
-            
+                    .then(res => {
+                        if (res.result) {
+                            const currentOrder = res.result.data[0] //所请求的订单对象
+                            let expectedtime = new Date(currentOrder.expectedtime) //期望送达时间
+                            let location = currentOrder.location //地址,可能为字符串或对象
+                            const note = currentOrder.note //备注和描述
+                            const status = currentOrder.status //订单状态 调用外部方法获取中文值
+                            let time = new Date(currentOrder.time) //提交时间
+                            const type = currentOrder.type //location种类
+                            const _id = currentOrder._id
+
+                            //设置当前订单的状态
+                            const postmaneOpenId = currentOrder.postman
+                            wx.cloud.callFunction({
+                                name: 'getPostman',
+                                data: {
+                                    openid: postmaneOpenId
+                                }
+                            }).then(res => {
+
+                                const postmanContact = res.result.data[0].contact
+                                this.setData({
+                                    postmanContact: postmanContact
+                                })
+                            })
+
+
+                            time = formatTime(time)
+                            expectedtime = formatTime(expectedtime)
+                            if (type == 'normal') {
+                                location = getLocation(location.building) + '楼 ' + location.floor + '层'
+                            }
+                            this.setData({
+                                expectedtime: expectedtime,
+                                location: location,
+                                transLocation: getLocation(location),
+                                note: note,
+                                status: status,
+                                time: time,
+                                type: type,
+                                _id: _id
+                            })
+                        }
+                    })
+
+            }
+
         }
-    
-    }},
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -312,15 +344,21 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        this.onLoad({_id:this.data._id})
-        this.setData({scrollIndex:0})
+        this.onLoad({
+            _id: this.data._id
+        })
+        this.setData({
+            scrollIndex: 0
+        })
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-        this.onLoad({_id:this.data._id})
+        this.onLoad({
+            _id: this.data._id
+        })
     },
 
     /**
