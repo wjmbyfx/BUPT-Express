@@ -69,9 +69,9 @@
     
 
     <view class="box1" >
-        <view class="canceled">待确认订单</view>
+        <view class="canceled">待用户确认</view>
                 
-        <view wx:if="{{arrived.length==0}}" style="text-align: center;">当前没有待确认的订单!</view>
+        <view wx:if="{{arrived.length==0}}" style="text-align: center;">当前没有待用户确认的订单!</view>
     
         <view wx:for="{{arrived}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7; padding-bottom: 1vh;" bindtap="toDetail">
             <view>
