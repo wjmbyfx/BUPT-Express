@@ -172,7 +172,7 @@ Page({
             })
         })
         wx.cloud.callFunction({
-            name: 'getUser',
+            name: 'getPostman',
             data:{
                 openid:this.data.postmanOpenid
             }
