@@ -8,9 +8,10 @@
 </view>
     
     <!-- <text class="head">公告栏</text> -->
-    <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有待配送的订单!</view>
-<view class="box1" wx:for="{{all}}" wx:key="_id"  data-_id="{{item._id}}" bindtap="toDetail">
+    <view class="box1">
     <view class="ordernow">待配送订单</view>
+    <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有待配送的订单!</view>
+<view  wx:for="{{all}}" wx:key="_id"  data-_id="{{item._id}}" bindtap="toDetail">
             
     <view wx:if="{{all.length==0}}" style="text-align: center;">当前没有订单!</view>
 
@@ -61,9 +62,65 @@
         </view>
     </view>
 </view>
+    </view>
             
 
+    <view>
+    
 
+    <view class="box1" >
+        <view class="canceled">待确认订单</view>
+                
+        <view wx:if="{{arrived.length==0}}" style="text-align: center;">当前没有待确认的订单!</view>
+    
+        <view wx:for="{{arrived}}" wx:key="_id"  data-_id="{{item._id}}" style="border-bottom: 1px solid #bdc3c7; padding-bottom: 1vh;" bindtap="toDetail">
+            <view>
+                <view  class="info">
+                    <view class="child1">
+                        <text >送往:</text>
+                    </view>
+                    <view class="child">
+                        <text class="position" wx:if="{{item.location}}">{{item.location}}</text>
+                    </view>
+                </view>
+    
+                <view class="info" >
+                    <view class="child1">
+                        <text >备注:</text>
+                    </view>
+                    <view class="child">
+                        
+                        <text class="position" wx:if="{{item.note}}">{{item.note}}</text>
+                    </view>
+                </view>
+    
+                <view class="info">
+    
+                    <view class="child1">
+                        <text >用户昵称:</text>
+                        
+                    </view>
+                    <view class="child">
+                        <view wx:if="{{item.username}}">{{item.username}}</view>
+                    </view>
+                
+                </view>
+                 <view class="child2">
+                    <text >提交时间:</text>
+                <text wx:if="{{item.time}}">{{item.time}}</text>
+                 </view>
+                
+            </view>
+        </view>
+    
+        <view>
+            <view class="child2">
+                <text wx:if="{{item.expectedtime}}">期望送达:</text>
+                <text wx:if="{{item.expectedtime}}">{{item.expectedtime}}</text>
+            </view>
+        </view>
+    </view>
+    </view>
 
 
 
