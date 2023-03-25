@@ -14,7 +14,6 @@ Page({
         time:'',
         type:'',
         _id:'',
-        userCredit:0
     },
 
     comment(){
